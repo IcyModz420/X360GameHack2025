@@ -1,7 +1,7 @@
 
-X360GameHack 2025 is an open-source, all-in-one modding tool designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles and devkits, with support for original Xbox extracting, xbe patches such as ram and cpu, etc.
+*X360GameHack 2025 is an open-source, all-in-one modding tool designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles and devkits, with support for original Xbox extracting, xbe patches such as ram and cpu, etc.
 
-Core Functionality
+*Core Functionality
 
 XexTool GUI: Drag-and-drop interface for encrypting or decrypting Xbox 360 XEX files, eliminating command-line complexities and path-related errors (e.g., spaces in file paths). Displays XexTool output directly in the app.
 
@@ -19,7 +19,7 @@ AI-Powered Assistance
 
 Gemini AI Integration: Includes a free, older version of Gemini AI accessible via a Q&A tab, providing detailed answers to common modding questions.
 
-Security Features
+*Security Features
 
 Anti-Debug Protection: Prevents attaching debuggers to the application.
 Anti-Path Traversal: Blocks attempts to hide malicious commands via the executable invoker class.
@@ -29,42 +29,42 @@ Proxy-Free Web Calls: Prevents interception by tools like Fiddler.
 Single Process Enforcement: Restricts running multiple instances of X360GameHack.
 Future Obfuscation: Planned obfuscation of specific classes and functions to deter tampering while keeping non-critical code accessible for open-source transparency. Obfuscated code will remain viewable in tools like dnSpy (32-bit) but harder to rebuild and exploit in the field without expertise.
 
-Future-Proofing
+*Future-Proofing
 
 Open Source: Hosted on GitHub, allowing community contributions and vulnerability reporting. Users can submit bug reports or patches via the GitHub Issues page.
 Community-Driven Development: Feedback is welcomed to add new features or improve functionality.
 
-Installation
+*Installation
 
 Download the latest release from the GitHub Releases page.
 Extract the ZIP file to a directory of your choice.
 Run X360GameHack.exe (Windows only, 32-bit compatible).
 Ensure all dependencies (included in the X360GameHack folder) are present.
 
-Usage:
+*Usage:
 
 XEX Patching:
 Drag an XEX file into the app.
 Click the appropriate button to encrypt/decrypt or patch the file.
 View XexTool output in the app’s interface.
 
-XBE Patching:
+*XBE Patching:
 Drag an XEX file into the app.
 Click the appropriate button to patch the file.
 View output in the app’s interface.
 
-Bulk XISO Extraction:
+*Bulk XISO Extraction:
 Drag an Xbox 360 or original Xbox game ISO in the list box.
 Choose the output folder and click "Extract and patch" to create a JTAG rip with patched XEX/XBE files and optionally backup executables.
 
-Console Setup:
+*Console Setup:
 Set xbdm.xex as plugin 1 in the launch.ini canfiguraton ni file and make sure its in the root of that drive (not in a folder) to use those settings.
 Xbox 360 neighborhood is not required and will never be included you only need the local ip of your console from the stock dashboad menu in wifi or to discover it.. its usually something like 192.168.137.000 or 10.1.0.69 etc..
 
-Q&A Assistance:
+*Q&A Assistance:
 Access the Q&A tab to browse preloaded questions or query Gemini AI for modding help.
 
-Contributing:
+*Contributing:
 X360GameHack 2025 is open source and welcomes contributions. To contribute:
 
 Fork the repository.
@@ -72,19 +72,19 @@ Create a new branch for your feature or bug fix.
 Submit a pull request with detailed descriptions of changes.
 Report bugs or suggest features via GitHub Issues.
 
-Credits:
+*Credits:
 Xorloser xextool, x360pkgtool, x360gamehack v6.3 creator
 XboxDevOrganization XISO
 Developer: IcyModz420 (GitHub)
 Integrated Tools: Respect and credit to the original creators of XexTool, x360pkgtool, god2iso, iso2god, Xbox Image Browser, Xbox Backup Creator, and others included in the X360GameHack folder.
 AI: Powered by an older, free version of Gemini AI.
 
-Disclaimer
+*Legal Disclaimer
 This software is provided "as is" without warranty of any kind. Use it at your own risk, and ensure compliance with local laws regarding console modding. The developer does not claim ownership of third-party tools included in the package.
 X360GameHack is a free, independent, open source, software project and is not affiliated with, endorsed by, or sponsored by Microsoft Corporation or any other entity. All trademarks, copyrighted materials, and intellectual property, including but not limited to Xbox 360 game files, protected code within games including assets, and encryption keys, are the property of their respective owners. This tool is intended for lawful use only, such as extracting files from legally owned game ISOs for personal backup or archival purposes, in compliance with applicable copyright and intellectual property laws.
 By using this software users understand that it is illegal in the US, UK, Canada, and alike to download, extract, backup, play, and/or have a copy of a XiSO you do not physically or digitally (with limitations) own and that the creator of this software cannot be held responsible for the unintended use of this software.
 
-Contact
+*Contact
 
 GitHub: IcyModz420/X360GameHack2025
 YouTube: IcyModz420v2
