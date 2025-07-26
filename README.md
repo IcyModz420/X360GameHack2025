@@ -15,23 +15,35 @@ Plugin Loader & launch.ini Editor: Simplifies setting up plugins and editing lau
 
 One-Click Installations: Supports installing essential applications like XexMenu, Aurora, Freestyle Dashboard, Dashlaunch, and potentially skins or other necessities directly to the console’s HDD or USB.
 
-AI-Powered Assistance
-
 Gemini AI Integration: Includes a free, older version of Gemini AI accessible via a Q&A tab, providing detailed answers to common modding questions.
 
 *Security Features
 
 Anti-Debug Protection: Prevents attaching debuggers to the application.
+
 Anti-Path Traversal: Blocks attempts to hide malicious commands via the executable invoker class.
+
 Custom AES Encryption: Implemented via BouncyCastle for secure data handling.
+
 String & SHA3-256 Signature Checks: Ensures runtime integrity using BouncyCastle.
+
 Proxy-Free Web Calls: Prevents interception by tools like Fiddler.
+
 Single Process Enforcement: Restricts running multiple instances of X360GameHack.
+
 Future Obfuscation: Planned obfuscation of specific classes and functions to deter tampering while keeping non-critical code accessible for open-source transparency. Obfuscated code will remain viewable in tools like dnSpy (32-bit) but harder to rebuild and exploit in the field without expertise.
+
+Virus scans:
+While searching google for X360GameHack related questions and info I came across this scan of the entire github repository and have decided to include it:
+https://www.urlquery.net/report/383df792-a00b-40cf-90de-2de7a56bb1ed
+It appears to have around 7 false positives on applications other than X360GameHack.exe its self..
+For users that wish to verify the source of these additional applications the hash of all files has been provided in that link.
+To verify they are the same you can download the same exact versions of the 7 applications such as abgx360 installer from Hadzz and compare the hash and see that it is the same and that not a single byte of any of those has been changed.
 
 *Future-Proofing
 
 Open Source: Hosted on GitHub, allowing community contributions and vulnerability reporting. Users can submit bug reports or patches via the GitHub Issues page.
+
 Community-Driven Development: Feedback is welcomed to add new features or improve functionality.
 
 *Installation
