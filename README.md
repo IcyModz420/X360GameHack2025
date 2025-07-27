@@ -1,4 +1,6 @@
-X360GameHack 2025 is an open-source, all-in-one modding tool designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles and devkits, with support for original Xbox extracting, xbe patches such as ram and cpu, etc.
+Summary:
+----------------------------------------------------
+- X360GameHack 2025 is an open-source, all-in-one modding tool designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles and devkits, with added support for original Xbox extracting, xbe patches such as ram and cpu, etc.
 
 Core Functionality:
 ----------------------------------------------------
@@ -76,7 +78,7 @@ AI: Powered by an older, free version of Gemini AI.
 Virus scans:
 ----------------------------------------------------
 - While searching google for X360GameHack related questions and info I came across this scan of the entire github repository and have decided to include it:
-https://www.urlquery.net/report/383df792-a00b-40cf-90de-2de7a56bb1ed
+https://www.urlquery.net/report/383df792-a00b-40cf-90de-2de7a56bb1ed 
 (It appears to have around 7 false positives on applications other than X360GameHack.exe its self.)
 - For users that wish to verify the source of these additional applications the hash of all files has been provided in that link.
 - To verify they are the same you can download the same exact versions of the 7 applications such as abgx360 installer from Hadzz and compare the hash and see that it is the same and that not a single byte of any of those has been changed. 
