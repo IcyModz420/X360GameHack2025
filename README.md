@@ -10,7 +10,7 @@ Core Functionality:
 - Integrated Tools: Combines utilities like god2iso, iso2god, Xbox Image Browser, Xbox Backup Creator, and abgx360 for seamless access, with proper credit to their original creators (no ownership claimed).
 - Launch.ini editor for easy plugin editing: Simplifies setting up plugins and editing launch.ini files, with options to transfer configurations to the console’s HDD, connected USB, or generate new files.
 - One-Click Homebrew Installations: Supports installing essential applications like XexMenu, Aurora, Freestyle Dashboard, Dashlaunch, and potentially skins or other necessities directly to the console’s HDD or a connected USB.
-Gemini AI Integration: Includes a free, older version of Gemini AI accessible via a Q&A tab, providing detailed answers to common modding questions.
+- Gemini AI Integration: Includes a free, older version of Gemini AI accessible via a Q&A tab, providing detailed answers to common modding questions.
 
 Security Features:
 ----------------------------------------------------
