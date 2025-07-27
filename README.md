@@ -92,8 +92,8 @@ Legal Disclaimer
 
 Contact
 ----------------------------------------------------
-GitHub: IcyModz420/X360GameHack2025
-YouTube: IcyModz420v2
-TheTechGame IcyModzXeX
-Console Crunch: IcyMod420
-se7insins AnonSec
+- GitHub: IcyModz420/X360GameHack2025
+- YouTube: IcyModz420v2
+- TheTechGame IcyModzXeX
+- Console Crunch: IcyMod420
+- se7insins AnonSec
