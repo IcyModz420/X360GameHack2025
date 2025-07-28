@@ -1,16 +1,71 @@
 Summary:
 ----------------------------------------------------
-- X360GameHack 2025 is an open-source, all-in-one modding tool designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles and devkits, with added support for original Xbox extracting, xbe patches such as ram and cpu, etc.
+- X360GameHack 2025 is an open-source, all-in-one app designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles and devkits, with added support for original Xbox extracting, info grabbing, and xbe patches such as ram and cpu, etc. It features heavily optimised code and advanced security for today's day in age.
 
 Core Functionality:
 ----------------------------------------------------
 - XexTool GUI: Drag-and-drop interface for encrypting or decrypting Xbox 360 XEX files, eliminating command-line complexities and path-related errors (e.g., spaces in file paths). Displays XexTool output directly in the app.
 - Bulk XISO Tool: Automates extraction of Xbox 360 game ISOs into "JTAG rips" (folder-based game extracts) and simultaneously patches XEX files to unlock them for RGH, XDK, or badupdate exploit. Supports original Xbox games by extracting ISOs and applying RAM/CPU patches for enhanced systems. 
 - Bulk clean ISO: Bulk stealth path iso to be used with flashed or emulated drives.
-- Integrated Tools: Combines utilities like god2iso, iso2god, Xbox Image Browser, Xbox Backup Creator, and abgx360 for seamless access, with proper credit to their original creators (no ownership claimed).
+- Integrated Tools: Combines utilities like god2iso, iso2god, Xbox Image Browser, and Xbox Backup Creator for seamless access, with proper credit to their original creators (no ownership claimed).
 - Launch.ini editor for easy plugin editing: Simplifies setting up plugins and editing launch.ini files, with options to transfer configurations to the console’s HDD, connected USB, or generate new files.
 - One-Click Homebrew Installations: Supports installing essential applications like XexMenu, Aurora, Freestyle Dashboard, Dashlaunch, and potentially skins or other necessities directly to the console’s HDD or a connected USB.
+- One-Click Homebrew Launching: Launch xexmenu, dashlaunch, aurora, fsd, games, etc over xbdm.
 - Gemini AI Integration: Includes a free, older version of Gemini AI accessible via a Q&A tab, providing detailed answers to common modding questions.
+
+X360GameHack Installation:
+----------------------------------------------------
+- Download the latest release from the GitHub Releases page.
+- Extract the ZIP file to a directory of your choice.
+- Run X360GameHack.exe (Windows only, 32-bit compatible).
+- Ensure all dependencies (included in the X360GameHack folder) are present.
+
+Console Setup:
+----------------------------------------------------
+- Set xbdm.xex as plugin 1 in the launch.ini canfiguraton ini file editor and send it to console or usb.
+
+- Remember that if a launch.ini is on your usb dashlaunch will use that one on the usb first as a fail safe to save your hdd from a bad xex plugin such as a downed server leading to dash hanging when attempting to use a old stealth server plugin.. So be sure to edit the correct launch.ini so the plugin will actually take effect when you boot/start up the console. 
+- Additional info about dash luanch: dashlaunch is a part of the consoles flash stoarge meaning it doesn't actually need a formal installation if your console is already an rgh and you also do not need to open the dashlaunch dl30.xex or to even use the dashlaunch gui at all if not desired.. You can simply create a launch.ini with this tool and send it to console or usb or even install and/or launch the gui automatically.
+- Xbox 360 neighborhood is not required and will never be included you only need the local ip of your console from the stock dashboad menu in wifi or to discover it.. its usually something like 192.168.137.000 or 10.1.0.69 etc..
+
+What is xbdm or xbdm.xex?
+--
+- Xbox Debug Manager or Xbox Debug Management is a plugin that was originally created by microsoft to be used with XDK kits. 
+- It was reverse engineered some 10+ years ago and patched to work on regular jtag/rgh consoles.
+- Its a tcp protical used by microsoft to allow xbox 360 neighborhood to connect to a xdk console from a pc using its ip address and includes a wide range of built in funtionality now avalible to rgh consoles.
+
+Usage:
+----------------------------------------------------
+XEX Patching:
+- Drag or open an XEX file in the app.
+- Click the appropriate button to encrypt/decrypt or patch the file.
+- View XexTool output in the app’s interface.
+
+XBE Patching:
+- Drag or open an XEX file in the app.
+- Click the appropriate button to patch the file.
+- View output in the app’s interface.
+
+Bulk XISO Extraction:
+- Drag all desired Xbox 360 and/or original Xbox game ISO in the list box.
+- (Yes you can do both at the same time)
+- Choose the output folder and click "Extract and patch" or similar to create a JTAG rip, optionally backup original executables, then specially patch the XEX/XBE files also.
+
+Contributing:
+----------------------------------------------------
+X360GameHack 2025 is open source and welcomes contributions. To contribute:
+- Fork the repository.
+- Create a new branch for your feature or bug fix.
+- Submit a pull request with detailed descriptions of changes.
+- Report bugs or suggest features via GitHub Issues.
+
+Credits:
+----------------------------------------------------
+- Xorloser xextool, x360pkgtool, x360gamehack v6.3 creator
+- XboxDevOrganization XISO
+- GUI Developer: IcyModz420 (GitHub)
+- Integrated Tools: Respect and credit to the original creators of god2iso, iso2god, Xbox Image Browser, Xbox Backup Creator, and others included in the X360GameHack folder.
+- AI: Powered by an older, free version of Gemini AI.
 
 Security Features:
 ----------------------------------------------------
@@ -28,52 +83,6 @@ Future-Proofing:
 ----------------------------------------------------
 - Open Source: Hosted on GitHub, allowing community contributions and vulnerability reporting. Users can submit bug reports or patches via the GitHub Issues page.
 - Community-Driven Development: Feedback is welcomed to add new features or improve functionality.
-
-Installation:
-----------------------------------------------------
-- Download the latest release from the GitHub Releases page.
-- Extract the ZIP file to a directory of your choice.
-- Run X360GameHack.exe (Windows only, 32-bit compatible).
-- Ensure all dependencies (included in the X360GameHack folder) are present.
-
-Usage:
-----------------------------------------------------
-
-XEX Patching:
-- Drag or open an XEX file in the app.
-- Click the appropriate button to encrypt/decrypt or patch the file.
-- View XexTool output in the app’s interface.
-
-XBE Patching:
-- Drag or open an XEX file in the app.
-- Click the appropriate button to patch the file.
-- View output in the app’s interface.
-
-Bulk XISO Extraction:
-- Drag an Xbox 360 or original Xbox game ISO in the list box.
-- Choose the output folder and click "Extract and patch" to create a JTAG rip with patched XEX/XBE files and optionally backup executables.
-
-Console Setup:
-----------------------------------------------------
-Set xbdm.xex as plugin 1 in the launch.ini canfiguraton ni file and make sure its in the root of that drive (not in a folder) to use those settings.
-Xbox 360 neighborhood is not required and will never be included you only need the local ip of your console from the stock dashboad menu in wifi or to discover it.. its usually something like 192.168.137.000 or 10.1.0.69 etc..
-
-Contributing:
-----------------------------------------------------
-X360GameHack 2025 is open source and welcomes contributions. To contribute:
-
-- Fork the repository.
-- Create a new branch for your feature or bug fix.
-- Submit a pull request with detailed descriptions of changes.
-- Report bugs or suggest features via GitHub Issues.
-
-Credits:
-----------------------------------------------------
-Xorloser xextool, x360pkgtool, x360gamehack v6.3 creator
-XboxDevOrganization XISO
-GUI Developer: IcyModz420 (GitHub)
-Integrated Tools: Respect and credit to the original creators of god2iso, iso2god, Xbox Image Browser, Xbox Backup Creator, and others included in the X360GameHack folder.
-AI: Powered by an older, free version of Gemini AI.
 
 Virus scans:
 ----------------------------------------------------
@@ -95,5 +104,5 @@ Contact
 - GitHub: IcyModz420/X360GameHack2025
 - YouTube: IcyModz420v2
 - TheTechGame IcyModzXeX
-- Console Crunch: IcyMod420
+- Console Crunch: IcyModz420
 - se7insins AnonSec
