@@ -1,12 +1,12 @@
 Summary:
 ----------------------------------------------------
-- X360GameHack 2025 is an open-source, all-in-one app designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles and devkits, with added support for original Xbox extracting, info grabbing, and xbe patches such as ram and cpu, etc. It features heavily optimised code and advanced security for today's day in age.
+- X360GameHack 2025 is an open-source, all-in-one app designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles and devkits, with added support for original Xbox ISO Optiizing, extracting, info grabbing, and xbe patches such as ram and cpu, etc. It features heavily optimised code and advanced security for today's day in age.
 
 Core Functionality:
 ----------------------------------------------------
 - XexTool GUI: Drag-and-drop interface for encrypting or decrypting Xbox 360 XEX files, eliminating command-line complexities and path-related errors (e.g., spaces in file paths). Displays XexTool output directly in the app.
 - Bulk XISO Tool: Automates extraction of Xbox 360 game ISOs into "JTAG rips" (folder-based game extracts) and simultaneously patches XEX files to unlock them for RGH, XDK, or badupdate exploit. Supports original Xbox games by extracting ISOs and applying RAM/CPU patches for enhanced systems. 
-- Bulk clean ISO: Bulk stealth path iso to be used with flashed or emulated drives.
+- Bulk clean ISO: Bulk stealth patch iso with abgx360 to be used with flashed or emulated drives.
 - Integrated Tools: Combines utilities like god2iso, iso2god, Xbox Image Browser, and Xbox Backup Creator for seamless access, with proper credit to their original creators (no ownership claimed).
 - Launch.ini editor for easy plugin editing: Simplifies setting up plugins and editing launch.ini files, with options to transfer configurations to the console’s HDD, connected USB, or generate new files.
 - One-Click Homebrew Installations: Supports installing essential applications like XexMenu, Aurora, Freestyle Dashboard, Dashlaunch, and potentially skins or other necessities directly to the console’s HDD or a connected USB.
@@ -50,6 +50,10 @@ Bulk XISO Extraction:
 - Drag all desired Xbox 360 and/or original Xbox game ISO in the list box.
 - (Yes you can do both at the same time)
 - Choose the output folder and click "Extract and patch" or similar to create a JTAG rip, optionally backup original executables, then specially patch the XEX/XBE files also.
+
+Bulk Stealth Patch xbox 360 ISO:
+- Drag all desired xbox 360 ISO into the listbox
+- Click Patch All XISO With abgx360
 
 Contributing:
 ----------------------------------------------------
