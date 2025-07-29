@@ -1,6 +1,6 @@
 Summary:
 ----------------------------------------------------
-- X360GameHack 2025 is an open-source, all-in-one app designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles and devkits to make it easier for people who have never used an RGH/JTAG to pickup a console and install their personally backed up games, with added support for original Xbox ISO Optimizing, extracting, info grabbing, and xbe patches such as ram and cpu, etc. It also includes universal FTP Support and XBDM support for xbox 360. As well as built in gemini ai for any modding related questions users may have. It features heavily optimised code and advanced security with open source transparency for today's day in age.
+- X360GameHack 2025 is an open-source, all-in-one app designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles and devkits to make it easier for people who have never used an RGH/JTAG to pickup a console and install their personally backed up games, with added support for original Xbox ISO Optimizing, extracting, info grabbing, and xbe patches such as ram and cpu, etc. It also includes universal FTP Support and XBDM support for xbox 360. As well as built in gemini ai for any modding related questions users may have. It features heavily optimised code, advanced security, and open source transparency for today's day in age.
 - Perfect for RGH sellers to give to their customers with their new RGH.
 
 Core Functionality:
