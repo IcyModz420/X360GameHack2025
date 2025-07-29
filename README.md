@@ -1,13 +1,19 @@
 Summary:
 ----------------------------------------------------
-- X360GameHack 2025 is an open-source, all-in-one app designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles and devkits, with added support for original Xbox ISO Optiizing, extracting, info grabbing, and xbe patches such as ram and cpu, etc. It features heavily optimised code and advanced security for today's day in age.
+- X360GameHack 2025 is an open-source, all-in-one app designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles and devkits to make it easier for people who have never used an RGH/JTAG to pickup a console and install their personally backed up games, with added support for original Xbox ISO Optimizing, extracting, info grabbing, and xbe patches such as ram and cpu, etc. It also includes universal FTP Support and XBDM support for xbox 360. It features heavily optimised code and advanced security for today's day in age.
+- Perfect for RGH sellers to give to their customers with their new RGH.
 
 Core Functionality:
 ----------------------------------------------------
 - XexTool GUI: Drag-and-drop interface for encrypting or decrypting Xbox 360 XEX files, eliminating command-line complexities and path-related errors (e.g., spaces in file paths). Displays XexTool output directly in the app.
 - Bulk XISO Tool: Automates extraction of Xbox 360 game ISOs into "JTAG rips" (folder-based game extracts) and simultaneously patches XEX files to unlock them for RGH, XDK, or badupdate exploit. Supports original Xbox games by extracting ISOs and applying RAM/CPU patches for enhanced systems. 
 - Bulk clean ISO: Bulk stealth patch iso with abgx360 to be used with flashed or emulated drives.
-- Integrated Tools: Combines utilities like god2iso, iso2god, Xbox Image Browser, and Xbox Backup Creator for seamless access, with proper credit to their original creators (no ownership claimed).
+- FTP2Xbox: File transfer support for original xbox, xbox 360, & PS4. 
+- Integrated Tools: 
+- God2Iso: Convert God (STFS) to iso.
+- Iso2God: Convert Original xbox or xbox 360 iso to game on demand so they can played from the dashbboard menu.
+- Xbox Image Browser: View all files and replace or extract a file in the iso.
+- Xbox Backup Creator: Create backups of xbox 360 games with a special pc drive flashed with custom firmware and more.
 - Launch.ini editor for easy plugin editing: Simplifies setting up plugins and editing launch.ini files, with options to transfer configurations to the console’s HDD, connected USB, or generate new files.
 - One-Click Homebrew Installations: Supports installing essential applications like XexMenu, Aurora, Freestyle Dashboard, Dashlaunch, and potentially skins or other necessities directly to the console’s HDD or a connected USB.
 - One-Click Homebrew Launching: Launch xexmenu, dashlaunch, aurora, fsd, games, etc over xbdm.
@@ -54,6 +60,11 @@ Bulk XISO Extraction:
 Bulk Stealth Patch xbox 360 ISO:
 - Drag all desired xbox 360 ISO into the listbox
 - Click Patch All XISO With abgx360
+
+FTP2Xbox:
+- Go to FTP2Xbox tab and type in your console local ip and the port the server is open on with correct username and password then click save.
+- Proceed to use ftp options in the app like checkboxes.
+- Connect and transfer files.
 
 Contributing:
 ----------------------------------------------------
