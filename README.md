@@ -1,12 +1,12 @@
 Summary:
 ----------------------------------------------------
-- X360GameHack 2025 is an open-source, all-in-one app designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles and devkits to make it easier for people who have never used an RGH/JTAG to pickup a console and install their personally backed up games, with added support for original Xbox ISO Optimizing, extracting, info grabbing, and xbe patches such as ram and cpu, etc. It also includes universal FTP Support and XBDM support for xbox 360. It features heavily optimised code and advanced security for today's day in age.
+- X360GameHack 2025 is an open-source, all-in-one app designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles and devkits to make it easier for people who have never used an RGH/JTAG to pickup a console and install their personally backed up games, with added support for original Xbox ISO Optimizing, extracting, info grabbing, and xbe patches such as ram and cpu, etc. It also includes universal FTP Support and XBDM support for xbox 360. As well as built in gemini ai for any modding related questions users may have. It features heavily optimised code and advanced security for today's day in age.
 - Perfect for RGH sellers to give to their customers with their new RGH.
 
 Core Functionality:
 ----------------------------------------------------
 - XexTool GUI: Drag-and-drop interface for encrypting or decrypting Xbox 360 XEX files, eliminating command-line complexities and path-related errors (e.g., spaces in file paths). Displays XexTool output directly in the app.
-- Bulk XISO Tool: Automates extraction of Xbox 360 game ISOs into "JTAG rips" (folder-based game extracts) and simultaneously patches XEX files to unlock them for RGH, XDK, or badupdate exploit. Supports original Xbox games by extracting ISOs and applying RAM/CPU patches for enhanced systems. 
+- Bulk XISO Tool: Automates extraction of Xbox 360 game ISOs into "JTAG rips" (folder-based game extracts) and simultaneously patches XEX files to unlock them for RGH, XDK, or badupdate exploit. Supports original Xbox games for extracting ISOs and applying RAM/CPU patches for enhanced systems. 
 - Bulk clean ISO: Bulk stealth patch iso with abgx360 to be used with flashed or emulated drives.
 - FTP2Xbox: File transfer support for original xbox, xbox 360, & PS4. 
 - Integrated Tools: 
@@ -28,17 +28,20 @@ X360GameHack Installation:
 
 Console Setup:
 ----------------------------------------------------
-- Set xbdm.xex as plugin 1 in the launch.ini canfiguraton ini file editor and send it to console or usb.
-
-- Remember that if a launch.ini is on your usb dashlaunch will use that one on the usb first as a fail safe to save your hdd from a bad xex plugin such as a downed server leading to dash hanging when attempting to use a old stealth server plugin.. So be sure to edit the correct launch.ini so the plugin will actually take effect when you boot/start up the console. 
-- Additional info about dash luanch: dashlaunch is a part of the consoles flash stoarge meaning it doesn't actually need a formal installation if your console is already an rgh and you also do not need to open the dashlaunch dl30.xex or to even use the dashlaunch gui at all if not desired.. You can simply create a launch.ini with this tool and send it to console or usb or even install and/or launch the gui automatically.
-- Xbox 360 neighborhood is not required and will never be included you only need the local ip of your console from the stock dashboad menu in wifi or to discover it.. its usually something like 192.168.137.000 or 10.1.0.69 etc..
+- Set xbdm.xex as plugin 1 in the launch.ini canfiguraton ini file manually or using the editor.
+- Send it to console or usb or copy it to the storage device where the launch.ini will reside. 
 
 What is xbdm or xbdm.xex?
 --
 - Xbox Debug Manager or Xbox Debug Management is a plugin that was originally created by microsoft to be used with XDK kits. 
 - It was reverse engineered some 10+ years ago and patched to work on regular jtag/rgh consoles.
 - Its a tcp protical used by microsoft to allow xbox 360 neighborhood to connect to a xdk console from a pc using its ip address and includes a wide range of built in funtionality now avalible to rgh consoles.
+
+How does DashLaunch plugin loading work? (launch.ini)
+--
+- Its a part of the consoles flash stoarge meaning it doesn't actually need a formal installation if your console is already an rgh and you also do not need to open the dashlaunch dl30.xex or to even use the dashlaunch gui at all if not desired.. You can simply create a launch.ini with this tool and send it to console or usb or even install and/or launch the dashlaunch gui automatically and set and save it with the gui.
+- Remember that if a launch.ini is on your usb dashlaunch will use the launch.ini on the usb first as a fail safe to save your hdd from a bad xex plugin (such as a downed atealth server leading to the xbox 360 boot up logo hanging when attempting to use a old stealth server plugin..) So be sure to edit the correct launch.ini so the plugin will actually take effect when you boot/start up the console.
+- Xbox 360 neighborhood is not required and will never be included you only need the local ip of your console from the stock dashboad menu in wifi or to discover it.. its usually something like 192.168.137.000 or 10.1.0.69 etc..
 
 Usage:
 ----------------------------------------------------
@@ -57,7 +60,7 @@ Bulk XISO Extraction:
 - (Yes you can do both at the same time)
 - Choose the output folder and click "Extract and patch" or similar to create a JTAG rip, optionally backup original executables, then specially patch the XEX/XBE files also.
 
-Bulk Stealth Patch xbox 360 ISO:
+Bulk Stealth Patch xbox 360 ISO with abgx360:
 - Drag all desired xbox 360 ISO into the listbox
 - Click Patch All XISO With abgx360
 
@@ -88,7 +91,7 @@ Security Features:
 - Anti-Path Traversal: Blocks attempts to hide malicious commands via the executable invoker class.
 - Custom AES Encryption: Implemented via BouncyCastle for secure data handling.
 - String Signature Checks: Ensures integrety of sensitve strings by checking against runtime.
-- SHA3-256 Signature Checks: Ensures runtime integrity using BouncyCastle.
+- SHA3-256 Signature Checks: Ensures integrity of other exe, dll, etc using BouncyCastle.
 - Proxy-Free Web Calls: Prevents interception by tools like Fiddler.
 - Single Process Enforcement: Restricts running multiple instances of X360GameHack.
 - Future Obfuscation: Planned obfuscation of specific classes and functions to deter tampering while keeping non-critical code accessible for open-source transparency. 
