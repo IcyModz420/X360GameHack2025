@@ -1,9 +1,10 @@
-Huge Update coming soon stay tuned here: 
+Huge Update just released stay tuned here: 
 
 XEX Patches Preview: https://www.youtube.com/watch?v=0I-34IBY4ko
 
 PKG Patches preview: https://www.youtube.com/watch?v=oMvGssil2Z8
 
+<img width="1945" height="1610" alt="Screenshot_30" src="https://github.com/user-attachments/assets/5f8eca8b-d9f2-4bec-ac35-b3391b78f62e" />
 
 Summary:
 ----------------------------------------------------
