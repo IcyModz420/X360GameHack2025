@@ -1,4 +1,4 @@
-Huge Update just released stay tuned here: 
+Huge Update just released stay tuned here more coming soon: 
 
 XEX Patches Preview: https://www.youtube.com/watch?v=0I-34IBY4ko
 
