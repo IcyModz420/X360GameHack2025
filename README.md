@@ -5,6 +5,8 @@ XEX Patches Preview: https://www.youtube.com/watch?v=0I-34IBY4ko
 PKG Patches preview: https://www.youtube.com/watch?v=oMvGssil2Z8
 
 <img width="1945" height="1610" alt="Screenshot_30" src="https://github.com/user-attachments/assets/5f8eca8b-d9f2-4bec-ac35-b3391b78f62e" />
+<img width="1941" height="1603" alt="Screenshot_31" src="https://github.com/user-attachments/assets/29b4ac93-f72b-44f1-869c-1684cf1e449f" />
+<img width="1949" height="995" alt="Screenshot_32" src="https://github.com/user-attachments/assets/034d137c-2b3a-49b4-abd2-c8278efd068e" />
 
 Summary:
 ----------------------------------------------------
