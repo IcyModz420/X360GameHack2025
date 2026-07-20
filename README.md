@@ -133,6 +133,5 @@ Contact
 ----------------------------------------------------
 - GitHub: IcyModz420/X360GameHack2025
 - YouTube: IcyModz420
-- TheTechGame IcyModzXeX
 - Console Crunch: IcyModz420
 - se7insins AnonSec
