@@ -1,35 +1,75 @@
+X360GameHack 2025-2026
+
 Huge Update just released stay tuned here more coming soon: 
 
-XEX Patches Preview: https://www.youtube.com/watch?v=0I-34IBY4ko
-
-PKG Patches preview: https://www.youtube.com/watch?v=oMvGssil2Z8
-
-<img width="1945" height="1610" alt="Screenshot_30" src="https://github.com/user-attachments/assets/5f8eca8b-d9f2-4bec-ac35-b3391b78f62e" />
-<img width="1941" height="1603" alt="Screenshot_31" src="https://github.com/user-attachments/assets/29b4ac93-f72b-44f1-869c-1684cf1e449f" />
-<img width="1949" height="995" alt="Screenshot_32" src="https://github.com/user-attachments/assets/034d137c-2b3a-49b4-abd2-c8278efd068e" />
+https://www.youtube.com/@IcyModz420
 
 Summary:
 ----------------------------------------------------
-- X360GameHack 2025 is an open-source, all-in-one app designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles and devkits to make it easier for people who have never used an RGH/JTAG to pickup a console and install their personally backed up games, with added support for original Xbox ISO Optimizing, extracting, info grabbing, and xbe patches such as ram and cpu, etc. It also includes universal FTP Support and XBDM support for xbox 360. It features heavily optimised code, advanced security, and open source transparency for today's day in age.
+- X360GameHack 2026 is an open-source, all-in-one app designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles, Bad Update, Bad Avatar exploited consoles and devkits to make it easier for people who have never used an exploited console to pickup a console and install their personally backed up games.
+- It has support for original Xbox ISO and XBE files. 
+- Features heavily optimized code, advanced security, and open source transparency for today's day in age.
 - Perfect for RGH sellers to give to their customers with their new RGH.
+- Please only report bugs under the tabs marked as production ready listed below.. X360GameHack is still in production in 2026-2027 as a side hobby. Sorry I'm a professional painter and body man also I get tired. I also have other projects.
 
-Core Functionality:
+XEX Tool GUI: (Production Complete)
 ----------------------------------------------------
-- XexTool GUI: Drag-and-drop interface for encrypting or decrypting Xbox 360 XEX files, eliminating command-line complexities and path-related errors (e.g., spaces in file paths). Displays XexTool output directly in the app.
-- Bulk XISO Tool: Automates extraction of Xbox 360 game ISOs into "JTAG rips" (folder-based game extracts) and simultaneously patches XEX files to unlock them for RGH, XDK, or badupdate exploit. Supports original Xbox games for extracting ISOs and applying RAM/CPU patches for enhanced systems. 
-- Bulk clean ISO: Bulk stealth patch iso with abgx360 to be used with flashed or emulated drives.
-- FTP2Xbox: File transfer support for original xbox, xbox 360, & PS4. 
-- Integrated Tools: 
-- God2Iso: Convert God (STFS) to iso.
-- Iso2God: Convert Original xbox or xbox 360 iso to game on demand so they can played from the dashbboard menu.
-- Xbox Image Browser: View all files and replace or extract a file in the iso.
-- Xbox Backup Creator: Create backups of xbox 360 games with a special pc drive flashed with custom firmware and more.
-- Launch.ini editor for easy plugin editing: Simplifies setting up plugins and editing launch.ini files, with options to transfer configurations to the console’s HDD, connected USB, or generate new files.
-- One-Click Homebrew Installations: Supports installing essential applications like XexMenu, Aurora, Freestyle Dashboard, Dashlaunch, and potentially skins or other necessities directly to the console’s HDD or a connected USB.
-- One-Click Homebrew Launching: Launch xexmenu, dashlaunch, aurora, fsd, games, etc over xbdm.
-- Convert save containers to and from devkit consoles. 
-(Resigning saves TBA.)
-- Convert devkit prototypes to RGH.
+<img width="1947" height="1674" alt="xex patches" src="https://github.com/user-attachments/assets/bbf56f07-3557-43eb-892e-abcca69798e1" />
+- Drag-and-drop interface for encrypting or decrypting Xbox 360 XEX files, eliminating command-line complexities and path-related errors (e.g., spaces in file paths).
+- Displays XexTool output directly in the app.
+- Previous support for using batch files instead of capturing process output.
+- Quickly Encrypt, Decrypt, Compress and Uncompress XEX, EXE, or DLL files.
+- Patch devkit builds of games to work on RGH consoles.
+- Patch games to work on RGH consoles or Devkit consoles.
+- Patch games to work on the Bad Update and Bad Avatar hypervisor exploit chains out of the box.
+- Change Title ID and Media ID of xbox 360 XEX files.
+- Print extended info about the XEX file.
+
+X360PKGTool GUI: (Production Complete)
+----------------------------------------------------
+<img width="1937" height="1673" alt="Screenshot_3" src="https://github.com/user-attachments/assets/0d1d666d-1f87-4c93-8fb6-ba31ccf6e3e5" />
+- Easy Unlock DLC buttons for RGH, Bad Update, Bad Avatar, and Devkit.
+- Patch Package format to be RGH, Bad Update, Bad Avatar, or Devkit.
+- Patch Packages to appear purchased on modded consoles.
+- Patch package to remove all original paid licenses/purchase traces embedded in the file.
+- Print extended info about package in X360GameHack and with full output.
+
+XISO Tools:(Not fully Production Complete)
+----------------------------------------------------
+- Bulk XISO Tool extract a list of OG xbox and xbox 360 games one at a time and patch all the needed files in as few clicks as possible.
+- Extract single disc ISO and automatically patch the xexs if desired.
+- 2 Disc game install support (Install the package files from disc one.
+- Third party Xbox Image browser by redline and Xbox backup creator built in.
+- Third party ABGX360 one click options built in.
+- Create original xbox ISO from folder.
+- Optimize original xbox ISO to run smoother on the older consoles with newer blank CDs.
+
+Save Patches (Production Complete)
+----------------------------------------------------
+<img width="1952" height="1678" alt="Screenshot_4" src="https://github.com/user-attachments/assets/6dab11fb-7521-48d0-a673-d996e4cbb21e" />
+- Convert Xbox 360 save game container to devkit or rgh.
+(You still need to change the ids first. Save. Convert. Then rehash and resign at the end for it to work.)
+(You still need the save and default.xex of the game you are playing to have matching media ID for the game itself to be able to detect the save.)
+- Print extended info about the save file.
+
+XBE Patches: (Not fully Production Complete)
+----------------------------------------------------
+- Grab and print all info from the XBE Header. (Coming soon)
+- Grab Title Update and game name from XBE. (Coming soon)
+- Change Title ID in XBE file (Coming soon)
+- Set the ram speed of the XBE to 64MB or 128MB.
+- Set CPU speed of the XBE to a value from 733 to 1480. (or higher because why not if someone wants to try?)
+
+ISO2GOD: (Fully Production Complete)
+----------------------------------------------------
+- Third party ISO2GOD for ease of use.. Works on OG Xbox and Xbox 360 games.
+- Convert xbox 360 and og xbox ISO files to GOD/STFS so you can install and run it on the dashboard with limited modding support.
+
+X360SetupTool: (Not fully Production Complete)
+----------------------------------------------------
+- Detect correct folder and install GOD/XBLA/TU/PKG/Save to USB.
+- ini editors like launch.ini jrpc.ini etc. (COMING SOON.)
+- FTP2Xbox File transfer support for original xbox, xbox 360, PS3 & PS4.
 
 X360GameHack Installation:
 ----------------------------------------------------
@@ -98,10 +138,11 @@ Credits:
 
 Security Features:
 ----------------------------------------------------
+- Anti-Admin Protection: There is no need to run this tool as admin so if you do it will auto kill the process.
 - Anti-Debug Protection: Prevents attaching debuggers to the application.
-- Anti-Path Traversal: Blocks attempts to hide malicious commands via the executable invoker class.
+- Anti-Path Traversal: Blocks attempts to hide malicious commands in the filepath used in the executable invoker class.
 - Custom AES Encryption: Implemented via BouncyCastle for secure data handling.
-- String Signature Checks: Ensures integrety of sensitve strings by checking against runtime.
+- String Signature Checks: Ensures integrity of sensitive strings by checking against runtime.
 - SHA3-256 Signature Checks: Ensures integrity of all exe, dll, etc using BouncyCastle.
 - Proxy-Free Web Calls: Prevents interception by tools like Fiddler.
 - Single Process Enforcement: Restricts running multiple instances of X360GameHack.
