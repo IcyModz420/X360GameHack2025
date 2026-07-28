@@ -38,13 +38,21 @@ X360PKGTool GUI: (Production Complete)
 
 XISO Tools: (Not fully Production Complete)
 ----------------------------------------------------
-- Bulk XISO Tool extract a list of OG xbox and xbox 360 games one at a time and patch all the needed files in as few clicks as possible. (COMING BACK SOON)
+<img width="1952" height="1678" alt="Screenshot_4" src="https://github.com/user-attachments/assets/c65d238d-8bb4-4e36-b3f9-3f938c714ddb" />
+
 - Extract single disc ISO and automatically patch the xexs if desired. (COMING SOON)
 - 2 Disc game install support (Install the package files from disc one to USB.) (COMING SOON)
 - Third party Xbox Image browser by redline and Xbox backup creator built in.
 - Third party ABGX360 one click options built in for use with flashed xboxes.
 - Create original xbox ISO from folder.
 - Optimize original xbox ISO to run smoother on the older consoles with newer blank CDs.
+
+Bulk XISO Tool: (Not fully Production Complete)
+----------------------------------------------------
+<img width="1960" height="1595" alt="Screenshot_9" src="https://github.com/user-attachments/assets/6289eb46-14bc-45f8-8576-84f3ca356253" />
+
+- Bulk XISO Tool extract a list of OG xbox and xbox 360 games one at a time and patch all the needed files in as few clicks as possible. (COMING BACK SOON)
+- Bulk extract and patch XEXs and XBEs automatically.
 
 Save Patches: (Production Complete)
 ----------------------------------------------------
@@ -57,6 +65,8 @@ Save Patches: (Production Complete)
 
 XBE Patches: (Not fully Production Complete)
 ----------------------------------------------------
+<img width="1944" height="1677" alt="Screenshot_7" src="https://github.com/user-attachments/assets/9afcd9e2-bee3-4168-9076-12fe5a66a0b0" />
+
 - Grab and print all info from the XBE Header. (Coming soon)
 - Grab Title Update and game name from XBE. (Coming soon)
 - Change Title ID in XBE file (Coming soon)
@@ -70,9 +80,25 @@ ISO2GOD: (Fully Production Complete)
 
 X360SetupTool: (Not fully Production Complete)
 ----------------------------------------------------
+<img width="1944" height="1666" alt="Screenshot_11" src="https://github.com/user-attachments/assets/61698c89-3701-4f43-82c3-4efd185c21dd" />
+
 - Detect correct folder and install GOD/XBLA/TU/PKG/Save to USB.
 - ini editors like launch.ini jrpc.ini etc. (COMING SOON.)
 - FTP2Xbox File transfer support for original xbox, xbox 360, PS3 & PS4.
+
+FTP Client: (Not fully Production Complete)
+----------------------------------------------------
+<img width="1949" height="1672" alt="Screenshot_5" src="https://github.com/user-attachments/assets/c9d6869d-0cbb-4f40-a087-43dcb172800e" />
+
+- Transfer Files to and from original xbox and xbox 360.
+- FTP2Xell is a web browser that connects to the IP of the console running xell 
+(Note you will need an internet connection to connect to xell over ftp and access the remote web page.)
+
+Built In Q&A: (Not fully Production Complete)
+----------------------------------------------------
+<img width="1953" height="1673" alt="Screenshot_17" src="https://github.com/user-attachments/assets/12c0f471-12bf-47d6-8462-56b7c9325ab0" />
+
+- Answer all game installing and X360GameHack questions.
 
 X360GameHack Installation:
 ----------------------------------------------------
