@@ -15,6 +15,7 @@ Summary:
 XEX Tool GUI: (Production Complete)
 ----------------------------------------------------
 <img width="1947" height="1674" alt="xex patches" src="https://github.com/user-attachments/assets/bbf56f07-3557-43eb-892e-abcca69798e1" />
+
 - Drag-and-drop interface for encrypting or decrypting Xbox 360 XEX files, eliminating command-line complexities and path-related errors (e.g., spaces in file paths).
 - Displays XexTool output directly in the app.
 - Previous support for using batch files instead of capturing process output.
@@ -28,6 +29,7 @@ XEX Tool GUI: (Production Complete)
 X360PKGTool GUI: (Production Complete)
 ----------------------------------------------------
 <img width="1937" height="1673" alt="Screenshot_3" src="https://github.com/user-attachments/assets/0d1d666d-1f87-4c93-8fb6-ba31ccf6e3e5" />
+
 - Easy Unlock DLC buttons for RGH, Bad Update, Bad Avatar, and Devkit.
 - Patch Package format to be RGH, Bad Update, Bad Avatar, or Devkit.
 - Patch Packages to appear purchased on modded consoles.
@@ -47,6 +49,7 @@ XISO Tools: (Not fully Production Complete)
 Save Patches: (Production Complete)
 ----------------------------------------------------
 <img width="1952" height="1678" alt="Screenshot_4" src="https://github.com/user-attachments/assets/6dab11fb-7521-48d0-a673-d996e4cbb21e" />
+
 - Convert Xbox 360 save game container to devkit or rgh.
 (You still need to change the ids first. Save. Convert. Then rehash and resign at the end for it to work.)
 (You still need the save and default.xex of the game you are playing to have matching media ID for the game itself to be able to detect the save.)
