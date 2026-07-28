@@ -38,9 +38,9 @@ X360PKGTool GUI: (Production Complete)
 
 XISO Tools: (Not fully Production Complete)
 ----------------------------------------------------
-- Bulk XISO Tool extract a list of OG xbox and xbox 360 games one at a time and patch all the needed files in as few clicks as possible.
-- Extract single disc ISO and automatically patch the xexs if desired.
-- 2 Disc game install support (Install the package files from disc one.
+- Bulk XISO Tool extract a list of OG xbox and xbox 360 games one at a time and patch all the needed files in as few clicks as possible. (COMING BACK SOON)
+- Extract single disc ISO and automatically patch the xexs if desired. (COMING SOON)
+- 2 Disc game install support (Install the package files from disc one to USB.) (COMING SOON)
 - Third party Xbox Image browser by redline and Xbox backup creator built in.
 - Third party ABGX360 one click options built in.
 - Create original xbox ISO from folder.
