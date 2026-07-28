@@ -162,16 +162,16 @@ Future-Proofing:
 - Open Source: Hosted on GitHub, allowing community contributions and vulnerability reporting. Users can submit bug reports or patches via the GitHub Issues page.
 - Community-Driven Development: Feedback is welcomed to add new features or improve functionality.
 
-Legal Disclaimer
+Legal Disclaimer:
 ----------------------------------------------------
 - This software is provided "as is" without warranty of any kind. Use it at your own risk, and ensure compliance with local laws regarding console modding and backup practices. 
 - The developer does not claim ownership of third-party tools included in the package and has intentionally not included any licensed/paid programs.
 - X360GameHack is a free, independent, open source, software project.
-- It is not affiliated with, endorsed by, approved by or sponsored by Microsoft Corporation or any other entity. All trademarks, copyrighted materials, and intellectual property, including but not limited to Xbox 360 game files, assets, DLC, ISO, title update files, and encryption keys, are the property of their respective owners. This tool is intended for lawful use only, such as extracting files from legally owned game ISOs for personal backup or archival purposes, or installing personally backed up games of which the user of X360GameHack is intended to physically own. 
+- It is not affiliated with, endorsed by, approved by, or sponsored by Microsoft Corporation or any other entity. All trademarks, copyrighted materials, and intellectual property, including but not limited to Xbox 360 game files, assets, DLC, ISO, title update files, and encryption keys, are the property of their respective owners. This tool is intended for lawful use only, such as extracting files from legally owned game ISOs for personal backup or archival purposes, or installing personally backed up games of which the user of X360GameHack is intended to physically own. 
 - With best intentions to be in compliance with applicable copyright and intellectual property laws.
 - By using this software users understand that it is illegal in the US, UK, Canada, and alike to download, extract, backup, play, and/or download/have a copy of a XiSO you do not physically or digitally (with limitations) own and that the creator of this software cannot be held responsible for the unintended use of this software.
 
-Contact
+Contact:
 ----------------------------------------------------
 - GitHub: IcyModz420/X360GameHack2025
 - YouTube: IcyModz420
