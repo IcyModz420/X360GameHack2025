@@ -85,18 +85,21 @@ Console Setup:
 ----------------------------------------------------
 - Set xbdm.xex as plugin 1 in the launch.ini canfiguraton ini file manually or using the editor.
 - Send it to console or usb or copy it to the storage device where the launch.ini will reside. 
+- Xbox 360 neighborhood is not required and will never be included you only need the local ip of your console from the stock dashboard menu in wifi or to discover it.. its usually something like 192.168.137.000 or 10.1.0.69 etc..
 
 What is xbdm or xbdm.xex?
---
+----------------------------------------------------
 - Xbox Debug Manager or Xbox Debug Management is a plugin that was originally created by microsoft to be used with XDK kits. 
 - It was reverse engineered some 10+ years ago and patched to work on regular jtag/rgh consoles.
 - Its a tcp protical used by microsoft to allow xbox 360 neighborhood to connect to a xdk console from a pc using its ip address and includes a wide range of built in funtionality now avalible to rgh consoles.
 
-How does DashLaunch plugin loading work? (launch.ini)
---
-- Its a part of the consoles flash stoarge meaning it doesn't actually need a formal installation if your console is already an rgh and you also do not need to open the dashlaunch dl30.xex or to even use the dashlaunch gui at all if not desired.. You can simply create a launch.ini with this tool and send it to console or usb or even install and/or launch the dashlaunch gui automatically and set and save it with the gui.
-- Remember that if a launch.ini is on your usb dashlaunch will use the launch.ini on the usb first as a fail safe to save your hdd from a bad xex plugin (such as a downed atealth server leading to the xbox 360 boot up logo hanging when attempting to use a old stealth server plugin..) So be sure to edit the correct launch.ini so the plugin will actually take effect when you boot/start up the console.
-- Xbox 360 neighborhood is not required and will never be included you only need the local ip of your console from the stock dashboad menu in wifi or to discover it.. its usually something like 192.168.137.000 or 10.1.0.69 etc..
+How does Dash Launch plugin loading work? (launch.ini)
+----------------------------------------------------
+- Dash Launch is a part of the consoles flash storage meaning it doesn't actually need a formal installation by you if your console is already an rgh.
+- You do not need to download and open the Dash Launch dl30.xex application on your console or to even use the Dash Launch gui at all if not desired.
+- You can simply create a launch.ini with this tool and send it to console or USB then reboot for it to take effect.
+- Or you can install and/or launch the Dash Launch gui automatically on the console with X360GameHack and set and save it with the gui.
+- Remember that if a launch.ini is on your usb Dash Launch will use the launch.ini on the usb first as a fail safe to save your hdd from a bad xex plugin (such as a downed stealth server leading to the xbox 360 boot up logo getting stuck/hanging when attempting to use a old stealth server plugin..) So be sure to edit the correct launch.ini so the plugin will actually take effect when you boot/start up the console.
 
 Usage:
 ----------------------------------------------------
