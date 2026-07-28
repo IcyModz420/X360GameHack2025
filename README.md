@@ -42,7 +42,7 @@ XISO Tools: (Not fully Production Complete)
 - Extract single disc ISO and automatically patch the xexs if desired. (COMING SOON)
 - 2 Disc game install support (Install the package files from disc one to USB.) (COMING SOON)
 - Third party Xbox Image browser by redline and Xbox backup creator built in.
-- Third party ABGX360 one click options built in.
+- Third party ABGX360 one click options built in for use with flashed xboxes.
 - Create original xbox ISO from folder.
 - Optimize original xbox ISO to run smoother on the older consoles with newer blank CDs.
 
