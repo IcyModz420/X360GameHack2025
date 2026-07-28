@@ -159,6 +159,7 @@ Anti-Admin Explanation:
 ----------------------------------------------------
 - If X360GameHack needs admin permission it WILL ALWAYS ASK via message box in the X360GameHack window before popping a windows UAC to spawn a separate admin CMD to do what it needs. 
 - Please read the command the uac is trying to use via show more in the uac box it will show you the path and the cmd command it wants to use be for you click yes.
+- You are is secure hands with X360GameHack but it cannot ever hurt to be too safe.
 
 Future-Proofing:
 ----------------------------------------------------
