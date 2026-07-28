@@ -83,7 +83,7 @@ X360GameHack Installation:
 
 Console Setup:
 ----------------------------------------------------
-- Set xbdm.xex as plugin 1 in the launch.ini canfiguraton ini file manually or using the editor.
+- Set xbdm.xex as plugin 1 in the launch.ini configuration ini file manually or using the editor.
 - Send it to console or usb or copy it to the storage device where the launch.ini will reside. 
 - Xbox 360 neighborhood is not required and will never be included you only need the local ip of your console from the stock dashboard menu in wifi or to discover it.. its usually something like 192.168.137.000 or 10.1.0.69 etc..
 
@@ -91,7 +91,7 @@ What is xbdm or xbdm.xex?
 ----------------------------------------------------
 - Xbox Debug Manager or Xbox Debug Management is a plugin that was originally created by microsoft to be used with XDK kits. 
 - It was reverse engineered some 10+ years ago and patched to work on regular jtag/rgh consoles.
-- Its a tcp protical used by microsoft to allow xbox 360 neighborhood to connect to a xdk console from a pc using its ip address and includes a wide range of built in funtionality now avalible to rgh consoles.
+- Its a TCP protocol used by microsoft to allow xbox 360 neighborhood to connect to a xdk console from a pc using its ip address and includes a wide range of built in functionality now available to rgh consoles.
 
 How does Dash Launch plugin loading work? (launch.ini)
 ----------------------------------------------------
