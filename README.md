@@ -65,7 +65,7 @@ XBE Patches: (Not fully Production Complete)
 
 ISO2GOD: (Fully Production Complete)
 ----------------------------------------------------
-- Third party ISO2GOD for ease of use.. Works on OG Xbox and Xbox 360 games.
+- Third party ISO2GOD for ease of use. Works on OG Xbox and Xbox 360 games.
 - Convert xbox 360 and og xbox ISO files to GOD/STFS so you can install and run it on the dashboard with limited modding support.
 
 X360SetupTool: (Not fully Production Complete)
