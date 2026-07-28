@@ -34,7 +34,7 @@ X360PKGTool GUI: (Production Complete)
 - Patch package to remove all original paid licenses/purchase traces embedded in the file.
 - Print extended info about package in X360GameHack and with full output.
 
-XISO Tools:(Not fully Production Complete)
+XISO Tools: (Not fully Production Complete)
 ----------------------------------------------------
 - Bulk XISO Tool extract a list of OG xbox and xbox 360 games one at a time and patch all the needed files in as few clicks as possible.
 - Extract single disc ISO and automatically patch the xexs if desired.
@@ -44,7 +44,7 @@ XISO Tools:(Not fully Production Complete)
 - Create original xbox ISO from folder.
 - Optimize original xbox ISO to run smoother on the older consoles with newer blank CDs.
 
-Save Patches (Production Complete)
+Save Patches: (Production Complete)
 ----------------------------------------------------
 <img width="1952" height="1678" alt="Screenshot_4" src="https://github.com/user-attachments/assets/6dab11fb-7521-48d0-a673-d996e4cbb21e" />
 - Convert Xbox 360 save game container to devkit or rgh.
@@ -157,7 +157,7 @@ Future-Proofing:
 Legal Disclaimer
 ----------------------------------------------------
 - This software is provided "as is" without warranty of any kind. Use it at your own risk, and ensure compliance with local laws regarding console modding. 
-- The developer does not claim ownership of third-party tools included in the package.
+- The developer does not claim ownership of third-party tools included in the package and has intentionally has not included licensed/paid programs.
 - X360GameHack is a free, independent, open source, software project and is not affiliated with, endorsed by, or sponsored by Microsoft Corporation or any other entity. All trademarks, copyrighted materials, and intellectual property, including but not limited to Xbox 360 game files, protected code within games including assets, and encryption keys, are the property of their respective owners. This tool is intended for lawful use only, such as extracting files from legally owned game ISOs for personal backup or archival purposes, in compliance with applicable copyright and intellectual property laws.
 - By using this software users understand that it is illegal in the US, UK, Canada, and alike to download, extract, backup, play, and/or have a copy of a XiSO you do not physically or digitally (with limitations) own and that the creator of this software cannot be held responsible for the unintended use of this software.
 
