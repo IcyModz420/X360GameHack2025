@@ -10,7 +10,7 @@ Summary:
 - It has support for original Xbox ISO and XBE files. 
 - Features heavily optimized code, advanced security, and open source transparency for today's day in age.
 - Perfect for RGH sellers to give to their customers with their new RGH.
-- Please only report bugs under the tabs marked as production ready listed below.. X360GameHack is still in production in 2026-2027 as a side hobby. Sorry I'm a professional painter and body man also I get tired. I also have other projects.
+- Please only report bugs under the tabs marked as production ready listed below.. X360GameHack is still in production in 2026-2027 as a side hobby. Sorry I'm a professional painter and body man too I get tired. I also have other projects.
 
 XEX Tool GUI: (Production Complete)
 ----------------------------------------------------
