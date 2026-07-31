@@ -6,8 +6,8 @@ https://www.youtube.com/@IcyModz420
 
 Summary:
 ----------------------------------------------------
-- X360GameHack 2026 is an open-source, all-in-one app designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles, Bad Update, Bad Avatar exploited consoles and devkits to make it easier for people who have never used an exploited console to pickup a console and install their personally backed up games from any form ISO or STFS.
-- It has support for original Xbox ISO and XBE files. 
+- X360GameHack 2026 is an open-source, all-in-one app designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles, Bad Update, Bad Avatar exploited consoles, and devkits to make it easier for people who have never used an exploited console to pickup a console and install their personally backed up games from any form ISO or STFS.
+- Features support for original Xbox ISO and XBE files. 
 - Features heavily optimized code, advanced security, and open source transparency for today's day in age.
 - Perfect for RGH sellers to give to their customers with their new RGH.
 - Please only report bugs under the tabs marked as production ready listed below.. X360GameHack is still in production in 2026-2027 as a side hobby. Sorry I'm a professional painter and body man too I get tired. I also have other projects.
