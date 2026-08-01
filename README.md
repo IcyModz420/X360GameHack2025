@@ -141,12 +141,12 @@ XBE Patching:
 
 Bulk XISO Extraction:
 - Drag all desired Xbox 360 and/or original Xbox game ISO in the list box.
-- (Yes you can do both at the same time)
+- (Yes you can do both at the same time.)
 - Choose the output folder and click "Extract and patch" or similar to create a JTAG rip, optionally backup original executables, then specially patch the XEX/XBE files also.
 
 Bulk Stealth Patch xbox 360 ISO with abgx360:
-- Drag all desired xbox 360 ISO into the listbox
-- Click Patch All XISO With abgx360
+- Drag all desired xbox 360 ISO into the listbox.
+- Click Patch All XISO With abgx360.
 
 FTP2Xbox:
 - Go to FTP2Xbox tab and type in your console local ip and the port the server is open on with correct username and password then click save.
@@ -161,17 +161,10 @@ X360GameHack 2025 is open source and welcomes contributions. To contribute:
 - Submit a pull request with detailed descriptions of changes.
 - Report bugs or suggest features via GitHub Issues.
 
-Credits:
-----------------------------------------------------
-- Xorloser xextool, x360pkgtool
-- XboxDevOrganization XISO
-- Integrated Tools: Respect and credit to the original creators of god2iso, iso2god, Xbox Image Browser, Xbox Backup Creator, and others included in the X360GameHack folder.
-- GUI Developer: IcyModz420.
-
 Security Features:
 ----------------------------------------------------
 - Anti-Admin Protection: There is no need to run this tool as admin so if you do it will auto kill the process.
-- Anti-Debug Protection: Prevents attaching debuggers to the application.
+- Anti-Debug Protection: Prevents attaching debuggers to the application on a timer and manually so any attempt likely fails.
 - Anti Command Injection: Blocks attempts to hide malicious commands (Ex. cmd, powershell, & escaping) in the Active Filepath and other paths sent to executable classes.
 - Custom AES Encryption: Implemented via BouncyCastle for secure data handling.
 - String Signature Checks: Ensures integrity of sensitive strings by checking against runtime.
@@ -197,13 +190,28 @@ Legal Disclaimer:
 - This software is provided "as is" without warranty of any kind. Use it at your own risk, and ensure compliance with local laws regarding console modding and backup practices. 
 - The developer does not claim ownership of third-party tools included in the package and has intentionally not included any licensed/paid programs.
 - X360GameHack is a free, independent, open source, software project.
-- It is not affiliated with, endorsed by, approved by, or sponsored by Microsoft Corporation or any other entity. All trademarks, copyrighted materials, and intellectual property, including but not limited to Xbox 360 game files, assets, DLC, ISO, title update files, and encryption keys, are the property of their respective owners. This tool is intended for lawful use only, such as extracting files from legally owned game ISOs for personal backup or archival purposes, or installing personally backed up games of which the user of X360GameHack is intended to physically own. 
+- It is not affiliated with, endorsed by, approved by, or sponsored by Microsoft Corporation or any other entity. All trademarks, copyrighted materials, and intellectual property, including but not limited to Xbox 360 game files, assets, DLC, ISO, title update files, and encryption keys, are the property of their respective owners and will never be included. This tool is intended for lawful use only, such as extracting files from legally owned game ISOs for personal offline modding, personal backup, archival purposes, and/or installing personally backed up games of which the user of X360GameHack is intended to physically own. 
 - With best intentions to be in compliance with applicable copyright and intellectual property laws.
-- By using this software users understand that it is illegal in the US, UK, Canada, and alike to download, extract, backup, play, and/or download/have a copy of a XiSO you do not physically or digitally (with limitations) own and that the creator of this software cannot be held responsible for the unintended use of this software.
+- By using this software users understand that it is illegal in the US, UK, Canada, and alike to download, extract, backup, play, edit/patch, and/or download/have a copy of a Original xbox, Xbox 360, or any other game consoles XISO you do not physically or digitally (with limitations) own and that the creator of this software cannot be held responsible for the unintended use of this software.
 
-Contact:
+Rebuilding X360GameHack from source:
 ----------------------------------------------------
-- GitHub: IcyModz420/X360GameHack2025
+- I usually use the most current up to date version of visual studio.
+- I currently build X360GameHack on dot net v4.8.1 so you'll need to have that package. (https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net481-developer-pack-offline-installer)
+- As far as I'm aware you shouldn't need to add any additional packages manually or anything to build it.
+(Please fork this repository if you make an edit instead of a new application and please give credit a lot of time was spent here to give it away/back to the scene..)
+
+Credits:
+----------------------------------------------------
+- Xorloser: XEXTOOL, X360PKGTool
+- XboxDevOrganization: XISO
+- Integrated Tools: Respect and credit to the original creators of ISO2GOD, Xbox Image Browser, Xbox Backup Creator, and others included in the X360GameHack folder.
+- GUI Developer: IcyModz420.
+
+X360GameHack Developer Contact:
+----------------------------------------------------
+- Discord: IcyModz420#3071
 - YouTube: IcyModz420
 - Console Crunch: IcyModz420
-- se7insins AnonSec
+- se7insins: AnonSec
+- RIP TheTechGame: IcyModzXeX
