@@ -153,14 +153,6 @@ FTP2Xbox:
 - Proceed to use ftp options in the app like checkboxes.
 - Connect and transfer files.
 
-Contributing:
-----------------------------------------------------
-X360GameHack 2025 is open source and welcomes contributions. To contribute:
-- Fork the repository.
-- Create a new branch for your feature or bug fix.
-- Submit a pull request with detailed descriptions of changes.
-- Report bugs or suggest features via GitHub Issues.
-
 Security Features:
 ----------------------------------------------------
 - Anti-Admin Protection: There is no need to run this tool as admin so if you do it will auto kill the process.
@@ -197,7 +189,8 @@ Legal Disclaimer:
 Rebuilding X360GameHack from source:
 ----------------------------------------------------
 - I usually use the most current up to date version of visual studio.
-- I currently build X360GameHack on dot net v4.8.1 so you'll need to have that package. (https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net481-developer-pack-offline-installer)
+- I currently build X360GameHack on dot net v4.8.1 so you'll need to have that package. 
+(https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net481-developer-pack-offline-installer)
 - As far as I'm aware you shouldn't need to add any additional packages manually or anything to build it.
 (Please fork this repository if you make an edit instead of a new application and please give credit a lot of time was spent here to give it away/back to the scene..)
 
