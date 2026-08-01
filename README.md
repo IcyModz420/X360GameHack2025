@@ -172,7 +172,7 @@ Security Features:
 ----------------------------------------------------
 - Anti-Admin Protection: There is no need to run this tool as admin so if you do it will auto kill the process.
 - Anti-Debug Protection: Prevents attaching debuggers to the application.
-- Anti Command Injection: Blocks attempts to hide malicious commands in the Active Filepath and other paths sent to executable classes.
+- Anti Command Injection: Blocks attempts to hide malicious commands (Ex. cmd, powershell, & escaping) in the Active Filepath and other paths sent to executable classes.
 - Custom AES Encryption: Implemented via BouncyCastle for secure data handling.
 - String Signature Checks: Ensures integrity of sensitive strings by checking against runtime.
 - SHA3-256 Signature Checks: Ensures integrity of all exe, dll, etc using BouncyCastle.
