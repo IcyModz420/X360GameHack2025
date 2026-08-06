@@ -68,7 +68,7 @@ namespace X360GameHack
                 }
                 catch
                 {
-                    MessageBox.Show("Could not pass arguments to xextool!", "An Error occured!");
+                    MessageBox.Show("Could not pass arguments to xextool!", "An Error occurred!");
                 }
             }
             else if (xextoolfilepath == "" || xextoolfilepath == null)
@@ -91,7 +91,7 @@ namespace X360GameHack
             }
             else if (File.Exists(xextoolfilepath) && File.Exists(XexFilePath) && Command != "" && startInfo.Arguments != "")
             {
-                DialogResult dialogResult = MessageBox.Show("We see you have xextool in the correct folder and that you tried to pass " + startInfo.Arguments + " to xextool located at: " + xextoolfilepath + " to an xex file located at: " + XexFilePath + "\n If this appears correct click yes to retry", "An error occured!", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("We see you have xextool in the correct folder and that you tried to pass " + startInfo.Arguments + " to xextool located at: " + xextoolfilepath + " to an xex file located at: " + XexFilePath + "\n If this appears correct click yes to retry", "An error occurred!", MessageBoxButtons.YesNo);
 
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -135,7 +135,7 @@ namespace X360GameHack
                 }
                 catch
                 {
-                    MessageBox.Show("Could not pass arguments to X360PkgTool!", "An Error occured!");
+                    MessageBox.Show("Could not pass arguments to X360PkgTool!", "An Error occurred!");
                 }
             }
             else if (godtoolfilepath == "" || godtoolfilepath == null)
@@ -158,7 +158,7 @@ namespace X360GameHack
             }
             else if (File.Exists(godtoolfilepath) && File.Exists(GodFilePath) && Command != "" && startInfo.Arguments != "")
             {
-                DialogResult dialogResult = MessageBox.Show("We see you have X360PkgTool in the correct folder and that you tried to pass " + startInfo.Arguments + " to X360PkgTool located at: " + godtoolfilepath + " to an xex file located at: " + GodFilePath + "\n If this appears correct click yes to retry", "An error occured!", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("We see you have X360PkgTool in the correct folder and that you tried to pass " + startInfo.Arguments + " to X360PkgTool located at: " + godtoolfilepath + " to an xex file located at: " + GodFilePath + "\n If this appears correct click yes to retry", "An error occurred!", MessageBoxButtons.YesNo);
 
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -203,7 +203,7 @@ namespace X360GameHack
                 }
                 catch
                 {
-                    MessageBox.Show("Could not pass arguments to xISO!", "An Error occured!");
+                    MessageBox.Show("Could not pass arguments to xISO!", "An Error occurred!");
                 }
             }
             else if (xisofilepath == "" || xisofilepath == null)
@@ -226,7 +226,7 @@ namespace X360GameHack
             }
             else if (File.Exists(xisofilepath) && File.Exists(ISOFilePath) && Command != "" && startInfo.Arguments != "")
             {
-                DialogResult dialogResult = MessageBox.Show("We see you have xISO in the correct folder and that you tried to pass " + startInfo.Arguments + " to xISO located at: " + xextoolfilepath + " to an ISO file located at: " + XexFilePath + "\n If this appears correct click yes to retry", "An error occured!", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("We see you have xISO in the correct folder and that you tried to pass " + startInfo.Arguments + " to xISO located at: " + xextoolfilepath + " to an ISO file located at: " + XexFilePath + "\n If this appears correct click yes to retry", "An error occurred!", MessageBoxButtons.YesNo);
 
                 if (dialogResult == DialogResult.Yes)
                 {
