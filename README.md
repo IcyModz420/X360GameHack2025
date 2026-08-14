@@ -1,5 +1,7 @@
 X360GameHack 2025-2026
 
+I will be uploading the source directly to github so users can submit requests properly in the next update.
+
 Huge Update just released stay tuned here more coming soon: 
 
 New Preview: https://youtu.be/xvBrHgFffLk?si=EtnyNscucBhHS8sR
