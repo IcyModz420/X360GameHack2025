@@ -8,6 +8,8 @@ New Preview: https://youtu.be/xvBrHgFffLk?si=EtnyNscucBhHS8sR
 
 https://www.youtube.com/@IcyModz420
 
+I should probably mention XBDM has been postponed due to my router being 5G at the moment and the 360 only supports 2.4g bands..
+
 Summary:
 ----------------------------------------------------
 - X360GameHack 2026 is an open-source, all-in-one app designed to streamline the process of installing games on Xbox 360 RGH/JTAG consoles, Bad Update, Bad Avatar (Referred to inside X360GameHack as "exploited consoles"), and devkits to make it easier for people who have never used an exploited console to pickup a console and install their personally backed up games from any form ISO or STFS.
