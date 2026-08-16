@@ -4,7 +4,7 @@ Huge Update just released stay tuned here more coming soon:
 
 https://www.youtube.com/@IcyModz420
 
-I should probably mention XBDM has been postponed due to my router being 5G at the moment and the 360 only supports 2.4g bands..
+I should probably mention XBDM has been postponed due to my router being WPA3 & 5G at the moment and the 360 only supports WPA2 & 2.4g bands which you would have to login and set.
 
 Summary:
 ----------------------------------------------------
