@@ -1,0 +1,262 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|c:\\users\\icymo\\desktop\\x360gamehack2025\\x360gamehack\\forms\\x360gamehack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|solutionrelative:x360gamehack\\forms\\x360gamehack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|C:\\Users\\icymo\\Desktop\\X360GameHack2025\\x360gamehack\\forms\\x360gamehack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|solutionrelative:x360gamehack\\forms\\x360gamehack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|C:\\Users\\icymo\\Desktop\\X360GameHack2025\\x360gamehack\\forms\\x360gamehack.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|solutionrelative:x360gamehack\\forms\\x360gamehack.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|C:\\Users\\icymo\\Desktop\\X360GameHack2025\\x360gamehack\\forms\\x360gamehack.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|solutionrelative:x360gamehack\\forms\\x360gamehack.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|C:\\Users\\icymo\\Desktop\\X360GameHack2025\\x360gamehack\\forms\\bulkxisotool.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|solutionrelative:x360gamehack\\forms\\bulkxisotool.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|C:\\Users\\icymo\\Desktop\\X360GameHack2025\\x360gamehack\\forms\\bulkxisotool.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|solutionrelative:x360gamehack\\forms\\bulkxisotool.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|C:\\Users\\icymo\\Desktop\\X360GameHack2025\\x360gamehack\\forms\\bulkxisotool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|solutionrelative:x360gamehack\\forms\\bulkxisotool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|C:\\Users\\icymo\\Desktop\\X360GameHack2025\\x360gamehack\\forms\\bulkxisotool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|solutionrelative:x360gamehack\\forms\\bulkxisotool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|C:\\Users\\icymo\\Desktop\\X360GameHack2025\\x360gamehack\\core\\og and 360\\xisoextractorextention.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|solutionrelative:x360gamehack\\core\\og and 360\\xisoextractorextention.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|C:\\Users\\icymo\\Desktop\\X360GameHack2025\\x360gamehack\\web\\pastebin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|solutionrelative:x360gamehack\\web\\pastebin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|C:\\Users\\icymo\\Desktop\\X360GameHack2025\\x360gamehack\\core\\other\\usbdrives.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|solutionrelative:x360gamehack\\core\\other\\usbdrives.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|C:\\Users\\icymo\\Desktop\\X360GameHack2025\\x360gamehack\\core\\xbox 360\\stfsinstaller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|solutionrelative:x360gamehack\\core\\xbox 360\\stfsinstaller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|C:\\Users\\icymo\\Desktop\\X360GameHack2025\\x360gamehack\\core\\og and 360\\invoker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|solutionrelative:x360gamehack\\core\\og and 360\\invoker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Core\\Other\\X360GameHackSettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:X360GameHack\\Core\\Other\\X360GameHackSettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{33c88fe3-43b3-374e-9aac-c4679036dce0}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f53-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BulkXISOTool.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Forms\\BulkXISOTool.Designer.cs",
+              "RelativeDocumentMoniker": "X360GameHack\\Forms\\BulkXISOTool.Designer.cs",
+              "ToolTip": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Forms\\BulkXISOTool.Designer.cs",
+              "RelativeToolTip": "X360GameHack\\Forms\\BulkXISOTool.Designer.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-16T05:34:05.831Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "X360GameHack.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Forms\\X360GameHack.cs",
+              "RelativeDocumentMoniker": "X360GameHack\\Forms\\X360GameHack.cs",
+              "ToolTip": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Forms\\X360GameHack.cs [Design]",
+              "RelativeToolTip": "X360GameHack\\Forms\\X360GameHack.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T01:11:08.904Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "X360GameHack.resx",
+              "DocumentMoniker": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Forms\\X360GameHack.resx",
+              "RelativeDocumentMoniker": "X360GameHack\\Forms\\X360GameHack.resx",
+              "ToolTip": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Forms\\X360GameHack.resx",
+              "RelativeToolTip": "X360GameHack\\Forms\\X360GameHack.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-11-09T21:43:06.011Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "X360GameHack.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Forms\\X360GameHack.Designer.cs",
+              "RelativeDocumentMoniker": "X360GameHack\\Forms\\X360GameHack.Designer.cs",
+              "ToolTip": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Forms\\X360GameHack.Designer.cs",
+              "RelativeToolTip": "X360GameHack\\Forms\\X360GameHack.Designer.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-09T21:43:06.099Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "X360GameHack.cs",
+              "DocumentMoniker": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Forms\\X360GameHack.cs",
+              "RelativeDocumentMoniker": "X360GameHack\\Forms\\X360GameHack.cs",
+              "ToolTip": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Forms\\X360GameHack.cs",
+              "RelativeToolTip": "X360GameHack\\Forms\\X360GameHack.cs",
+              "ViewState": "AgIAAJoGAAAAAAAAAAAlwLQGAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-09T21:46:29.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BulkXISOTool.resx",
+              "DocumentMoniker": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Forms\\BulkXISOTool.resx",
+              "RelativeDocumentMoniker": "X360GameHack\\Forms\\BulkXISOTool.resx",
+              "ToolTip": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Forms\\BulkXISOTool.resx",
+              "RelativeToolTip": "X360GameHack\\Forms\\BulkXISOTool.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-05-16T05:34:05.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BulkXISOTool.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Forms\\BulkXISOTool.cs",
+              "RelativeDocumentMoniker": "X360GameHack\\Forms\\BulkXISOTool.cs",
+              "ToolTip": "C:\\X360GameHack2025\\X360GameHack\\Forms\\BulkXISOTool.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\X360GameHack2025\\X360GameHack\\Forms\\BulkXISOTool.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T20:24:13.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BulkXISOTool.cs",
+              "DocumentMoniker": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Forms\\BulkXISOTool.cs",
+              "RelativeDocumentMoniker": "X360GameHack\\Forms\\BulkXISOTool.cs",
+              "ToolTip": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Forms\\BulkXISOTool.cs",
+              "RelativeToolTip": "X360GameHack\\Forms\\BulkXISOTool.cs",
+              "ViewState": "AgIAAOcAAAAAAAAAAAAtwP0AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T20:33:33.564Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "XISOExtractorExtention.cs",
+              "DocumentMoniker": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Core\\OG and 360\\XISOExtractorExtention.cs",
+              "RelativeDocumentMoniker": "X360GameHack\\Core\\OG and 360\\XISOExtractorExtention.cs",
+              "ToolTip": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Core\\OG and 360\\XISOExtractorExtention.cs",
+              "RelativeToolTip": "X360GameHack\\Core\\OG and 360\\XISOExtractorExtention.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T20:49:46.099Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Pastebin.cs",
+              "DocumentMoniker": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Web\\Pastebin.cs",
+              "RelativeDocumentMoniker": "X360GameHack\\Web\\Pastebin.cs",
+              "ToolTip": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Web\\Pastebin.cs",
+              "RelativeToolTip": "X360GameHack\\Web\\Pastebin.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAcwEUAAABpAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-09T05:36:03.553Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "X360GameHackSettings.cs",
+              "DocumentMoniker": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Core\\Other\\X360GameHackSettings.cs",
+              "RelativeDocumentMoniker": "X360GameHack\\Core\\Other\\X360GameHackSettings.cs",
+              "ToolTip": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Core\\Other\\X360GameHackSettings.cs",
+              "RelativeToolTip": "X360GameHack\\Core\\Other\\X360GameHackSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-09T05:35:49.642Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "STFSInstaller.cs",
+              "DocumentMoniker": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Core\\Xbox 360\\STFSInstaller.cs",
+              "RelativeDocumentMoniker": "X360GameHack\\Core\\Xbox 360\\STFSInstaller.cs",
+              "ToolTip": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Core\\Xbox 360\\STFSInstaller.cs",
+              "RelativeToolTip": "X360GameHack\\Core\\Xbox 360\\STFSInstaller.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAAA0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-09T03:05:06.199Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Invoker.cs",
+              "DocumentMoniker": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Core\\OG and 360\\Invoker.cs",
+              "RelativeDocumentMoniker": "X360GameHack\\Core\\OG and 360\\Invoker.cs",
+              "ToolTip": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Core\\OG and 360\\Invoker.cs",
+              "RelativeToolTip": "X360GameHack\\Core\\OG and 360\\Invoker.cs",
+              "ViewState": "AgIAAC4BAAAAAAAAAAAAAEMBAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-09T07:04:43.894Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "USBDrives.cs",
+              "DocumentMoniker": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Core\\Other\\USBDrives.cs",
+              "RelativeDocumentMoniker": "X360GameHack\\Core\\Other\\USBDrives.cs",
+              "ToolTip": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Core\\Other\\USBDrives.cs",
+              "RelativeToolTip": "X360GameHack\\Core\\Other\\USBDrives.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEwAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-09T21:43:02.826Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

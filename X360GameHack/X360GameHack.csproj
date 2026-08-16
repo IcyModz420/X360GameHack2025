@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <LangVersion>14.0</LangVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{62CD4984-BC39-48EF-B18A-8E709071F9C2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>X360GameHack</RootNamespace>
+    <AssemblyName>X360GameHack</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>2.3.4.0</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Other\xbox.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>3190A2FB8038BBC3A445C0248971DA9D20E56764</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>X360GameHack_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>14.0</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>14.0</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Be.Windows.Forms.HexBox, Version=1.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Be.Windows.Forms.HexBox.1.6.1\lib\net40\Be.Windows.Forms.HexBox.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.6.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2">
+      <HintPath>..\..\..\..\Desktop\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="IndexRange, Version=1.1.1.0, Culture=neutral, PublicKeyToken=35e6a3c4212514c6, processorArchitecture=MSIL">
+      <HintPath>..\packages\IndexRange.1.1.1\lib\net47\IndexRange.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\Krypton.2.0.0.0\lib\net40-Client\Krypton.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Toolkit, Version=105.26.4.110, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Krypton.Toolkit.105.26.4.110\lib\net481\Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.Memory, Version=9.0.0.14, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Memory.9.0.14\lib\net462\Microsoft.Bcl.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Other\GeminiClient.cs" />
+    <Compile Include="Core\Other\USBDrives.cs" />
+    <Compile Include="Core\Xbox 360\360SaveResigner.cs" />
+    <Compile Include="Core\Xbox 360\SaveParcer.cs" />
+    <Compile Include="Core\Xbox 360\STFSInstaller.cs" />
+    <Compile Include="Core\Xbox 360\STFSParcer.cs" />
+    <Compile Include="Core\Xbox 360\XbdmClient.cs" />
+    <Compile Include="Core\Xbox 360\XbdmExtention.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Common\Enums.Automation.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Common\Enums.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Common\Enums.Notification.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Common\Types.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Debugger.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Features.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Memory.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Network.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Notification.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Notify.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Profiling.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Screenshot.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Symbols.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Threads.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Users.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Xbdm.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Core\Extensions.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Core\XboxClient.Async.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Core\XboxClient.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Core\XboxClient.Discovery.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Core\XboxClient.Screenshot.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Core\XboxClient.SharedConn.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Core\XboxManager.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Helpers\MiniToml.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Helpers\Tray.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Helpers\XboxAutomation.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Helpers\XboxDebugTarget.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Helpers\XboxFile.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Helpers\XboxRpc.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Helpers\XboxScreenshot.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Helpers\XeniaPatch.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Helpers\XMessageBoxUI.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Interop\XDevkit.Interfaces.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Interop\XDevkit.Stubs.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Interop\XDevkit.Types.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Interop\XDevkit.XboxConsoleClass.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Interop\XDevkit.XboxDebugTargetClass.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Interop\XDevkit.XboxManagerClass.cs" />
+    <Compile Include="Core\Xbox 360\XEXParcer.cs" />
+    <Compile Include="Forms\360DebugTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\360DebugTool.Designer.cs">
+      <DependentUpon>360DebugTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\360PluginHelper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\360PluginHelper.Designer.cs">
+      <DependentUpon>360PluginHelper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\360TwoDiscInstaller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\360TwoDiscInstaller.Designer.cs">
+      <DependentUpon>360TwoDiscInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Animations.cs" />
+    <Compile Include="Other\ProcessHelper.cs" />
+    <Compile Include="Security\AntiAdmin.cs" />
+    <Compile Include="Security\CastleAES.cs" />
+    <Compile Include="Security\MultiExecutionFix.cs" />
+    <Compile Include="Security\AntiDebug.cs" />
+    <Compile Include="Security\AntiCommandInjection.cs" />
+    <Compile Include="Security\Confuser.cs" />
+    <Compile Include="Forms\BulkXISOTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BulkXISOTool.Designer.cs">
+      <DependentUpon>BulkXISOTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Security\RuntimeSigning.cs" />
+    <Compile Include="Security\Sha3_256.cs" />
+    <Compile Include="Security\StringObfuscation.cs" />
+    <Compile Include="Forms\X360GameHack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\X360GameHack.Designer.cs">
+      <DependentUpon>X360GameHack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\OG and 360\FTPClient.cs" />
+    <Compile Include="Forms\QuickFTPGameSender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\QuickFTPGameSender.Designer.cs">
+      <DependentUpon>QuickFTPGameSender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\OG and 360\Invoker.cs" />
+    <Compile Include="Core\Xbox 360\GOD2ISO.cs" />
+    <Compile Include="Web\Pastebin.cs" />
+    <Compile Include="Other\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\Xbox 360\XEXIDChanger.cs" />
+    <Compile Include="Core\OG Xbox\XBEPatches.cs" />
+    <Compile Include="Web\XboxUnityAPI.cs" />
+    <Compile Include="Core\OG and 360\XISOExtractorExtention.cs" />
+    <EmbeddedResource Include="Forms\360PluginHelper.resx">
+      <DependentUpon>360PluginHelper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\360TwoDiscInstaller.resx">
+      <DependentUpon>360TwoDiscInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BulkXISOTool.resx">
+      <DependentUpon>BulkXISOTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\X360GameHack.resx">
+      <DependentUpon>X360GameHack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\QuickFTPGameSender.resx">
+      <DependentUpon>QuickFTPGameSender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Other\packages.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Other\X360GameHack_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Other\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Xbox 360\RegisterMSCOMCTLOCX.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Other\xbox.ico" />
+    <None Include="Resources\loading-spinner %282%29.gif" />
+    <None Include="Resources\loading-spinner %281%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.NetCore.DesktopRuntime.6.0.x64">
+      <Visible>False</Visible>
+      <ProductName>.NET Desktop Runtime 6.0.36 %28x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.NetCore.DesktopRuntime.6.0.x86">
+      <Visible>False</Visible>
+      <ProductName>.NET Desktop Runtime 6.0.36 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

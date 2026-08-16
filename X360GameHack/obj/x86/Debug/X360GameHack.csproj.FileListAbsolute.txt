@@ -1,0 +1,8 @@
+C:\Users\icymo\Desktop\X360GameHack2025\X360GameHack\obj\x86\Debug\X360GameHack.csproj.AssemblyReference.cache
+C:\Users\icymo\Desktop\X360GameHack2025\X360GameHack\obj\x86\Debug\X360GameHack.Forms._360PluginHelper.resources
+C:\Users\icymo\Desktop\X360GameHack2025\X360GameHack\obj\x86\Debug\X360GameHack.BulkXISOTool.resources
+C:\Users\icymo\Desktop\X360GameHack2025\X360GameHack\obj\x86\Debug\X360GameHack.X360GameHack.resources
+C:\Users\icymo\Desktop\X360GameHack2025\X360GameHack\obj\x86\Debug\X360GameHack.QuickFTPGameSender.resources
+C:\Users\icymo\Desktop\X360GameHack2025\X360GameHack\obj\x86\Debug\X360GameHack.Properties.Resources.resources
+C:\Users\icymo\Desktop\X360GameHack2025\X360GameHack\obj\x86\Debug\X360GameHack.csproj.GenerateResource.cache
+C:\Users\icymo\Desktop\X360GameHack2025\X360GameHack\obj\x86\Debug\X360GameHack.csproj.CoreCompileInputs.cache
