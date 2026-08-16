@@ -4,8 +4,6 @@ I will be uploading the source directly to github so users can submit requests p
 
 Huge Update just released stay tuned here more coming soon: 
 
-New Preview: https://youtu.be/xvBrHgFffLk?si=EtnyNscucBhHS8sR
-
 https://www.youtube.com/@IcyModz420
 
 I should probably mention XBDM has been postponed due to my router being 5G at the moment and the 360 only supports 2.4g bands..
