@@ -1,12 +1,10 @@
 X360GameHack 2025-2026
 
-I will be uploading the source directly to github so users can submit requests properly in the next update.
-
 Huge Update just released stay tuned here more coming soon: 
 
 https://www.youtube.com/@IcyModz420
 
-I should probably mention XBDM has been postponed due to my router being 5G at the moment and the 360 only supports 2.4g bands..
+I should probably mention XBDM has been postponed due to my router being WPA3 & 5G at the moment and the 360 only supports WPA2 & 2.4g bands which you would have to login and set.
 
 Summary:
 ----------------------------------------------------
@@ -18,7 +16,7 @@ Summary:
 
 XEX Tool GUI: (Production Complete)
 ----------------------------------------------------
-<img width="1947" height="1674" alt="xex patches" src="https://github.com/user-attachments/assets/bbf56f07-3557-43eb-892e-abcca69798e1" />
+<img width="1952" height="1664" alt="Screenshot_1" src="https://github.com/user-attachments/assets/f3248da5-5da5-43d6-a834-ce00a7213277" />
 
 - Drag-and-drop interface for encrypting or decrypting Xbox 360 XEX files, eliminating command-line complexities and path-related errors (e.g., spaces in file paths).
 - Displays XexTool output directly in the app.
@@ -32,7 +30,8 @@ XEX Tool GUI: (Production Complete)
 
 X360PKGTool GUI: (Production Complete)
 ----------------------------------------------------
-<img width="1937" height="1673" alt="Screenshot_3" src="https://github.com/user-attachments/assets/0d1d666d-1f87-4c93-8fb6-ba31ccf6e3e5" />
+<img width="1956" height="1662" alt="Screenshot_2" src="https://github.com/user-attachments/assets/afa21b35-e330-4abe-9a5b-040d8aacc23d" />
+
 
 - Easy Unlock DLC buttons for RGH, Bad Update, Bad Avatar, and Devkit.
 - Patch Package format to be RGH, Bad Update, Bad Avatar, or Devkit.
@@ -40,23 +39,16 @@ X360PKGTool GUI: (Production Complete)
 - Patch package to remove all original paid licenses/purchase traces embedded in the file.
 - Print extended info about package in X360GameHack and with full output.
 
-XISO Tools: (Not fully Production Complete)
+XISO Tools: Fully Production Complete)
 ----------------------------------------------------
-<img width="1946" height="1666" alt="Screenshot_19" src="https://github.com/user-attachments/assets/7e6b9ccb-1bce-4024-b6bd-6184f1a4566c" />
+<img width="1948" height="1659" alt="Screenshot_3" src="https://github.com/user-attachments/assets/cad3b122-2073-44aa-b767-c072525072dc" />
 
-- Extract single disc ISO and automatically patch the xexs if desired. (COMING SOON)
+- Bulk Extract single disc ISO and automatically patch the xexs if desired.
 - 2 Disc game install support (Install the package files from disc one to USB.) (COMING SOON)
 - Third party Xbox Image browser by redline and Xbox backup creator built in.
 - Third party ABGX360 one click options built in for use with flashed xboxes.
 - Create original xbox ISO from folder.
 - Optimize original xbox ISO to run smoother on the older consoles with newer blank CDs.
-
-Bulk XISO Tool: (Not fully Production Complete)
-----------------------------------------------------
-<img width="1960" height="1595" alt="Screenshot_9" src="https://github.com/user-attachments/assets/6289eb46-14bc-45f8-8576-84f3ca356253" />
-
-- Bulk XISO Tool extract a list of OG xbox and xbox 360 games one at a time and patch all the needed files in as few clicks as possible. (COMING BACK SOON)
-- Bulk extract and patch XEXs and XBEs automatically.
 
 Save Patches: (Production Complete)
 ----------------------------------------------------
@@ -175,6 +167,11 @@ Anti-Admin Explanation:
 - If X360GameHack needs admin permission it WILL ALWAYS ASK via message box in the X360GameHack window before popping a windows UAC to spawn a separate admin CMD to do what it needs. 
 - Please read the command the uac is trying to use via show more in the uac box it will show you the path and the cmd command it wants to use be for you click yes.
 - You are is secure hands with X360GameHack but it cannot ever hurt to be too safe.
+
+Windows Defender Virus Hit "This program executes commands from an attacker." Explanation:
+----------------------------------------------------
+- It has come to my attention that windows defender will no longer let me build X360GameHack without adding an exclusion in the program for it.. It claims that X360GameHack "Executes commands from an attacker.".. technically it does execute commands in user land command line apps. But not only is that *** backwards but it actually protects you from "Privilege Escalation" and "OS Command Injection" unlike mpgui and known rival programs. This project is fully open source and if you want to check anything before you build and run it it is very easy to do and I challenge anyone who can find something malicious (Ex, OS Command Injection, Privilege Escalation) to report the reproducible issue here for us to see with discord username for a $50 curtesy reward in this free program.
+"If a virus already has user mode privileges it doesn't need to hack/change my program it needs privilege escalation."
 
 Future-Proofing:
 ----------------------------------------------------
