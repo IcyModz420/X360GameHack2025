@@ -82,10 +82,6 @@ namespace X360GameHack
         {
             pictureBox1.Show();
             string filePath = textBox1.Text;
-            string fileName = new System.IO.FileInfo(filePath).Name;
-            double fileSizeMb = new System.IO.FileInfo(filePath).Length / 1024.0 / 1024.0;
-            label81.Text = fileName;
-            label83.Text = fileSizeMb.ToString("F2") + " MBs";
             string extension = Path.GetExtension(filePath);
             AntiCommandInjection APT = new AntiCommandInjection();
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -118,6 +114,10 @@ namespace X360GameHack
                         textBox19.Text = XEXParcer.EntryPoint;
                         textBox20.Text = XEXParcer.LoadAddress;
                         GetIconFrombase64(XEXParcer.GameIconBase64);
+                        string fileName = new System.IO.FileInfo(filePath).Name;
+                        double fileSizeMb = new System.IO.FileInfo(filePath).Length / 1024.0 / 1024.0;
+                        label81.Text = fileName;
+                        label83.Text = fileSizeMb.ToString("F2") + " MBs";
                         pictureBox1.Hide();
                         return;
                     }
@@ -129,6 +129,10 @@ namespace X360GameHack
                         textBox1.Text = invoker.ISOFilePath;//show path
                         groupBox4.Show();
                         tabControl1.SelectedIndex = 2;
+                        string fileName = new System.IO.FileInfo(filePath).Name;
+                        double fileSizeMb = new System.IO.FileInfo(filePath).Length / 1024.0 / 1024.0;
+                        label81.Text = fileName;
+                        label83.Text = fileSizeMb.ToString("F2") + " MBs";
                         pictureBox1.Hide();
                         return;
                     }
@@ -140,6 +144,10 @@ namespace X360GameHack
                         textBox1.Text = invoker.XBEFilePath;//show path
                         groupBox4.Show();
                         tabControl1.SelectedIndex = 4;
+                        string fileName = new System.IO.FileInfo(filePath).Name;
+                        double fileSizeMb = new System.IO.FileInfo(filePath).Length / 1024.0 / 1024.0;
+                        label81.Text = fileName;
+                        label83.Text = fileSizeMb.ToString("F2") + " MBs";
                         pictureBox1.Hide();
                         return;
                     }
@@ -162,6 +170,10 @@ namespace X360GameHack
                         textBox11.Text = Xbox360PkgParser.DisplayName;
                         textBox12.Text = Xbox360PkgParser.Description;
                         textBox13.Text = Xbox360PkgParser.Publisher;
+                        string fileName = new System.IO.FileInfo(filePath).Name;
+                        double fileSizeMb = new System.IO.FileInfo(filePath).Length / 1024.0 / 1024.0;
+                        label81.Text = fileName;
+                        label83.Text = fileSizeMb.ToString("F2") + " MBs";
                         pictureBox1.Hide();
                         return;
                     }
@@ -184,6 +196,10 @@ namespace X360GameHack
                         textBox38.Text = SaveParcer.InstallDir;
                         textBox56.Text = SaveParcer.ProfileID;
                         textBox57.Text = SaveParcer.ConsoleID;
+                        string fileName = new System.IO.FileInfo(filePath).Name;
+                        double fileSizeMb = new System.IO.FileInfo(filePath).Length / 1024.0 / 1024.0;
+                        label81.Text = fileName;
+                        label83.Text = fileSizeMb.ToString("F2") + " MBs";
                         pictureBox1.Hide();
                         return;
                     }

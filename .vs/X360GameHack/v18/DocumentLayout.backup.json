@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|c:\\users\\icymo\\desktop\\x360gamehack2025\\x360gamehack\\forms\\x360gamehack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|solutionrelative:x360gamehack\\forms\\x360gamehack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|C:\\Users\\icymo\\Desktop\\X360GameHack2025\\x360gamehack\\web\\pastebin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|solutionrelative:x360gamehack\\web\\pastebin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|C:\\Users\\icymo\\Desktop\\X360GameHack2025\\x360gamehack\\forms\\x360gamehack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|solutionrelative:x360gamehack\\forms\\x360gamehack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|c:\\users\\icymo\\desktop\\x360gamehack2025\\x360gamehack\\forms\\x360gamehack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|C:\\Users\\icymo\\Desktop\\X360GameHack2025\\x360gamehack\\forms\\x360gamehack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{62CD4984-BC39-48EF-B18A-8E709071F9C2}|X360GameHack\\X360GameHack.csproj|solutionrelative:x360gamehack\\forms\\x360gamehack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -105,7 +105,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 16,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Document",
@@ -232,13 +232,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "X360GameHack.cs",
               "DocumentMoniker": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Forms\\X360GameHack.cs",
               "RelativeDocumentMoniker": "X360GameHack\\Forms\\X360GameHack.cs",
               "ToolTip": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Forms\\X360GameHack.cs",
               "RelativeToolTip": "X360GameHack\\Forms\\X360GameHack.cs",
-              "ViewState": "AgIAANAAAAAAAAAAAAAawPAAAABKAAAAAAAAAA==",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAwwFAAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-11T14:16:52.647Z",
               "EditorCaption": ""
@@ -269,7 +269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Pastebin.cs",
               "DocumentMoniker": "C:\\Users\\icymo\\Desktop\\X360GameHack2025\\X360GameHack\\Web\\Pastebin.cs",
               "RelativeDocumentMoniker": "X360GameHack\\Web\\Pastebin.cs",
@@ -277,8 +277,7 @@
               "RelativeToolTip": "X360GameHack\\Web\\Pastebin.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-17T00:12:03.621Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-17T00:12:03.621Z"
             },
             {
               "$type": "Document",

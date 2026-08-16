@@ -1,0 +1,154 @@
+﻿## EXCEPTION
+Exception Type: System.NotSupportedException
+Exception Message: The given path's format is not supported.
+The callstack context, if included, corresponds to the thread where this exception occurred. There is no need to identify this thread by other means.
+The top most frame in the callstack context should correspond to the place the exception message was thrown from. Code may or may not have been provided for it but can be requested.
+
+## CALLSTACK
+Thread ID: 4212
+[1] mscorlib.dll!System.Security.Permissions.FileIOPermission.EmulateFileIOPermissionChecks
+[2] mscorlib.dll!System.Security.Permissions.FileIOPermission.QuickDemand
+[3] mscorlib.dll!System.IO.FileInfo.Init
+[4] mscorlib.dll!System.IO.FileInfo.FileInfo
+[5] X360GameHack.exe!X360GameHack.X360GameHack.button1_Click
+This is the current user focused stack frame. The provided locals context corresponds to this stack frame, but you may evaluate expressions and retrieve code for any frame.
+Code for the stack frame:
+```csharp X360GameHack\Forms\X360GameHack.cs
+81:         private void button1_Click(object sender, EventArgs e)
+82:         {
+83:             pictureBox1.Show();
+84:             string filePath = textBox1.Text;
+85:             string fileName = new System.IO.FileInfo(filePath).Name;
+86:             double fileSizeMb = new System.IO.FileInfo(filePath).Length / 1024.0 / 1024.0;
+87:             label81.Text = fileName;
+88:             label83.Text = fileSizeMb.ToString("F2") + " MBs";
+89:             string extension = Path.GetExtension(filePath);
+90:             AntiCommandInjection APT = new AntiCommandInjection();
+91:             using (OpenFileDialog openFileDialog = new OpenFileDialog())
+92:             {
+93:                 openFileDialog.InitialDirectory = Application.StartupPath;
+94:                 openFileDialog.RestoreDirectory = true;
+95:                 if (openFileDialog.ShowDialog() == DialogResult.OK)
+96:                 {
+97:                     //open file dialog
+98:                     filePath = openFileDialog.FileName;
+99:                     // pass filepath to invoker class
+100:                     if (filePath.Contains(".xex") || filePath.Contains(".exe") || filePath.Contains(".dll"))
+101:                     {
+102:                         label1.Text = "Xbox 360 Executable";
+103:                         APT.SanitizeInvokerFilePath(filePath);
+104:                         invoker.XexFilePath = filePath; //set invoker                        
+105:                         textBox1.Text = filePath; //show path
+106:                         groupBox4.Show();
+107:                         tabControl1.SelectedIndex = 0;
+108:                         XEXParcer XEXParcer = new XEXParcer();
+109:                         XEXParcer.GetXEXInfo(textBox1.Text);
+110:                         textBox15.Text = XEXParcer.XEXName;
+111:                         textBox46.Text = XEXParcer.XEXSystem;
+112:                         textBox44.Text = XEXParcer.Encrypted;
+113:                         textBox43.Text = XEXParcer.Compressed;
+114:                         textBox4.Text = XEXParcer.MediaId;
+115:                         textBox3.Text = XEXParcer.TitleId;
+116:                         textBox41.Text = XEXParcer.XEXVersion;
+117:                         textBox9.Text = XEXParcer.BaseVersion;
+118:                         textBox19.Text = XEXParcer.EntryPoint;
+119:                         textBox20.Text = XEXParcer.LoadAddress;
+120:                         GetIconFrombase64(XEXParcer.GameIconBase64);
+121:                         pictureBox1.Hide();
+122:                         return;
+123:                     }
+124:                     else if (filePath.Contains(".iso"))
+125:                     {
+126:                         label1.Text = "OG/Xbox 360 ISO";
+127:                         APT.SanitizeInvokerFilePath(filePath);
+128:                         invoker.ISOFilePath = filePath; //set invoker
+129:                         textBox1.Text = invoker.ISOFilePath;//show path
+130:                         groupBox4.Show();
+131:                         tabControl1.SelectedIndex = 2;
+132:                         pictureBox1.Hide();
+133:                         return;
+134:                     }
+135:                     else if (filePath.Contains(".xbe"))
+136:                     {
+137:                         label1.Text = "Original Xbox Executable";
+138:                         APT.SanitizeInvokerFilePath(filePath);
+139:                         invoker.XBEFilePath = filePath; //set invoker
+140:                         textBox1.Text = invoker.XBEFilePath;//show path
+141:                         groupBox4.Show();
+142:                         tabControl1.SelectedIndex = 4;
+143:                         pictureBox1.Hide();
+144:                         return;
+145:                     }
+146:                     else if (string.IsNullOrEmpty(extension))
+147:                     {
+148:                         label1.Text = "Xbox 360 PKG";
+149:                         APT.SanitizeInvokerFilePath(filePath);
+150:                         invoker.ISOFilePath = filePath; //set invoker
+151:                         textBox1.Text = invoker.GodFilePath;//show path
+152:                         groupBox4.Show();
+153:                         tabControl1.SelectedIndex = 1;
+154:                         Xbox360PkgParser Xbox360PkgParser = new Xbox360PkgParser();
+155:                         Xbox360PkgParser.GetPkgInfo(textBox1.Text);
+156:                         textBox17.Text = Xbox360PkgParser.PkgType;
+157:                         textBox18.Text = Xbox360PkgParser.TitleName;
+158:                         textBox37.Text = Xbox360PkgParser.PkgVersion;
+159:                         textBox45.Text = Xbox360PkgParser.BaseVersion;
+160:                         textBox40.Text = Xbox360PkgParser.TitleId;
+161:                         textBox39.Text = Xbox360PkgParser.MediaId;
+162:                         textBox11.Text = Xbox360PkgParser.DisplayName;
+163:                         textBox12.Text = Xbox360PkgParser.Description;
+164:                         textBox13.Text = Xbox360PkgParser.Publisher;
+165:                         pictureBox1.Hide();
+166:                         return;
+167:                     }
+168:                     else if (filePath.Contains(".bin"))
+169:                     {
+170:                         label1.Text = "Xbox 360 Save Pack";
+171:                         APT.SanitizeInvokerFilePath(textBox1.Text);
+172:                         invoker.GodFilePath = textBox1.Text; //set invoker
+173:                         groupBox4.Show();
+174:                         tabControl1.SelectedIndex = 3;
+175:                         SaveParser SaveParcer = new SaveParser();
+176:                         SaveParcer.GetPkgInfo(textBox1.Text);
+177:                         textBox55.Text = SaveParcer.PkgType;
+178:                         textBox48.Text = SaveParcer.DisplayName;
+179:                         textBox54.Text = SaveParcer.TitleName;
+180:                         textBox53.Text = SaveParcer.PkgVersion;
+181:                         textBox49.Text = SaveParcer.BaseVersion;
+182:                         textBox51.Text = SaveParcer.TitleId;
+183:                         textBox50.Text = SaveParcer.MediaId;
+184:                         textBox38.Text = SaveParcer.InstallDir;
+185:                         textBox56.Text = SaveParcer.ProfileID;
+186:                         textBox57.Text = SaveParcer.ConsoleID;
+187:                         pictureBox1.Hide();
+188:                         return;
+189:                     }
+190:                     else
+191:                     {
+192:                         label1.Text = "???";
+193:                         groupBox4.Show();
+194:                         MessageBox.Show("You have attempted to open a file with an unknown to X360GameHack extention... \nX360GameHack will not use it nor set the invoker for it...\nSupported files are: \nISO\nXEX\nXBE\nand No Extention for 360 PKGs!", "X360GameHack Info!");
+195:                     }
+196: 
+197:                 }
+198:             }
+199:         }
+```
+Current statement: line 85
+[6] System.Windows.Forms.dll!System.Windows.Forms.Control.OnClick
+[7] System.Windows.Forms.dll!System.Windows.Forms.Button.OnClick
+[8] System.Windows.Forms.dll!System.Windows.Forms.Button.OnMouseUp
+[9] System.Windows.Forms.dll!System.Windows.Forms.Control.WmMouseUp
+[10] System.Windows.Forms.dll!System.Windows.Forms.Control.WndProc
+........12 more stack frames omitted.
+
+## LOCALS
+Variable: 'this' of type 'X360GameHack.X360GameHack' is a complex object with child properties and has value: {X360GameHack.X360GameHack}
+Variable: 'sender' of type 'object {System.Windows.Forms.Button}' is a complex object with child properties and has value: {Text = "Open"}
+Variable: 'e' of type 'System.EventArgs {System.Windows.Forms.MouseEventArgs}' is a complex object with child properties and has value: {X = 37 Y = 4 Button = Left}
+Variable: 'filePath' of type 'string' has value: "Drag and Drop XEX, XBE, PKG, XISO, or Save Here:"
+Variable: 'fileName' of type 'string' has value: null
+Variable: 'fileSizeMb' of type 'double' has value: 0
+Variable: 'extension' of type 'string' has value: null
+Variable: 'APT' of type 'X360GameHack.Security.AntiCommandInjection' has value: null
+
