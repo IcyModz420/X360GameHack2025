@@ -28,10 +28,19 @@ XEX Tool GUI: (Production Complete)
 - Change Title ID and Media ID of xbox 360 XEX files.
 - Print extended info about the XEX file.
 
+XEX Hacker: (Production Complete)
+----------------------------------------------------
+<img width="2190" height="1863" alt="Screenshot_4" src="https://github.com/user-attachments/assets/5bda161c-eff1-4c24-8049-97101a381f0e" />
+
+- Swap between basefile view or hex view of the xex file and save in hxd mode.
+- jump to address in hxd or basefile mode
+- find and replace hex in both modes 
+- (you currently cannot save in base file mode)
+- yes it matches ghidra in base file mode
+
 X360PKGTool GUI: (Production Complete)
 ----------------------------------------------------
 <img width="1956" height="1662" alt="Screenshot_2" src="https://github.com/user-attachments/assets/afa21b35-e330-4abe-9a5b-040d8aacc23d" />
-
 
 - Easy Unlock DLC buttons for RGH, Bad Update, Bad Avatar, and Devkit.
 - Patch Package format to be RGH, Bad Update, Bad Avatar, or Devkit.
