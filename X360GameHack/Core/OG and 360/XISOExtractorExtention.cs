@@ -37,7 +37,6 @@ namespace X360GameHack
                     try
                     {
                         //We need to know where the iso is that's being extracted first its being sent over the method call.
-                        // on a for each staement.
                         // copy xiso.exe from app dir to location of iso to be extracted so it can be used to extract it.
                         File.Copy(Path.Combine(AppContext.BaseDirectory, "extract-xiso.exe"), Path.Combine(isoPath, "extract-xiso.exe"));
                     }

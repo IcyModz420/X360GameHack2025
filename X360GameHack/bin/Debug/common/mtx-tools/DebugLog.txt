@@ -1,0 +1,4 @@
+Looking for usb interface device
+Flash Config: 0x00023010
+Block Size: 16KB Block Limits: 0x000000..0x00004F
+File: E:\Xbox 360\RGH JTAG\J-Runner with Extras\trinity.bin

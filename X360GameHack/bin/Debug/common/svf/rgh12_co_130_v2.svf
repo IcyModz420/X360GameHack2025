@@ -1,0 +1,1144 @@
+// Created using Xilinx Cse Software [ISE - 14.7]
+// Date: Tue Oct 19 17:07:44 2021
+
+TRST OFF;
+ENDIR IDLE;
+ENDDR IDLE;
+STATE RESET;
+STATE IDLE;
+FREQUENCY 1E6 HZ;
+//Operation: Program -p 0 -e -v 
+TIR 0 ;
+HIR 0 ;
+TDR 0 ;
+HDR 0 ;
+TIR 0 ;
+HIR 0 ;
+HDR 0 ;
+TDR 0 ;
+//Loading device with 'idcode' instruction.
+SIR 8 TDI (01) SMASK (ff) ;
+SDR 32 TDI (00000000) SMASK (ffffffff) TDO (f6e5f093) MASK (0fff8fff) ;
+//Check for Read/Write Protect.
+SIR 8 TDI (ff) TDO (01) MASK (03) ;
+//Boundary Scan Chain Contents
+//Position 1: xc2c64a
+TIR 0 ;
+HIR 0 ;
+TDR 0 ;
+HDR 0 ;
+TIR 0 ;
+HIR 0 ;
+TDR 0 ;
+HDR 0 ;
+TIR 0 ;
+HIR 0 ;
+HDR 0 ;
+TDR 0 ;
+//Loading device with 'idcode' instruction.
+SIR 8 TDI (01) ;
+SDR 32 TDI (00000000) TDO (f6e5f093) ;
+//Check for Read/Write Protect.
+SIR 8 TDI (ff) TDO (01) MASK (03) ;
+TIR 0 ;
+HIR 0 ;
+HDR 0 ;
+TDR 0 ;
+// Loading devices with 'enable' or 'bypass' instruction.
+SIR 8 TDI (e8) ;
+// Loading devices with 'erase' or 'bypass' instruction.
+ENDIR IRPAUSE;
+SIR 8 TDI (ed) SMASK (ff) ;
+ENDIR IDLE;
+STATE  IREXIT2 IRUPDATE DRSELECT DRCAPTURE DREXIT1 DRPAUSE;
+RUNTEST DRPAUSE 20 TCK;
+STATE  IDLE;
+RUNTEST IDLE 100000 TCK;
+STATE  DRPAUSE;
+RUNTEST DRPAUSE 5000 TCK;
+RUNTEST IDLE 1 TCK;
+// Loading devices with 'init' or 'bypass' instruction.
+ENDIR IRPAUSE;
+SIR 8 TDI (f0) SMASK (ff) ;
+STATE  IDLE;
+RUNTEST IDLE 20 TCK;
+// Loading devices with 'init' or 'bypass' instruction.
+ENDIR IRPAUSE;
+SIR 8 TDI (f0) SMASK (ff) ;
+STATE  IREXIT2 IRUPDATE DRSELECT DRCAPTURE DREXIT1 DRUPDATE IDLE;
+RUNTEST 800 TCK;
+ENDIR IDLE;
+// Loading devices with 'conld' or 'bypass' instruction.
+SIR 8 TDI (c0) ;
+RUNTEST 100 TCK;
+// Loading devices with 'conld' or 'bypass' instruction.
+SIR 8 TDI (c0) ;
+RUNTEST 100 TCK;
+// Loading devices with 'enable' or 'bypass' instruction.
+SIR 8 TDI (e8) ;
+// Programming.
+// Loading devices with 'program' instruction.
+ENDIR IRPAUSE;
+SIR 8 TDI (ea) ;
+SDR 281 TDI (0003d97ffffffffffdfffff7fffffffffffffe7e5bffffffffffffffffffffff7fffff6f) SMASK (01ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+ENDIR IDLE;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0103dd7ffffffffffffdd777fffffffffffffe7c6fffffbeffeffefbefbefbfffffffeef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0182f97ffffffffff5fdd777fffffffffffffe7e5bfffffffffffffffffffffffffeaa7d) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0083d97ffffffffff5fdd777fffffffffffffe7e5bffffffffffffffffffffffd55fff6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00c3d97fffffffffff7ffff7fffffffffffffe7e5bffffffffffffffffffff2ffffffe0f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01c2f97ffffffffffffdd7f7fffffffffffffe7c6fffffffffffffffffbffffffffffe7d) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0143c17ffffffffff57dd777fffffffffffffe7e73ffffffffffffffffffffffd55fff6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0043997ffffffffffffdd777fffffffffffffe7c3ffffffffffffefbefbffffffffffeef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0062f97ffffffffffffdd777fffffffffffffe7e3dfffffffffffffffffffffffffeeefd) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0163c17ffffffffff575d77dfffffffffffffe3e7dffffffffffffffffffffffffffbb6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01e3997ffffffffffff7fff7fffffffffffffe7e5bfffffffffffffffffffffffffffaef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00e2f97ffffffffffffdfff7fffffffffffffe7c3ffffffffffffffbefbffffffffffefd) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00a3db7ffffffffff7fdd777fffffffffffffe766fffffbeffeffefbefbfffffffffff6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01a3d9f5d4fb6cd55ffffdffffffffdf7ffffe727fffffffffffffffffffffffdffffeef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0122f9fdcbff7fff3fff7ffffffffffffffffe367fffffbeffeffefbefbffbfffffffefd) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0023d9dffffffffff575d77ffffffffffffffe4e7fffffbefbefbefbefbefbffffffff6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0033dd7ffffffffffffffff7fffffffffffffe6c7fffffffffeffefbefbffffffffffeef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0132fffffff7dfffffdffffffffffffffdfafe777fffffffffffffffffffffffff7ffefd) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01b3c17fffffffffffffff77fffffffffffffe7c3fffffffffffffffefbfffffffffff6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00b3997ffffffffffffff7f7fffffffffffffe766ffffffffffffffffffffefffffffeef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00f2fdffffffffffffffffcbffffffffffffffffffffffffffffffffffffff4bfffffefd) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01f3dbffff5fffffeaebaeffffffffffffffffffffffffffffffffffffffffffffffff6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0173d9ffebfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffeef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0072fdffdfffffffffffffffffffffffffffe1e7fffffffffffffffffffffffffffffefd) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0053dbfffffffff4bfffffffffffffffffffffffffffffffffffffffffffffffffffff6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0153d9fffffff4bffffffffffffffffffffffffffffffffffffffffffffffffffffffeef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01d2f9fdfffafffffffffffffffffffffffffffffffffffffffffffffffffffeaaaffefd) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00d3db4fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff4b6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0093d97fffffffffffffdff7fffffffffffd7e7eeffffffffffffffffffffffffffbfeef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0192f9ffffff7fffffff7fffffffffdffffffe6c7fffffbeffefbefbefbefbfffffffefd) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0113dbf7fddffdd3fffffffffffffffffffffe727fffffffffffffffffffffb3ffffff6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0013ddfff75ffffffffffffffffffffffffffe367ffffffffffffffffffffffff7fffeef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (001af97ffffffffffffdfff7fffffffffffffe6e77fffffffffffffffffffffffff7fefd) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (011bdbf7fd5ffdcdfffffffffffffffffffffe667fffffffffffffffffffffffffdfff6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (019bddff7ffffffffffffffffffffffffffffe5a7ffffffffffffffffffffffffd5ffeef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (009af93ffffffffff575d773fffffffffffffe5e3ffffffffffffffffffffffffd5ffefd) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00dbdabfffffffffffffffcbfffffffffffffe1e7fffffffffffffffffffff53ffffff6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01dbddfffd5fffffffffffffffffffff7ffffe667fffffffffffffffffffffffff5ffeef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (015af97ffffffffffffdd777fffffffffffffefebffffffffffffffffffffffffffffefd) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (005bdb7ffffffffff7fffff7fffffffffffffefeeffffffffffffffffffffffffffffe0f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (007bd9f7fd5ff7fffffffffffffffffffffffe667fffffffffffffffffffffffff5ffe67) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (017afdfffffdffffffff7ffffffffffffffffeeefffffffffffffffffffffffffffffe7d) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01fbdbfdffff7fffffff7dfffffffffffffffebefffffffffffffffffffffffffffffe0f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00fbd9ffffffffffffff7ffffffffffffffffe5e3fffffffffffffffffffffffffff5e67) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00bafdfddfff7ffedfff7ffffffffffffffffebefffffffffffffffffffffffffffffe7d) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01bbd9f7fd5ffd7ffffffffffffffffffffffe4e7ffffffffffffffffffffffffdfffe0f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (013bddfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe67) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (003af9ffffffffffffffffffffffffffffffff7d7ffffffeffeffefbefbffffffffffe7d) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (002bdbfff7fffffffffffffffffffffffffffe7e3dfffffffffffffffffffbeeeeeeaa0f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (012ac5ffffffffffffffffffffffffffffffff777ffffffffffffffffffffffffffeaa7f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01aaf9fffffffff5df77df7ffffffffffffffe7e6dffffffffffffffffffffbeeeef547c) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00abdbffff7ffffffffffffffffffffffffffe7e3dfffffffffffffffffffffbeeeeaa0f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00ebddfffffff3ccdb33cf3ffffffffffffffe7e3dffffffffffffffffffffffbeef547f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01eaf9fffffffffffd77df7ffffffffffffffe7e67ffffffffffffffffeeeeeeeeef547c) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (016bc1b7ddfffffffffffffffffffffffffffe7e6dfffffffffffffffffffffffbeeab6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (006af9ffffffebaabaabaebffffffffffffffe367fffffffffffffffffeeeeeeeeeffeef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (004a05fffffd7ffffffffffffffffffffffffe7e79fffffffffffffb2ffffffffffffe7d) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (014bdbfffffd7ffffffffffffffffffffffffe7e79fffffffffffffaecffffffffffff6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01cbddffffffffff5f77df7ffffffffffffffe7e6dffffffffffffffffffffffffbf54ef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00caf9fffffffddddf77df7ffffffffffffffe7e1fffffffffffffffffeeeeeeeeeef67d) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (008bf9ffffef7ffffffffffffffffffffffffe7e37ffffffffffffffffffbeeeeeeeab6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (018bd9fffffffffffffddf7ffffffffffffffe7e1fffffffffffffffffeeeeeeeeeeaaef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (010af9ffffdffffffffffffffffffffffffdf63efffffffffffffffecafffffffffffe7d) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (000bdbfdfdfffffffffffffffffffffffffffe7e4ffffffffffffffdefffffffffffff6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (000fddfffffffffffffff77ffffffffffffffe7e1fffffffffffffffffeeeeeeeeef54ef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (010ef8fffffffffffffffffffffffffffffd7e7afffffffffffffffffffffffffffbfe7d) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (018ff9ffffffffffffd7df7ffffffffffffffe7e37fffffffffffffffffbeeeeeeef556f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (008fd9fffffffffffffffdf7fffff7dffdfffe7a77ffffffffffffffffeeeeeeeeef4a1c) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00cef9ffffffffffffffd6bfffffffffffffffffffffffffffffffffffffffffffffffc5) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01cfd9fffffff5ffffffffffffffffffffffffffffffffffffffffffffd2ffffffffff6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (014fd9fffffebffffff5ffffffffffffffffffffffffffffffffffffffffd2fffffffeef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (004ef9ffff4bffffffffffffffffffffffffffffffffffffffffffffffffffafffff547d) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (006fd9ffebffffffff5ffffffffffffffffffffffffffffffffffffffffffffd2fffff6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (016fddfffffffffd3bfffffffffffffffffff9fffffffffffffffffffffffffffafffeef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01eef97bbffffffffffffffffffffffffffffffffffffffffffffffabffffffffffffe7d) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00efdbd7ffffffaffffffffffffffffffffffffffffffffffffffffff57fffffffafff6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00afddff7ffffffffffffffffffffffffffafe7f77ffffffffffffffffeeeeeeeeeeb4ef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01aef9ffffdffffffffffffffffffffffffffeeefffffffffffffffffffffffffffffe7d) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (012fdbfffffff7dddf77df7ffffffffffffffe6e5fffffffffffffffffeeeeeeeeef540f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (002fddfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe7f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (003ef9fffffff7dddf77df7ffffffffffffffe667fffffffffffffffffeeeeeeeeefbc7c) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (013fdbffffffffffffffffffffffffffffffff5f7ffffffffffffffffffffffffffeab6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01bfddffffdffffffffffffffffffffffffffeeefffffffffffffffffffffffffffffeef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00bef9fffff55ffffffffffffffffffffffbee7f5fffffffffffffffffcccccccccffe7d) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00ffd9fffffddffffffffffffffffffffffffe5e3fffffffffffffffffd555555557fe0f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01ffddcfdcbffffffffffffffffffffffffffebefffffffffffffffffffffffffffffe7f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (017ef9ffffffff7ff7ff7fffffffffffff99fe7ffffbeffffffffffffffffffffffffe7c) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (007fd953cd5ffffffffffffffffffffffffffe7a5ffffffffffffffaeb7ffffffffffe7f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (005cd9ffffffffffffffffdffffffffffffffe7e1fffffffffffffffffeeeeeeeeef54ef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (015e01fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe7d) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (01dfdbffffdffffffffffffffffffffffffffebefffffffffffffffffffffffffffffe7f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (00dfddfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe6f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (009ef9ffffdffffffffffffffffffffffffffebefffffffffffffffffffffffffffffe7d) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (019fd9ffffffffffffffffffffffffffffffff7f77ffffffffffffffffbeeeeeeeef556f) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (011fd9ffffffffffffffffffffffffffffffff7f77fffffffffffffffffffffffffeaaef) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (001ef9fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe7d) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0017ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 10000 TCK;
+SDR 281 TDI (0117ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 10000 TCK;
+// Loading devices with 'init' or 'bypass' instruction.
+ENDIR IRPAUSE;
+SIR 8 TDI (f0) SMASK (ff) ;
+STATE  IDLE;
+RUNTEST IDLE 20 TCK;
+// Loading devices with 'init' or 'bypass' instruction.
+ENDIR IRPAUSE;
+SIR 8 TDI (f0) SMASK (ff) ;
+STATE  IREXIT2 IRUPDATE DRSELECT DRCAPTURE DREXIT1 DRUPDATE IDLE;
+RUNTEST 800 TCK;
+ENDIR IDLE;
+// Loading devices with 'conld' or 'bypass' instruction.
+SIR 8 TDI (c0) ;
+RUNTEST 100 TCK;
+// Loading devices with 'conld' or 'bypass' instruction.
+SIR 8 TDI (c0) ;
+RUNTEST 100 TCK;
+TIR 0 ;
+HIR 0 ;
+HDR 0 ;
+TDR 0 ;
+//Loading device with 'enable' instruction.
+SIR 8 TDI (e8) ;
+//Loading device with 'enable' instruction.
+SIR 8 TDI (e8) ;
+// Verification. 
+// Loading device with a 'verify' instruction. 
+ENDIR IRPAUSE;
+SIR 8 TDI (ee) ;
+ENDDR DRPAUSE;
+SDR 7 TDI (00) SMASK (7f) ;
+ENDIR IDLE;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d97ffffffffffdfffff7fffffffffffffe7e5bffffffffffffffffffffff7fffff6f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (40) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03dd7ffffffffffffdd777fffffffffffffe7c6fffffbeffeffefbefbefbfffffffeef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (60) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f97ffffffffff5fdd777fffffffffffffe7e5bfffffffffffffffffffffffffeaa7d) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (20) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d97ffffffffff5fdd777fffffffffffffe7e5bffffffffffffffffffffffd55fff6f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (30) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d97fffffffffff7ffff7fffffffffffffe7e5bffffffffffffffffffff2ffffffe0f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (70) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f97ffffffffffffdd7f7fffffffffffffe7c6fffffffffffffffffbffffffffffe7d) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (50) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03c17ffffffffff57dd777fffffffffffffe7e73ffffffffffffffffffffffd55fff6f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (10) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03997ffffffffffffdd777fffffffffffffe7c3ffffffffffffefbefbffffffffffeef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (18) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f97ffffffffffffdd777fffffffffffffe7e3dfffffffffffffffffffffffffeeefd) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (58) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03c17ffffffffff575d77dfffffffffffffe3e7dffffffffffffffffffffffffffbb6f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (78) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03997ffffffffffff7fff7fffffffffffffe7e5bfffffffffffffffffffffffffffaef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (38) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f97ffffffffffffdfff7fffffffffffffe7c3ffffffffffffffbefbffffffffffefd) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (28) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03db7ffffffffff7fdd777fffffffffffffe766fffffbeffeffefbefbfffffffffff6f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (68) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d9f5d4fb6cd55ffffdffffffffdf7ffffe727fffffffffffffffffffffffdffffeef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (48) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f9fdcbff7fff3fff7ffffffffffffffffe367fffffbeffeffefbefbffbfffffffefd) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (08) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d9dffffffffff575d77ffffffffffffffe4e7fffffbefbefbefbefbefbffffffff6f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (0c) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03dd7ffffffffffffffff7fffffffffffffe6c7fffffffffeffefbefbffffffffffeef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (4c) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02fffffff7dfffffdffffffffffffffdfafe777fffffffffffffffffffffffff7ffefd) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (6c) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03c17fffffffffffffff77fffffffffffffe7c3fffffffffffffffefbfffffffffff6f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (2c) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03997ffffffffffffff7f7fffffffffffffe766ffffffffffffffffffffefffffffeef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (3c) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02fdffffffffffffffffcbffffffffffffffffffffffffffffffffffffff4bfffffefd) MASK (
+03fffffffffffffffffffffffffffffe00000001ffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (7c) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03dbffff5fffffeaebaeffffffffffffffffffffffffffffffffffffffffffffffff6f) MASK (
+03fffffffffffffffffffffffffffffe00000001ffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (5c) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d9ffebfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffeef) MASK (
+03fffffffffffffffffffffffffffffe00000001ffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (1c) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02fdffdfffffffffffffffffffffffffffe1e7fffffffffffffffffffffffffffffefd) MASK (
+03fffffffffffffffffffffffffffffe001ff801ffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (14) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03dbfffffffff4bfffffffffffffffffffffffffffffffffffffffffffffffffffff6f) MASK (
+03fffffffffffffffffffffffffffffe001f8001ffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (54) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d9fffffff4bffffffffffffffffffffffffffffffffffffffffffffffffffffffeef) MASK (
+03fffffffffffffffffffffffffffffe00000001ffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (74) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f9fdfffafffffffffffffffffffffffffffffffffffffffffffffffffffeaaaffefd) MASK (
+03fffffffffffffffffffffffffffffe00000001ffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (34) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03db4fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff4b6f) MASK (
+03fffffffffffffffffffffffffffffe00000001ffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (24) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d97fffffffffffffdff7fffffffffffd7e7eeffffffffffffffffffffffffffbfeef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (64) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f9ffffff7fffffff7fffffffffdffffffe6c7fffffbeffefbefbefbefbfffffffefd) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (44) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03dbf7fddffdd3fffffffffffffffffffffe727fffffffffffffffffffffb3ffffff6f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (04) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03ddfff75ffffffffffffffffffffffffffe367ffffffffffffffffffffffff7fffeef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (06) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f97ffffffffffffdfff7fffffffffffffe6e77fffffffffffffffffffffffff7fefd) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (46) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03dbf7fd5ffdcdfffffffffffffffffffffe667fffffffffffffffffffffffffdfff6f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (66) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03ddff7ffffffffffffffffffffffffffffe5a7ffffffffffffffffffffffffd5ffeef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (26) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f93ffffffffff575d773fffffffffffffe5e3ffffffffffffffffffffffffd5ffefd) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (36) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03dabfffffffffffffffcbfffffffffffffe1e7fffffffffffffffffffff53ffffff6f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (76) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03ddfffd5fffffffffffffffffffff7ffffe667fffffffffffffffffffffffff5ffeef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (56) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f97ffffffffffffdd777fffffffffffffefebffffffffffffffffffffffffffffefd) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (16) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03db7ffffffffff7fffff7fffffffffffffefeeffffffffffffffffffffffffffffe0f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (1e) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d9f7fd5ff7fffffffffffffffffffffffe667fffffffffffffffffffffffff5ffe67) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (5e) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02fdfffffdffffffff7ffffffffffffffffeeefffffffffffffffffffffffffffffe7d) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (7e) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03dbfdffff7fffffff7dfffffffffffffffebefffffffffffffffffffffffffffffe0f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (3e) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d9ffffffffffffff7ffffffffffffffffe5e3fffffffffffffffffffffffffff5e67) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (2e) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02fdfddfff7ffedfff7ffffffffffffffffebefffffffffffffffffffffffffffffe7d) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (6e) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d9f7fd5ffd7ffffffffffffffffffffffe4e7ffffffffffffffffffffffffdfffe0f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (4e) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03ddfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe67) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (0e) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f9ffffffffffffffffffffffffffffffff7d7ffffffeffeffefbefbffffffffffe7d) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (0a) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03dbfff7fffffffffffffffffffffffffffe7e3dfffffffffffffffffffbeeeeeeaa0f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (4a) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02c5ffffffffffffffffffffffffffffffff777ffffffffffffffffffffffffffeaa7f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (6a) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f9fffffffff5df77df7ffffffffffffffe7e6dffffffffffffffffffffbeeeef547c) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (2a) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03dbffff7ffffffffffffffffffffffffffe7e3dfffffffffffffffffffffbeeeeaa0f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (3a) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03ddfffffff3ccdb33cf3ffffffffffffffe7e3dffffffffffffffffffffffbeef547f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (7a) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f9fffffffffffd77df7ffffffffffffffe7e67ffffffffffffffffeeeeeeeeef547c) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (5a) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03c1b7ddfffffffffffffffffffffffffffe7e6dfffffffffffffffffffffffbeeab6f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (1a) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f9ffffffebaabaabaebffffffffffffffe367fffffffffffffffffeeeeeeeeeffeef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (12) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (0205fffffd7ffffffffffffffffffffffffe7e79fffffffffffffb2ffffffffffffe7d) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (52) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03dbfffffd7ffffffffffffffffffffffffe7e79fffffffffffffaecffffffffffff6f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (72) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03ddffffffffff5f77df7ffffffffffffffe7e6dffffffffffffffffffffffffbf54ef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (32) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f9fffffffddddf77df7ffffffffffffffe7e1fffffffffffffffffeeeeeeeeeef67d) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (22) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03f9ffffef7ffffffffffffffffffffffffe7e37ffffffffffffffffffbeeeeeeeab6f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (62) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d9fffffffffffffddf7ffffffffffffffe7e1fffffffffffffffffeeeeeeeeeeaaef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (42) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f9ffffdffffffffffffffffffffffffdf63efffffffffffffffecafffffffffffe7d) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (02) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03dbfdfdfffffffffffffffffffffffffffe7e4ffffffffffffffdefffffffffffff6f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (03) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03ddfffffffffffffff77ffffffffffffffe7e1fffffffffffffffffeeeeeeeeef54ef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (43) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f8fffffffffffffffffffffffffffffd7e7afffffffffffffffffffffffffffbfe7d) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (63) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03f9ffffffffffffd7df7ffffffffffffffe7e37fffffffffffffffffbeeeeeeef556f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (23) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d9fffffffffffffffdf7fffff7dffdfffe7a77ffffffffffffffffeeeeeeeeef4a1c) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (33) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f9ffffffffffffffd6bfffffffffffffffffffffffffffffffffffffffffffffffc5) MASK (
+03fffffffffffffffffffffffffffffe00000001ffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (73) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d9fffffff5ffffffffffffffffffffffffffffffffffffffffffffd2ffffffffff6f) MASK (
+03fffffffffffffffffffffffffffffe00000001ffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (53) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d9fffffebffffff5ffffffffffffffffffffffffffffffffffffffffd2fffffffeef) MASK (
+03fffffffffffffffffffffffffffffe00000001ffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (13) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f9ffff4bffffffffffffffffffffffffffffffffffffffffffffffffffafffff547d) MASK (
+03fffffffffffffffffffffffffffffe00000001ffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (1b) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d9ffebffffffff5ffffffffffffffffffffffffffffffffffffffffffffd2fffff6f) MASK (
+03fffffffffffffffffffffffffffffe00000001ffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (5b) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03ddfffffffffd3bfffffffffffffffffff9fffffffffffffffffffffffffffafffeef) MASK (
+03fffffffffffffffffffffffffffffe00078001ffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (7b) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f97bbffffffffffffffffffffffffffffffffffffffffffffffabffffffffffffe7d) MASK (
+03fffffffffffffffffffffffffffffe00000001ffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (3b) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03dbd7ffffffaffffffffffffffffffffffffffffffffffffffffff57fffffffafff6f) MASK (
+03fffffffffffffffffffffffffffffe00000001ffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (2b) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03ddff7ffffffffffffffffffffffffffafe7f77ffffffffffffffffeeeeeeeeeeb4ef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (6b) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f9ffffdffffffffffffffffffffffffffeeefffffffffffffffffffffffffffffe7d) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (4b) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03dbfffffff7dddf77df7ffffffffffffffe6e5fffffffffffffffffeeeeeeeeef540f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (0b) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03ddfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe7f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (0f) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f9fffffff7dddf77df7ffffffffffffffe667fffffffffffffffffeeeeeeeeefbc7c) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (4f) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03dbffffffffffffffffffffffffffffffff5f7ffffffffffffffffffffffffffeab6f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (6f) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03ddffffdffffffffffffffffffffffffffeeefffffffffffffffffffffffffffffeef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (2f) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f9fffff55ffffffffffffffffffffffbee7f5fffffffffffffffffcccccccccffe7d) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (3f) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d9fffffddffffffffffffffffffffffffe5e3fffffffffffffffffd555555557fe0f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (7f) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03ddcfdcbffffffffffffffffffffffffffebefffffffffffffffffffffffffffffe7f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (5f) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f9ffffffff7ff7ff7fffffffffffff99fe7ffffbeffffffffffffffffffffffffe7c) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (1f) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d953cd5ffffffffffffffffffffffffffe7a5ffffffffffffffaeb7ffffffffffe7f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (17) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (00d9ffffffffffffffffdffffffffffffffe7e1fffffffffffffffffeeeeeeeeef54ef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (57) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (0201fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe7d) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (77) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03dbffffdffffffffffffffffffffffffffebefffffffffffffffffffffffffffffe7f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (37) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03ddfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe6f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (27) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f9ffffdffffffffffffffffffffffffffebefffffffffffffffffffffffffffffe7d) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (67) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d9ffffffffffffffffffffffffffffffff7f77ffffffffffffffffbeeeeeeeef556f) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (47) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03d9ffffffffffffffffffffffffffffffff7f77fffffffffffffffffffffffffeaaef) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (07) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (02f9fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe7d) MASK (
+03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (05) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) MASK (
+0000000000000000000000000000000000000000000000000000000000000000000000) ;
+RUNTEST 100 TCK;
+ENDDR DRPAUSE;
+SDR 7 TDI (45) SMASK (7f) ;
+RUNTEST DRPAUSE 20 TCK;
+ENDDR IDLE;
+RUNTEST IDLE 100 TCK;
+// masking lower UES bits. 
+SDR 274 TDI (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) TDO (03ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) MASK (
+0000000000000000000000000000000000000000000000000000000000000000000000) ;
+RUNTEST 100 TCK;
+SIR 8 TDI (f0) SMASK (ff) ;
+STATE  IDLE;
+RUNTEST IDLE 20 TCK;
+ENDIR IRPAUSE;
+SIR 8 TDI (f0) SMASK (ff) ;
+STATE  IREXIT2 IRUPDATE DRSELECT DRCAPTURE DREXIT1 DRUPDATE IDLE;
+RUNTEST 800 TCK;
+ENDIR IDLE;
+//Loading device with 'conld' instruction.
+SIR 8 TDI (c0) ;
+RUNTEST IDLE 100 TCK;
+//Loading device with 'enable' instruction.
+SIR 8 TDI (e8) ;
+// Setting Done bit ... 
+// Loading device with a 'program' instruction. 
+ENDIR IRPAUSE;
+SIR 8 TDI (ea) ;
+SDR 281 TDI (0017fdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) SMASK (01ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) ;
+ENDIR IDLE;
+RUNTEST 10000 TCK;
+SIR 8 TDI (f0) SMASK (ff) ;
+STATE  IDLE;
+RUNTEST IDLE 20 TCK;
+ENDIR IRPAUSE;
+SIR 8 TDI (f0) SMASK (ff) ;
+STATE  IREXIT2 IRUPDATE DRSELECT DRCAPTURE DREXIT1 DRUPDATE IDLE;
+RUNTEST 800 TCK;
+ENDIR IDLE;
+//Loading device with 'conld' instruction.
+SIR 8 TDI (c0) ;
+RUNTEST IDLE 100 TCK;
+//Loading device with 'idcode' instruction.
+SIR 8 TDI (01) ;
+SDR 32 TDI (00000000) SMASK (ffffffff) TDO (f6e5f093) MASK (0fff8fff) ;
+//Check for Done bit.
+SIR 8 TDI (ff) TDO (05) MASK (07) ;
+TIR 0 ;
+HIR 0 ;
+HDR 0 ;
+TDR 0 ;
+TIR 0 ;
+HIR 0 ;
+HDR 0 ;
+TDR 0 ;
+TIR 0 ;
+HIR 0 ;
+TDR 0 ;
+HDR 0 ;
+SIR 8 TDI (ff) ;
+SDR 1 TDI (00) SMASK (01) ;

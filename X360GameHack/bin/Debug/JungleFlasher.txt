@@ -1,0 +1,702 @@
+
+JungleFlasher 0.1.96(323) 
+========================================
+support for Xecuter additional LTU2 files for DG-16D4S support
+added extraction for DG-16D4S serial info from original drive at KeyCR time for LTU2 and LTU1
+
+
+
+JungleFlasher 0.1.95(321) 
+========================================
+support for Xecuter LTU2 h/w and f/w
+
+
+
+
+JungleFlasher 0.1.94(320) 
+========================================
+
+Support for new Key verification process
+Vendor command support for DG-16D5S Drives 
+-xecuter X360USB Pro ***f/w update required***
+-xecuter X360USB Pro 2 ***f/w update required***
+Extra functions to utilise RGH extracts with LTU using T-X DG-16D5S replacement PCB
+
+Support for LT Plus 3.0
+-Hitachi 78, 79
+
+Support for LTU 1.2, using T-X replacement PCB
+-liteon DG-16D5S  1175, 1352
+-liteon DG-16D4S  0225, 0401, 1071 - lost f/w replacement, replaced with a T-X DG-16D5S replacement
+-hitachi DL10N 0500, 0502 - replaced with a DG5S
+
+Bug fix to SlimKey for bytes at 3f005, 3f006
+
+IO port enumeration for Win 8 using old school PCI bus scan
+-Using new portIO drive from schtrom with 32bit memory access
+
+
+
+JungleFlasher 0.1.92(304) 
+========================================
+Support for LT Plus 3.0
+-Lite-on Slim 0272, 0225, 0401, 1071
+
+
+
+JungleFlasher 0.1.91(300) 
+========================================
+Support for LT Plus 3.0
+-Lite-on Phat 02510C
+-Benq 04421C
+
+
+
+JungleFlasher 0.1.90(293) 
+========================================
+Support for LT Plus 2.0b
+-Hitachi 79 
+
+
+
+JungleFlasher 0.1.90(292) 
+========================================
+Support for LT Plus 2.0
+-Hitachi 32,36,40,46,47,58,59,78,79
+
+Xecuter CK3i support
+----------------------------------------
+Extra button group with easy access and visibility for 
+CK3i additional functions
+
+
+
+JungleFlasher 0.1.89(284) 
+========================================
+Support for LT Plus 2.0
+-Lite-on Slim 0272, 0225, 0401, 1071
+
+Dummy from KeyDB
+----------------------------------------
+Extra step, for Phat Lite-ons if common post 13146 barcode 
+is detected, user has option to type in case barcode and 
+index key based on a pre update entry created with f/w that
+contained the old barcode.
+
+Benq and Sammy bad flash support
+---------------------------------------
+Added a work around to auto-intro. SlimIntro was putting 
+Benq and Sammy in a bad state, where as phat intro has no
+effect on Slim. If bad state is detected, usually by status 
+0xD1, slimIntro is no longer sent.
+
+ 
+
+JungleFlasher 0.1.88(280) 
+========================================
+Support for LT Plus 2.0
+-Lite-on Phat 02510C
+-Benq 04421C
+-Sammsung MS28
+
+Support for LT 0800 v3.0
+-Benq, Lite-On Phat
+
+
+JungleFlasher 0.1.87(277) 
+========================================
+Support for LT Plus 1.92
+-Lite-on Slim 0272, 0225, 0225u, 0401 and now 1071
+
+Slim UnLock
+----------------------------------------
+Enhanced support for Sputnik MXIC unlock Methods.
+Support for Geremia's Winbond unlock method, aka Kamikaze
+
+SlimKey
+----------------------------------------
+improved SlimKey support for rare slim f/w's
+
+
+JungleFlasher 0.1.86(267) 
+========================================
+Support for LT Plus 1.91
+-Lite-on Slim 0272, 0225, 0225u, 0401
+-Lite-on Phat 02510C
+-Benq 04421C
+-Hitachi 78/79
+
+Bug fix for non USB MTK routines: Read, Write, Phatkey etc....
+
+Support for Sputnik/Russian MXIC unlock methods.
+
+
+
+JungleFlasher 0.1.85(257) 
+========================================
+Support for LT Plus 1.9 Liteon(slim):
+-0272
+-0225
+-0225u (factory updated 9504 to 0225)
+-0401 
+
+Support for set Spi Lock status register on: 
+- XECUTER DG-16D4S UNLOCKED PCB
+- XECUTER DG-16D4S PRO INSTALL KIT
+
+Support to extract and patch calibration data at 0x1FF80. 
+In some cases 0225 may give "Play DVD" error randomly, without this data.
+
+
+
+JungleFlasher 0.1.84(250) 
+========================================
+LT 1.9 Sammy & LT Plus 1.9 Benq and Liteon(phat)
+
+KeyDB
+---------------------------------------
+Export to .csv file
+Import/Merge from .csv file 
+
+
+
+
+JungleFlasher 0.1.83(241) 
+========================================
+New OFW and dummy parse recognition..
+Sammy MS28, Benq 04421C, Liteon 02510C, Liteon Slim 0272, 0401
+
+Phatkey
+----------------------------------------
+updated for Liteon 02510C key extraction
+
+SlimKey
+----------------------------------------
+updated for Liteon Slim 0272, 0401 key extraction and 401 keysector verification
+
+Slim Read (9504)
+----------------------------------------
+improved for Winbond compatibility
+improved to recognise already modified 3e000 sector
+
+Slim Un Lock (9504)
+----------------------------------------
+consolidated "modified 3e000 sector" unlock and regular unlock for improved fault recovery
+ 
+
+
+
+JungleFlasher 0.1.82(234) 
+========================================
+Minor release to tighten up error handling.. 
+An unforseen issue with slow drives ( seemly with Winbond Spi)
+
+SlimKey support
+----------------------------------------
+Added: Delay added following Drive authorisation, small % of drives seem slow 
+       and were failing on fwcrt cmd 21, others return empty data
+Added: Total abort for failed fwcrt cmd 21 error
+Added: Total abort on Key sector verification failure
+
+Firmware File Parser
+----------------------------------------
+Added: Parse abort on key sector verification failure for Slim dummy.bin
+Added: Serial area fixer support for Slim.. to repair data for "others" ;)
+ 
+
+
+JungleFlasher 0.1.81(226S) 
+========================================
+PhatKey support
+----------------------------------------
+faster responce reading key with x360USB ***f/w update required***
+
+Slim f/w support
+----------------------------------------
+9504 stock/LT+ parseing, LT auto-load and key/serial spoofing... 
+cross spoofing not supported
+
+SlimKey support
+----------------------------------------
+Slim 9504 and 0225 key and serial info extraction - x360USB ***f/w update required***
+***Note*** 0225 support is limited to x360USB and other compatible chipsets
+***Note*** via and Nforce not supported
+
+slim/Phat selection
+----------------------------------------
+MTK tab has selection for Slim/Phat MTK commands
+Selection is automatic based in inquiry info etc.
+Slim MTK commands added to support 9504 read/erase/write funtions
+
+
+
+JungleFlasher 0.1.79(208S) 
+========================================
+
+PhatKey support
+----------------------------------------
+Support for Lite-On key extraction, Using Pógó Mo Thóin DIY probe or Xecuter Probe III.
+Thanks to Maximus & Co for the un-released original Concept.
+Guide: http://bit.ly/hdtHsa
+
+Hitachi Support
+----------------------------------------
+Gui changes in Hitachi::Drive area.
+[Refresh] in Winapi no longer scans for new hardware
+[Scan] added to scan for new hardware separately
+[Remove] removed, but added to context menu for convienence
+JF will accept system message about new drives added, JF will auto refresh list for new ODD.
+
+x360USB Support
+----------------------------------------
+Initial support for x360USB added - More to follow at release
+LibUSB is required, if you dont have LibUSB installed, LibUSB0.dll is required to run JF. Correct
+file is included and should be copied to JF folder if needed.
+
+PortIO and other DLL's
+----------------------------------------
+We followed schtroms lead and embbed the Portio .sys files to load from temp folder. Other required 
+DLL's have been embedded also. For those using Test signed drivers in x64, PortIO load function 
+checks JF folder for existing files and uses those if present.
+
+
+
+JungleFlasher 0.1.77(179S) 
+========================================
+
+Lite-On LT + v1.1 support
+Benq LT + v1.1 support
+
+
+JungleFlasher 0.1.76(166S) 
+========================================
+
+Lite-On LT + support
+Benq LT + support
+
+
+JungleFlasher 0.1.75(152S) 
+========================================
+
+Sammy LT 1.0 support
+Benq LT 1.2 support
+
+
+JungleFlasher 0.1.74(138S) 
+========================================
+
+ Key Verification - thanks to C4eva
+----------------------------------------
+ Routines will validate a key against the attached drive 100%
+ Routine added to:
+ - DVDkey32 Extract, also as key ver is 100%, 6 dumps no longer necessary 
+ - LO83info Extract, also as key ver is 100%, 2 dumps no longer necessary
+ - Source and Target context menus
+
+
+ IO port refresh
+----------------------------------------
+ Extra checks to determine drive hardware type, as opposed the Inquiry info.
+ Key is easily queryied from Samsung and Hitachi pre 78, can grab key, verify and lookup KeyDB.
+ Lite-On Barcode uniquely identifies drive, look-Up Barcode in KeyDB and verify
+ Fancy icon on the Drive Properites group box and tooltip to display Key and KeyDB info.
+ Context menu on Drive Properties to peform KeyDb functions ( load files etc )
+
+ KeyDB
+---------------------------------------
+ Now index by Lite-on barcode, barcode will be added at next refresh for rapid Drive ID.
+ Added an new field call LastFile, this will point to file last used to update KeyDb.
+  Useful if you want to refresh KeyDb with all your Lite-On files.
+  This is used on Drive Properties Context Menu, to load an OFW. 
+
+ Dummy from KeyDB **New**
+--------------------------------------
+ There are 3 parts to this
+ - for and identified Lite-On this will use the verified key and grab all other dummy data and build it
+ - for un-identified Lite-On, will test ALL keys in KeyDB and return on a successful hit, build dummy as above
+ - for non lite-on, will test ALL keys in KeyDB and return on a successful hit.
+
+ USB Com Port Enumeration
+---------------------------------------
+ Will properly report device types in Vista and Win 7 - FTD2XX.dll dependancy removed
+
+
+
+JungleFlasher 0.1.73(103S) 
+========================================
+
+ LT v1.1 Support, both Benq and Lite-On
+
+ General Support
+----------------------------------------
+ Hyperlinks in IRC tab now launch in Preferred Browser
+ better support for windows 7 120dpi mode
+
+
+
+
+JungleFlasher 0.1.72(101S) 
+========================================
+
+ Benq LT Support.
+
+
+
+JungleFlasher 0.1.71(98S) 
+========================================
+
+ No Lite-On LT spoofing
+---------------------------------------
+No longer says copied ID strings when target is LT
+No longer Shows false spoof when LT is "spoofed" with older JF ver
+  - previous versions are not forward compatible with LT
+  - they may put spoof in place but LT will ignore it.
+
+ Hitachi Support
+----------------------------------------
+Bug fix - master checksum now set when auto-spoofing Stock Hitachi
+Master Checksum now set when spoofing stock Hitachi in firmtools.
+Bug fix - JF no longer crashes when saving encrypted Hitachi.
+
+ General Support
+----------------------------------------
+IRC tab that calls a Java IRC client in embedded browser window
+requires 2 dll's... included
+
+
+
+JungleFlasher 0.1.70(86)
+
+=====================================
+
+ Foreign Language support
+---------------------------------------
+German, French, Greek and Portuguese added.
+Spanish, Italian and Russian to follow.
+
+Bug fix - Calib data not being flashed 
+
+
+
+JungleFlasher 0.1.70(85S) 
+========================================
+
+ Lite On Support
+---------------------------------------
+Auto-Load Lite-Touch firmwares 
+
+Calibration data
+  - spoof copies calibration data if present in source
+  - dummy from traget will place calibration data in dummy v2 at same location
+
+Secret Inquiry
+  - performed before LO83info to identify 83 v2 and abort sequence
+  - performed for DVDKey, Lo83info and Dummy from iXtreme and added to dummy v2
+    to differientiate 83v1 & 83v2
+
+Legacy cross spoofing
+  - bug fixed, now working, sorry ;( 
+
+
+New key locations
+  - long suspected 74 f/w's with 0x1a000 and 0x1b000 key sectors, 
+  - both found recently, support added.
+
+ Gerneral Support
+---------------------------------------
+Explorer contexts fixed for start in JF.
+Explorer contexts fixed for Win 7.
+
+Thanks go to Team Xecuter for their generous support to this project. 
+
+
+
+JungleFlasher 0.1.69(74S) 
+========================================
+
+ Firmtool Engine
+---------------------------------------
+Finally re-coded firmtool engine correctly
+  - full support for encrypted lite-on, source and target
+  - easier support for cross spoofing
+
+
+ Port IO
+---------------------------------------
+Using Schtrom's driver portIO driver, which includes 64bit support.
+
+
+ iXtreme 1.61 for lite-on
+---------------------------------------
+Will autoload iX 1.61 for Liteon
+
+
+ Hitachi Support
+---------------------------------------
+Added new spoofing method for Hitachi. "Auto Spoof", will spoof inquiry and key
+on the fly directly from source buffer. Will use existing file or request for 
+load if empty.
+
+
+ KeyDB Viewer
+--------------------------------------
+New keyDB, right click source tab. 
+
+
+JungleFlasher 0.1.66(46) 
+========================================
+
+ Lite-On 83850c support
+---------------------------------------
+  - added full LO83info extract, OpenKey to Dummy.bin
+  - checks added to LO83info.bin.key load, blank data aborts
+  - 140F0F1011B5223D79587717FFD9EC3A from bad LO83info extract will be rejected
+
+          **** WARNING ****
+this uses Seacrest source, many thank.... 
+BUT beware... 
+use a spare drive to check the key
+
+ Lite-On support General
+---------------------------------------
+Dump Dummy.bin from lite-On iXtreme file (in target context menu)
+Identify Barcode reversal 
+  - to detect and fix and use bad inquiry Barcode info
+  - extra step to Manual spoofing to avoid bad barcode data
+
+
+ Hitachi Support Updated
+---------------------------------------
+Stabilty success message is bypassed in Moddermode.
+
+
+ General items Updated
+---------------------------------------
+Foreign Language Support
+  - German
+  - Portugueuse
+  - Italian
+  - French
+  - Greek
+  - Spanish (WIP)
+
+
+
+JungleFlasher 0.1.65(27) 
+========================================
+
+ General items Updated
+---------------------------------------
+KeyDB and Log to Notepad fixed for windows 7 and foreign languages
+
+ Lite-On-Erase
+---------------------------------------
+  - Extra check added, Drive Serial is compared to Target f/w
+  - a mismatch will cause a warning... Just in case user were
+  - to hook up a new lite-on and forget to do DVDkey32
+
+ MtkFlash32
+---------------------------------------
+  - Disable related windows drive letters on Intro
+    - Windows interfers with read-back verify as it thinks drive is 
+    - still present after into. This occured primarily with benq
+    - running ix > 1.41. The half tray unlock also give windows
+    - drive letter. On intro, drive list is refreshed, scanned for
+    - the drive on the current port and disabled if found..
+
+ Lite-On 83850c support
+---------------------------------------
+  - ix 1.6 83850 support added ( cross spoofing of ix revs NOT supported )
+  - conversion of [barcode].bin.key to dummy.bin
+    - Autoload dummy, auto-load ix, spoof ix
+  - extract of [barcode].bin added, for repair
+
+
+
+JungleFlasher 0.1.64(16) 
+========================================
+
+ General items Updated
+---------------------------------------
+Ctrl + F4 to open iXtreme from firmware folder to Target
+Added context menus to Source and target tabs
+  Source 
+   - open f/w from working folder
+   - clear source
+   - update to key data base
+  Target
+   - open f/w from working folder
+   - open f/w from .\firmware folder
+   - clear target
+Removed - not allowing blank serial in for Lite-on Dummy.bin
+  previously if serial was blank the iX file serial was left as is
+  Warning changed for dummy.bin w/o serial, to mention is possibly ok.
+Added spoof support for new lite-on 83850C 
+  JF wil recognise a 83850C dummy.bin and spoof 74850C iX accordingly
+  Manual spoof support for 83850C support added
+  (still no confirmation of key extract via DVDkey32 method)
+
+ Key Database in Registry
+---------------------------------------
+Database will be populated automatically from a dump.
+Ctrl + F10 to add/update key database from Source tab info
+Ctrl + F12 to launch notepad with key database
+Ctrl + F11 to create .csv from key database
+Added extra item to explorer context to load as source and add key to db
+  iX will not autoload to target for this task
+  can select mutliple f/w files, these will load in turn
+
+ Hitachi Support Updated
+---------------------------------------
+Fixed bug in Rev 36 Ram Upload Dump Code
+All dumps are rev checked immediately, a failure to identify will abort sequence
+  dumps from other drives and locked 79's (coming back empty) would proceed to key 
+  check and fail
+
+ MTKFlash32
+---------------------------------------
+Added warning message Yes/No to Flash Erase Button (default is No!)
+Added Esc to abort to flash read within auto reads in moddermode
+Bypassed Sammy-Un-Lock warning in ModderMode
+
+
+
+
+
+JungleFlasher 0.1.62 
+========================================
+Release for iX 1.6 0800 for Samsung, Benq and Lite-On...
+
+ Hitachi Support Updated
+---------------------------------------
+Windows drive enum changed
+
+successful Classic dump will detect and set correct drive type for pre 78 drives. Inquiry of spoofed
+drives would select incorrect version.
+
+ DVDKey32 Support Updated
+---------------------------------------
+better support for Maximus USB Xtractor - using FTDI api FTD2XX.dll
+
+ General items Updated
+---------------------------------------
+Improved launch times
+
+
+
+
+JungleFlasher 0.1.60 
+========================================
+
+Release for iX 1.6 for Samsung, Benq and Lite-On... Jf will now target 1.6 files by default
+
+ Hitachi Support Updated
+---------------------------------------
+Right Click windows drive list for context to open/close drive tray
+
+ DVDKey32 Support Updated
+---------------------------------------
+Added Support for USB Extractor Switch in Vista, for remote launch of DVDkey32 from probe
+
+
+
+
+JungleFlasher 0.1.59 - cleanup to 0.1.55
+========================================
+
+
+ DVDKey32 Support Updated
+---------------------------------------
+Added Support for USB Extractor Switch, for remote launch of DVDkey32 from probe
+
+Added optional delay on dvdkey32... allow time for probe.... delay32 in reg, default is 0, max 20 sec
+
+
+
+ Hitachi Support Updated
+---------------------------------------
+Added Stop-Disk to Hitachi commands, People were still putting in a disk, a habit from FWTB days, commands would fail and the drive would crash.
+
+Improvements to Ram upload dump, should dump in 1 - 1.5 sec... added timer for the fun of it...
+
+Introducing USmodeB with JungleUSB drivers, for Hitachi
+    1. JungleUSB drivers allow Hitachi on USB to be seen in Mode-A, mode-B command can be issued
+    2. at power up, you may need to open/close the drive to allow windows to PnP fully
+    3. Send USmodeB - JF will enumerate all windows drive letters and find any Hitachi, JF will send mode-b
+
+
+
+ General items Updated
+---------------------------------------
+
+Added, test for port IO....
+JF will scan device tree for PortIO, 4 outcomes are possible
+    i. port io running aok
+    ii. port removed
+    iii. port not installed
+    iv. port io has an error
+
+Fixed, Ctrl f7 for Drive pororties on PortIO, drives were not being detected
+
+Added donate icon, users complained they conuldn't see.... ;-)
+
+
+
+
+
+JungleFlasher 0.1.55 - cleanup to 1.51
+=======================================
+
+ We have probably added or changed alot more but this is what we could remember.
+
+
+ Hitachi Support Updated
+---------------------------------------
+    - Portio will only be enabled with "Via Only" ticked, as it was only added to support Via w/o drivers
+    - Via card must also report status (Code 39)... no drivers loaded
+    - Mode Select method removed from Port IO. Mode Select is for USB support, port IO does not support USB.
+
+
+ Modder Mode
+---------------------------------------
+    - Now stops on bad device ID.
+
+
+ Splash Screen
+---------------------------------------
+    - Context enable/disable removed from splash ( added as a ctrl key)
+
+
+ Advanced Ctrl F Keys
+---------------------------------------
+    - Ctrl + F5 key, set modder mode backup directory, clear folder to disable it
+    - Ctrl + F6 key, hitachi read block size 100 --> 2000 ( 78 and 79 FK models will fail on this )
+    - Ctrl + F7 key, set working folder in modder mode... clear all tabs and save log
+    - Ctrl + F8 key, enable "Free Flash" and "Ram Poke" in Hiatachi
+    - Ctrl + F1 key, enable context menus
+    - Ctrl + F2 key, disable context menus
+
+
+ Lite-On Dummy.bin Serial Fixer
+---------------------------------------
+    - Bug, fixer added drive barcode byte swapped to Identify string, fixed.
+
+
+ Sammy flash
+---------------------------------------
+    - was failing for at least one user.. typo in last cleanup.  fixed.
+
+ Port Inquiry
+---------------------------------------
+    - Timeout in port Inquiry for drive properties extended from 200ms to 1s
+
+ Lite-On-Erase
+---------------------------------------
+    - Dead time after l-o-erase extended from 2s to 3s
+    - dots and timer added for better appearance.
+
+
+
+
+
+

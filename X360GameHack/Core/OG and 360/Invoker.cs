@@ -334,10 +334,9 @@ namespace X360GameHack
             }
             else if (command == "")
             {
-                MessageBox.Show("Command cannot be null!", "X360GameHack Error!");
+                MessageBox.Show("Command cannot be null!", "X360GameHack Internal Error!");
                 return;
             }
-
             File.WriteAllText(batchFilePath, batchCommand);
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.FileName = batchFilePath;

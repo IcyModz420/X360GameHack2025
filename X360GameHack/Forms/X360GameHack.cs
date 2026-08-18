@@ -1,4 +1,5 @@
-﻿using DevComponents.DotNetBar;
+﻿using Be.Windows.Forms;
+using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Metro;
 using Krypton.Toolkit;
 using System;
@@ -55,6 +56,7 @@ namespace X360GameHack
         private string lastPath = null;
         private readonly HttpClient SpoofChrome;
         public static XboxConsole ConsoleX = new XboxConsole();
+        private DynamicFileByteProvider _currentProvider;
 
         public X360GameHack()
         {
@@ -240,6 +242,7 @@ namespace X360GameHack
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            button148.Enabled = false; // disable hex editor save button when basefile mode checked automatically
             this.Size = new Size(978, 834);
             pictureBox1.Hide();
             tabControl5.TabPages.Remove(tabControl5.TabPages[2]); // hide X360Debug Tool tab 
@@ -1020,7 +1023,6 @@ namespace X360GameHack
 
         private void button22_Click(object sender, EventArgs e)
         {
-            //FTPClient.SelectFileToUpload();
             FTPClient.UploadFile(FTPClient.FilePathToFileToUpload, CurrentFTPDirectory.Text, IP.Text, Port.Text, UserName.Text, Password.Text);
         }
 
@@ -1559,7 +1561,7 @@ namespace X360GameHack
             {
                 folderBrowserDialog.Description = "Select folder you want to make an XISO:";
                 DialogResult result = folderBrowserDialog.ShowDialog();
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
+                if (result == DialogResult.OK)
                 {
                     folderpath = folderBrowserDialog.SelectedPath;
                 }
@@ -1984,7 +1986,7 @@ namespace X360GameHack
             STFSInstaller STFSInstaler = new STFSInstaller();
             foreach (string item in listBox7.Items)
             {
-                STFSInstaller.InstallSTFSUSB(item);
+                //STFSInstaler.InstallSTFSUSB(item);
             }
         }
 
@@ -2340,7 +2342,7 @@ namespace X360GameHack
                                 invoker.InvokeXexTool(file, args, false); // invoke xextool for each xex file with args
                             }
                             //done
-                           // pictureBox1.Hide();
+                            // pictureBox1.Hide();
                             // return; don't return here it needs to take longer 
                         }
                         else if (!success)
@@ -2493,6 +2495,433 @@ namespace X360GameHack
                     }
                 }
             }
+        }
+
+        private void button145_Click(object sender, EventArgs e)
+        {
+            listBox11.Items.Clear(); // Clear previous search results when switching modes
+            ApplyOffsetMode();
+        }
+
+        private byte[] ParseHex(string hex)
+        {
+            string cleaned = System.Text.RegularExpressions.Regex.Replace(hex ?? "", @"[^0-9A-Fa-f]", "");
+
+            if (cleaned.Length % 2 != 0)
+                throw new ArgumentException("Hex length must be even.");
+
+            byte[] result = new byte[cleaned.Length / 2];
+            for (int i = 0; i < result.Length; i++)
+                result[i] = Convert.ToByte(cleaned.Substring(i * 2, 2), 16);
+
+            return result;
+        }
+
+        private void button155_Click(object sender, EventArgs e)
+        {
+            if (hexBox1.ByteProvider == null)
+            {
+                MessageBox.Show("No file loaded.");
+                return;
+            }
+
+            byte[] pattern;
+            try
+            {
+                pattern = ParseHex(textBox65.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Invalid hex sequence.");
+                return;
+            }
+
+            if (pattern.Length == 0)
+            {
+                MessageBox.Show("Enter a hex sequence first.");
+                return;
+            }
+
+            var options = new Be.Windows.Forms.FindOptions
+            {
+                Type = Be.Windows.Forms.FindType.Hex,
+                Hex = pattern
+            };
+
+            long found = hexBox1.Find(options);
+
+            if (found == -1)
+                MessageBox.Show("Not found.");
+            // If found, HexBox already selects it and scrolls into view
+        }
+
+        private void button156_Click(object sender, EventArgs e)
+        {
+            if (hexBox1.ByteProvider == null)
+            {
+                MessageBox.Show("No file loaded.");
+                return;
+            }
+
+            byte[] pattern;
+            try
+            {
+                pattern = ParseHex(textBox65.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Invalid hex sequence.");
+                return;
+            }
+
+            if (pattern.Length == 0)
+            {
+                MessageBox.Show("Enter a hex sequence first.");
+                return;
+            }
+
+            listBox11.Items.Clear();
+
+            long pos = 0;
+            long len = hexBox1.ByteProvider.Length;
+            int count = 0;
+
+            while (pos <= len - pattern.Length)
+            {
+                bool match = true;
+                for (int i = 0; i < pattern.Length; i++)
+                {
+                    if (hexBox1.ByteProvider.ReadByte(pos + i) != pattern[i])
+                    {
+                        match = false;
+                        break;
+                    }
+                }
+
+                if (match)
+                {
+                    listBox11.Items.Add($"0x{pos:X8}  (len {pattern.Length})");
+                    // Store the offset in a parallel list or just parse it later
+                    count++;
+                    pos += pattern.Length;
+                }
+                else
+                {
+                    pos++;
+                }
+            }
+
+            MessageBox.Show($"{count} occurrence(s) found.");
+        }
+
+        private void listBox11_DoubleClick(object sender, EventArgs e)
+        {
+            if (listBox11.SelectedItem == null) return;
+
+            string text = listBox11.SelectedItem.ToString();
+            // Extract the offset (everything before the first space)
+            string offsetStr = text.Split(' ')[0].Substring(2); // remove "0x"
+            long offset = Convert.ToInt64(offsetStr, 16);
+
+            int length = ParseHex(textBox65.Text).Length;
+
+            hexBox1.Select(offset, length);
+            hexBox1.ScrollByteIntoView(offset);
+            hexBox1.Focus();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            button148.Enabled = true;
+            listBox11.Items.Clear(); // Clear previous search results when switching modes
+            if (radioButton1.Checked)
+                ApplyOffsetMode();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            button148.Enabled = false; // Disable the "Save Changes" button in Xbox 360 offset mode
+            listBox11.Items.Clear(); // Clear previous search results when switching modes
+            if (radioButton2.Checked)
+                ApplyOffsetMode();
+        }
+
+        private void ApplyOffsetMode()
+        {
+            string pathToOpen = GetPathForCurrentMode();
+
+            if (string.IsNullOrWhiteSpace(pathToOpen) || !System.IO.File.Exists(pathToOpen))
+            {
+                MessageBox.Show("File not found:\n" + pathToOpen);
+                return;
+            }
+
+            OpenFileInHexBox(pathToOpen);
+        }
+        private string GetPathForCurrentMode()
+        {
+            if (radioButton2.Checked)
+            {
+                // Xbox 360 offset mode -> extracted base file, same folder as the program
+                return System.IO.Path.Combine(Application.StartupPath, "CurrentXEXBaseFile.exe");
+            }
+            else
+            {
+                // HxD mode -> raw XEX the user picked
+                return textBox1.Text;
+            }
+        }
+
+        private void ReleaseCurrentProvider()
+        {
+            if (hexBox1.ByteProvider != null)
+                hexBox1.ByteProvider = null;   // detach control from provider first
+
+            if (_currentProvider != null)
+            {
+                try
+                {
+                    _currentProvider.Dispose();
+                }
+                catch { /* already gone, ignore */ }
+
+                _currentProvider = null;
+            }
+
+            // Force any pending finalizers to run so the OS actually releases the handle
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+
+        private void OpenFileInHexBox(string path)
+        {
+            ReleaseCurrentProvider();
+
+            // Retry loop in case the OS hasn't fully released the handle yet
+            const int maxAttempts = 5;
+            Exception lastError = null;
+
+            for (int attempt = 1; attempt <= maxAttempts; attempt++)
+            {
+                try
+                {
+                    var provider = new DynamicFileByteProvider(path);
+                    _currentProvider = provider;
+                    hexBox1.ByteProvider = provider;
+                    lastError = null;
+                    break;
+                }
+                catch (IOException ex)
+                {
+                    lastError = ex;
+                    System.Threading.Thread.Sleep(75); // give the OS a moment, then retry
+                }
+            }
+
+            if (lastError != null)
+            {
+                MessageBox.Show("Could not open file (still locked after retries):\n" + lastError.Message);
+                return;
+            }
+
+            // HxD look, applies to both modes
+            hexBox1.StringViewVisible = true;
+            hexBox1.LineInfoVisible = true;
+            hexBox1.ColumnInfoVisible = true;
+            hexBox1.VScrollBarVisible = true;
+            hexBox1.UseFixedBytesPerLine = true;
+            hexBox1.BytesPerLine = 16;
+            hexBox1.GroupSize = 4;
+            hexBox1.GroupSeparatorVisible = true;
+
+            // Address mode
+            if (radioButton2.Checked)   // Real Xbox 360 offset, like Ghidra
+            {
+                try
+                {
+                    string addr = textBox20.Text.Trim().ToLower().Replace("0x", "");
+                    hexBox1.LineInfoOffset = Convert.ToInt64(addr, 16);
+                }
+                catch
+                {
+                    MessageBox.Show("Invalid Load Address in textBox20.\nUsing normal offsets.");
+                    hexBox1.LineInfoOffset = 0;
+                }
+            }
+            else   // HxD mode
+            {
+                hexBox1.LineInfoOffset = 0;
+            }
+        }
+
+        private void button148_Click(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                try
+                {
+                    // HxD mode is editing the raw XEX directly - just commit the changes
+                    _currentProvider.ApplyChanges();
+                    MessageBox.Show("Changes saved to XEX file:\n" + textBox1.Text);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error saving XEX:\n" + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("This currently only works in HXD mode!");
+            }
+        }
+
+        private void button138_Click(object sender, EventArgs e)
+        {
+            if (_currentProvider == null)
+            {
+                MessageBox.Show("No file loaded.");
+                return;
+            }
+
+            string input = textBox47.Text.Trim().ToLower().Replace("0x", "");
+
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                MessageBox.Show("Enter an address to jump to.");
+                return;
+            }
+
+            long enteredValue;
+            try
+            {
+                enteredValue = Convert.ToInt64(input, 16);
+            }
+            catch
+            {
+                MessageBox.Show("Invalid hex address in textBox47.");
+                return;
+            }
+
+            long fileOffset;
+
+            if (radioButton2.Checked)
+            {
+                // Xbox 360 mode: textBox47 holds a real memory address (like Ghidra shows).
+                // Convert back to a file offset by subtracting the load address.
+                try
+                {
+                    string loadAddrText = textBox20.Text.Trim().ToLower().Replace("0x", "");
+                    long loadAddress = Convert.ToInt64(loadAddrText, 16);
+
+                    fileOffset = enteredValue - loadAddress;
+                }
+                catch
+                {
+                    MessageBox.Show("Invalid Load Address in textBox20.");
+                    return;
+                }
+            }
+            else
+            {
+                // HxD mode: textBox47 is already a raw file offset
+                fileOffset = enteredValue;
+            }
+
+            if (fileOffset < 0 || fileOffset >= _currentProvider.Length)
+            {
+                MessageBox.Show("Address is outside the bounds of the file." +
+                    (radioButton2.Checked ? "\n(Check that the address is after the Load Address.)" : ""));
+                return;
+            }
+
+            hexBox1.Select(fileOffset, 1);
+            hexBox1.ScrollByteIntoView(fileOffset);
+            hexBox1.Focus();
+        }
+
+        private void button144_Click(object sender, EventArgs e)
+        {
+            if (_currentProvider == null)
+            {
+                MessageBox.Show("No file loaded.");
+                return;
+            }
+
+            byte[] findPattern;
+            byte[] replacePattern;
+
+            try
+            {
+                findPattern = ParseHex(textBox64.Text);
+                replacePattern = ParseHex(textBox63.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Invalid hex: " + ex.Message);
+                return;
+            }
+
+            if (findPattern.Length == 0)
+            {
+                MessageBox.Show("Enter a hex sequence to find (textBox64).");
+                return;
+            }
+
+            if (replacePattern.Length == 0)
+            {
+                MessageBox.Show("Enter a hex sequence to replace with (textBox63).");
+                return;
+            }
+
+            if (replacePattern.Length != findPattern.Length)
+            {
+                MessageBox.Show("Find and Replace hex must be the same length.\n" +
+                    $"Find is {findPattern.Length} byte(s), Replace is {replacePattern.Length} byte(s).\n\n" +
+                    "Pad the shorter one with matching hex (e.g. 00) so the lengths match - " +
+                    "changing the file's overall length isn't supported here.");
+                return;
+            }
+
+            long pos = 0;
+            long len = _currentProvider.Length;
+            int replacedCount = 0;
+
+            while (pos <= len - findPattern.Length)
+            {
+                bool match = true;
+                for (int i = 0; i < findPattern.Length; i++)
+                {
+                    if (_currentProvider.ReadByte(pos + i) != findPattern[i])
+                    {
+                        match = false;
+                        break;
+                    }
+                }
+
+                if (match)
+                {
+                    for (int i = 0; i < replacePattern.Length; i++)
+                        _currentProvider.WriteByte(pos + i, replacePattern[i]);
+
+                    replacedCount++;
+                    pos += findPattern.Length; // non-overlapping, same as Find All
+                }
+                else
+                {
+                    pos++;
+                }
+            }
+
+            if (replacedCount == 0)
+            {
+                MessageBox.Show("No matches found.");
+                return;
+            }
+
+            hexBox1.Invalidate(); // force the hex box to redraw with the new bytes
+
+            MessageBox.Show($"{replacedCount} occurrence(s) replaced.\n\n" +
+                "Remember to click Save to write these changes to disk.");
         }
     }
 }

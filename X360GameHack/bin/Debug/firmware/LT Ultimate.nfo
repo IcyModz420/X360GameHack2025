@@ -1,0 +1,22 @@
+C4E’s iXtreme LT Ultimate in association with Team Jungle & Team Xecuter
+------------------------------------------------------------------------
+
+Official release of the iXtreme LT Ultimate for Team Xecuter LTU PCB
+
+- Support for Liteon 0225, 0401, 1071, 1175, 1532, Hitachi 0500/0502
+
+- No need for firmware dump of source drive. Requires dvdkey and J-Runner data
+
+- Supports enhanced topology data if present for more accurate topology responses (Future ABGX support)
+ 
+- Requires new JF to support LTU board flashing process. Use 0800 dual layer disc in drive to enable reflashing/vendor mode once LTU is written to board
+
+This firware is uniquely written for the TX LTU board. It has all the features of LT 3.0 with the addition of the LTU features.
+The 1332 chip has been the most secure chip used in the 360 to date. Cudos to MTK/Liteon for their attempt.
+The movement of the dvdkey, AES routines and realtime firmware checks into the drive CPU was a nice touch.
+
+I would like to dedicate this release to fellow countryman and Commodore hacker Julian Assange and Wikileaks. Keep the bastards honest. 
+
+
+Thanks go to Team Jungle and all testers for their hard work and efforts in the development process. 
+Thanks also go to Team Xecuter for their support to this project.

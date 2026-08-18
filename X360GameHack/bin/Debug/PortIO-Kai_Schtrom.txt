@@ -1,0 +1,41 @@
+Tips for running DosFlash on Windows 7
+----------------------------------------
+
+Since Windows Vista 64 Bit and upwards it is necessary that every driver is signed. Because
+the DosFlash driver will not be signed by MS due to some unknown reason we need to cicumvent
+this check. You have the following 2 possibilities to do this.
+
+Safe Way of Disabling Driver Signature Enforcement
+1) On Windows 7 bootup press F8 to get to the extended boot options screen
+2) Choose "Disable Driver Signature Enforcement"
+3) To start DosFlash right click on it in Windows Explorer and choose
+   "Run as administrator" > answer the message box with "Yes"
+4) Short after the program started a "Program Compatibility Assistant" warning message
+   is displayed, you can simply ignore this by pressing the "Close" button
+
+Recommended Way of Disabling Driver Signature Enforcement
+1) Disable User Account Control (UAC)
+   - go to "Start Menu" > "Control Panel" > "User Accounts and Family Safety" > "User Accounts"
+   - click on "Change User Account Control settings"
+   - set the slider bar to the lowest value (Never notify) > click "OK"
+2) Sign the DosFlash driver
+   - download the "Driver Signature Enforcement Overrider" (DSEO) from
+     http://www.ngohq.com/home.php?page=dseo
+   - start DSEO > click "Next" > "Yes" > choose "Sign a System File" > "Next" > enter the path to
+     the used driver (portio32.sys or portio64.sys) > "OK" > "OK"
+3) Disable Driver Signature Enforcement
+   - start DSEO > click "Next" > "Yes" > choose "Enable Test Mode" > "Next" > "OK"
+4) Restart the computer
+
+Keep in mind that with the recommended way the changes will have effect on every reboot without
+doing anything manual. The first way needs to be done over and over again. In addition the second
+way can be used to sign every driver that doesn't run natively on Windows 7.
+
+For use of the VIA Cards in Windows 7 it is recommended to uninstall the VIA driver. This can be
+done like follows:
+- start "Device Manager" > expand "Storage controllers" > right click on "VIA RAID Controller" > 
+  choose "Uninstall" > "OK"
+- rename C:\Windows\inf\vsmraid.inf to vsmraid.inf_
+- rename C:\Windows\inf\vsmraid.PNF to vsmraid.PNF_
+- rename C:\Windows\System32\drivers\vsmraid.sys to vsmraid.sys_
+- reboot computer

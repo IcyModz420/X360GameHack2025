@@ -1,0 +1,12 @@
+C4E’s Hitachi iXtreme LT+ 3.0 in association with Team Jungle & Team Xecuter
+----------------------------------------------------------------------------
+
+- Official release of the iXtreme LT+ v3.0 for Hitachi 78 and 79 drives
+- Support for topology data on AP25 enabled titles. Will correctly answer any ap25 challenge eliminating need for dae.bin to create a backup.
+- No need to make new backups everytime dae.bin is updated on console
+- Use current JF to upgrade from 2.0 to 3.0 (3.0 as Target firmware) using free flash (Ctrl F8) until an updated version of Jungleflasher is released.
+
+Merry Christmas and a Happy New Year. LT Ultimate & The LT Ultimate PCB is next!
+
+Thanks go to Team Jungle and all testers for their hard work and efforts in the development process.
+Thanks also go to Team Xecuter for their support to this project. 

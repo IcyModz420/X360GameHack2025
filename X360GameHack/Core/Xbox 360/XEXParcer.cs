@@ -61,7 +61,7 @@ namespace X360GameHack.Core.Xbox_360
                 var psi = new ProcessStartInfo
                 {
                     FileName = _toolPath,
-                    Arguments = $"-l -x i \"{fullPkgPath}\"",
+                    Arguments = $"-l -b CurrentXEXBaseFile.exe -x i \"{fullPkgPath}\"",
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,

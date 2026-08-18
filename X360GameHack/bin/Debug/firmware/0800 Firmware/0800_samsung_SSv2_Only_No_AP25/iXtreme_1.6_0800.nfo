@@ -1,0 +1,41 @@
+Team Jungle Presents IXtreme 1.6 0800 firmware for Benq, Samsung and Liteon drives
+----------------------------------------------------------------------------------
+
+IXtreme fw for Benq, Samsung and Liteon drives!
+
+
+Features
+--------
+
+-Common API designed for easier application use!
+
+-Support for SS V2! 
+
+-Direct 0800 mode for game dumping including SS v2! 
+
+ This firmware is =NOT FOR USE IN A CONSOLE= and is provided 
+ with the intended use of being in a dedicated "ripping" drive.
+
+ This means: 
+ 	a. Does not need your DVD key, 
+	b. Does not need spoofing as another drive,
+ 	c. Does not need to use the tray half open and
+	d. Does not need to use the activate.iso to use this firmware on the pc.
+
+
+More Info
+---------
+
+SS v2 supports multiple timing samples for challenges type 5 and 7, storing them in the SS. This is a pre-requisite for SS v3 which has support for the so called AP2.5 check. Since this has never been used or may never be used by MS we will adopt a wait and see approach and continue to monitor for its usage.
+
+ix16 0800 Commands
+-----------------
+AD 00 FF 02 FD FF FE 00 08 00 00 C0 - SS/CPRMAI 
+
+AD 00 FF 02 FD FF FE 00 08 00 ID C0 - SS Challenge ID
+
+12 00 00 00 30 C0 00 00 00 49 58 01 - ix Cmd 1 - Dumps key and rev 0x30 bytes
+
+12 00 00 00 24 C0 00 xx xx 49 58 02 - ix Cmd 2 - Output 0x800 bytes from ram address
+
+12 00 00 00 24 C0 00 00 00 49 58 03 - ix Cmd 3 - Toggles Lock/UnLock Game partition

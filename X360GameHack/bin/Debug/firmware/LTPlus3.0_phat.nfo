@@ -1,0 +1,32 @@
+C4E’s iXtreme LT+ in association with Team Jungle & Team Xecuter
+----------------------------------------------------------------
+
+Official release of the iXtreme LT+ v3.0 for Benq and phat Liteons
+
+- Support for topology data on AP25 enabled titles. Will correctly answer any ap25 challenge eliminating need for dae.bin to create a backup.
+
+- No need to make new backups everytime dae.bin is updated on console
+
+Topology Data
+-------------
+
+When ap25 was first introduced I devised a way of calculating any challenge which I called the silver bullet which I made reference to a long time ago.
+This was withheld until it was absolutely necessary. It was easier to replay the fixed challenges.
+
+With unique per console ap25 challenges it has become necessary to use the silver bullet.
+
+A series of measurements are taken across the disk. This topology data is then used to calculate a response to any ap25 challenge.
+
+It is very important that the drive used to create the topology data is reliable at reading discs as bad topology data equals bad ap25 responses.
+
+Liteon drives using 0800 v3 seem to be more accurate for this purpose. Only ap25 enabled titles require topology data. Activation of ap25 on older non-ap25 games although technically possible is highly unlikely.
+
+Currently topology data for xgd3 titles are similar and topology data from one xgd3 title will pass on another xgd3 title although this is not advisable.
+
+Per title title topology data is best as there are slight differences between titles and newer titles could have different topology than existing ones.
+
+ 
+I would like to wish everyone a merry xmas and a happy new year. I look forward to the challenges ahead. 
+
+Thanks go to Team Jungle for their hard work and efforts in the development process.
+Thanks also go to Team Xecuter for their support to this project.

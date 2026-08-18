@@ -1,0 +1,23 @@
+C4E’s iXtreme LT+ in association with Team Jungle & Team Xecuter
+----------------------------------------------------------------
+
+Official release of the iXtreme LT+ v2.0 for Hitachi drives
+
+- Support for XGD3 ixtreme backups using LT-MAX for maximum capacity on standard DVD+R DL discs.
+
+- Support for large capacity DVD+R DL media (no errors when burning)
+ 
+
+About upcoming iXtreme LT+ 3.0 - released after December 6th
+------------------------------------------------------------
+
+Originals will need to be analysed by XBC to gain disc topology data. This data replaces the need for ap25/dae.bin data and enables any ap25 challenge to be
+answered correctly. The topology data method is very efficient using only 24k and is very accurate. Each title will need its own topology data as there are differences
+between titles, even xgd3 titles and backups can be detected if the same topology data is used between titles. 
+Backups will remain the same layout but will need the new topology data inserted by the new abgx or re-dumped with the new XBC for xgd2/ap25 or xgd3 titles.
+
+Non ap25 titles will remain unchanged 
+
+Thanks go to Team Jungle for their hard work and efforts in the development process.
+Thanks also go to Team Xecuter for their support to this project.
+
