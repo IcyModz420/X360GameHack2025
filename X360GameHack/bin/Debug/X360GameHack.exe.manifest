@@ -199,14 +199,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="X360GameHack.exe" size="530432">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="X360GameHack.exe" size="535552">
       <assemblyIdentity name="X360GameHack" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>yEUkt/7wNOqYTkZpXNsEP+HD8xDgxc7xAqaSIqPO+qc=</dsig:DigestValue>
+        <dsig:DigestValue>M17kQTG9eOW3FdnthAOSMGDU33III7ooCWtaYKcUIf8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

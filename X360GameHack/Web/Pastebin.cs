@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevComponents.DotNetBar;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace X360GameHack
 {
     public class Pastebin
     {
-        public readonly string CurrentVersion = "v3.7.8";
+        public readonly string CurrentVersion = "v3.8.9";
         private readonly string link = "https://github.com/IcyModz420/X360GameHack2025/releases";
         public readonly string YYY;
 
@@ -100,6 +101,8 @@ namespace X360GameHack
             {
                 Properties.Settings.Default.HasBeenAskedToUpdate = true;
                 Properties.Settings.Default.Save();
+                // Shell execute is requred here these need to be sanitized for executeable files and urls to prevent command injection attacks.
+                // the proxy is null but lets do it anyway 
                 Process.Start(link);
 
             }

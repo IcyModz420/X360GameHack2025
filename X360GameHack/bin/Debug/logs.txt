@@ -1,0 +1,74 @@
+X360GameHack: The extracted file C:\Users\icymo\Desktop\CallofDutyBlackOpsUSAEurope already exists. Skipping extraction for this file.
+X360GameHack: Backed up XEX file C:\Users\icymo\Desktop/CallofDutyBlackOpsUSAEurope\default.xex to C:\Users\icymo\Desktop/CallofDutyBlackOpsUSAEurope\default.xexOrininalUnpatchedBackup
+XexTool v6.3  -  xorloser 2006-2011 (Build Fri Oct 14 16:31:54 2011)
+Reading and parsing input xex file...
+  removed media limit
+  removed region limit
+  removed bounding path limit
+  removed bounding device id limit
+  removed console id restriction
+  removed date restriction
+  removed keyvault privilege restriction
+  removed signed keyvault only limit
+  removed library version limit
+  removed required revocation check
+  removed media id limit
+Creating and writing output xex file...
+Successfully wrote altered xex to C:\Users\icymo\Desktop/CallofDutyBlackOpsUSAEurope\default.xex
+C:\Users\icymo\Desktop/CallofDutyBlackOpsUSAEurope\default.xex is retail encrypted uncompressed.
+
+X360GameHack: Backed up XEX file C:\Users\icymo\Desktop/CallofDutyBlackOpsUSAEurope\default_mp.xex to C:\Users\icymo\Desktop/CallofDutyBlackOpsUSAEurope\default_mp.xexOrininalUnpatchedBackup
+XexTool v6.3  -  xorloser 2006-2011 (Build Fri Oct 14 16:31:54 2011)
+Reading and parsing input xex file...
+  removed media limit
+  removed region limit
+  removed bounding path limit
+  removed bounding device id limit
+  removed console id restriction
+  removed date restriction
+  removed keyvault privilege restriction
+  removed signed keyvault only limit
+  removed library version limit
+  removed required revocation check
+  removed media id limit
+Creating and writing output xex file...
+Successfully wrote altered xex to C:\Users\icymo\Desktop/CallofDutyBlackOpsUSAEurope\default_mp.xex
+C:\Users\icymo\Desktop/CallofDutyBlackOpsUSAEurope\default_mp.xex is retail encrypted uncompressed.
+
+X360GameHack: The extracted file C:\Users\icymo\Desktop\CallofDutyBlackOpsUSAEurope already exists. Skipping extraction for this file.
+X360GameHack: Backed up XEX file C:\Users\icymo\Desktop/CallofDutyBlackOpsUSAEurope\default.xex to C:\Users\icymo\Desktop/CallofDutyBlackOpsUSAEurope\default.xexOrininalUnpatchedBackup
+XexTool v6.3  -  xorloser 2006-2011 (Build Fri Oct 14 16:31:54 2011)
+Reading and parsing input xex file...
+  removed media limit
+  removed region limit
+  removed bounding path limit
+  removed bounding device id limit
+  removed console id restriction
+  removed date restriction
+  removed keyvault privilege restriction
+  removed signed keyvault only limit
+  removed library version limit
+  removed required revocation check
+  removed media id limit
+Creating and writing output xex file...
+Successfully wrote altered xex to C:\Users\icymo\Desktop/CallofDutyBlackOpsUSAEurope\default.xex
+C:\Users\icymo\Desktop/CallofDutyBlackOpsUSAEurope\default.xex is retail encrypted uncompressed.
+
+X360GameHack: Backed up XEX file C:\Users\icymo\Desktop/CallofDutyBlackOpsUSAEurope\default_mp.xex to C:\Users\icymo\Desktop/CallofDutyBlackOpsUSAEurope\default_mp.xexOrininalUnpatchedBackup
+XexTool v6.3  -  xorloser 2006-2011 (Build Fri Oct 14 16:31:54 2011)
+Reading and parsing input xex file...
+  removed media limit
+  removed region limit
+  removed bounding path limit
+  removed bounding device id limit
+  removed console id restriction
+  removed date restriction
+  removed keyvault privilege restriction
+  removed signed keyvault only limit
+  removed library version limit
+  removed required revocation check
+  removed media id limit
+Creating and writing output xex file...
+Successfully wrote altered xex to C:\Users\icymo\Desktop/CallofDutyBlackOpsUSAEurope\default_mp.xex
+C:\Users\icymo\Desktop/CallofDutyBlackOpsUSAEurope\default_mp.xex is retail encrypted uncompressed.
+

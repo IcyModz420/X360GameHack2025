@@ -57,7 +57,7 @@ namespace X360GameHack
                     }
                     else if (GenerateBatch)
                     {
-                        // MessageBox.Show("batch");
+                         MessageBox.Show("batch");
                         GenerateBatchToShowCommand(Command, true, false, false, false, false);
                         return;
                     }
@@ -350,7 +350,7 @@ namespace X360GameHack
         public void CaptureProcessOutput(string ToolLocation, string Command, string FilePath)
         {
             AntiCommandInjection APT = new AntiCommandInjection();
-            APT.SanitizeInvokerFilePath(FilePath);
+            //APT.SanitizeInvokerFilePath(FilePath);
             ProcessStartInfo processInfo = new ProcessStartInfo
             {
                 FileName = ToolLocation,

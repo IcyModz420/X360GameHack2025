@@ -168,6 +168,8 @@
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.groupBox52 = new System.Windows.Forms.GroupBox();
+            this.groupBox62 = new System.Windows.Forms.GroupBox();
+            this.checkBox25 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox53 = new System.Windows.Forms.GroupBox();
             this.button69 = new System.Windows.Forms.Button();
@@ -265,10 +267,25 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.button65 = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.groupBox61 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.groupBox60 = new System.Windows.Forms.GroupBox();
+            this.button156 = new System.Windows.Forms.Button();
+            this.button155 = new System.Windows.Forms.Button();
+            this.label87 = new System.Windows.Forms.Label();
+            this.textBox65 = new System.Windows.Forms.TextBox();
+            this.groupBox58 = new System.Windows.Forms.GroupBox();
+            this.label88 = new System.Windows.Forms.Label();
+            this.textBox64 = new System.Windows.Forms.TextBox();
+            this.button144 = new System.Windows.Forms.Button();
+            this.label86 = new System.Windows.Forms.Label();
+            this.textBox63 = new System.Windows.Forms.TextBox();
             this.groupBox59 = new System.Windows.Forms.GroupBox();
+            this.listBox11 = new System.Windows.Forms.ListBox();
+            this.button145 = new System.Windows.Forms.Button();
             this.hexBox1 = new Be.Windows.Forms.HexBox();
             this.button148 = new System.Windows.Forms.Button();
-            this.groupBox58 = new System.Windows.Forms.GroupBox();
             this.groupBox37 = new System.Windows.Forms.GroupBox();
             this.button138 = new System.Windows.Forms.Button();
             this.label61 = new System.Windows.Forms.Label();
@@ -321,8 +338,6 @@
             this.button105 = new System.Windows.Forms.Button();
             this.button104 = new System.Windows.Forms.Button();
             this.tabPage18 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.groupBox44 = new System.Windows.Forms.GroupBox();
             this.tabPage19 = new System.Windows.Forms.TabPage();
             this.tabControl7 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -397,6 +412,28 @@
             this.tabPage22 = new System.Windows.Forms.TabPage();
             this.label29 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.button157 = new System.Windows.Forms.Button();
+            this.button153 = new System.Windows.Forms.Button();
+            this.label100 = new System.Windows.Forms.Label();
+            this.label99 = new System.Windows.Forms.Label();
+            this.label98 = new System.Windows.Forms.Label();
+            this.label97 = new System.Windows.Forms.Label();
+            this.label96 = new System.Windows.Forms.Label();
+            this.label95 = new System.Windows.Forms.Label();
+            this.label94 = new System.Windows.Forms.Label();
+            this.label93 = new System.Windows.Forms.Label();
+            this.groupBox44 = new System.Windows.Forms.GroupBox();
+            this.label101 = new System.Windows.Forms.Label();
+            this.label92 = new System.Windows.Forms.Label();
+            this.label91 = new System.Windows.Forms.Label();
+            this.label90 = new System.Windows.Forms.Label();
+            this.label89 = new System.Windows.Forms.Label();
+            this.label85 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
+            this.button150 = new System.Windows.Forms.Button();
+            this.button149 = new System.Windows.Forms.Button();
+            this.button35 = new System.Windows.Forms.Button();
             this.tabPage15 = new System.Windows.Forms.TabPage();
             this.tabControl6 = new System.Windows.Forms.TabControl();
             this.tabPage16 = new System.Windows.Forms.TabPage();
@@ -477,21 +514,6 @@
             this.button133 = new System.Windows.Forms.Button();
             this.checkBox15 = new System.Windows.Forms.CheckBox();
             this.checkBox24 = new System.Windows.Forms.CheckBox();
-            this.button145 = new System.Windows.Forms.Button();
-            this.groupBox60 = new System.Windows.Forms.GroupBox();
-            this.button155 = new System.Windows.Forms.Button();
-            this.label87 = new System.Windows.Forms.Label();
-            this.textBox65 = new System.Windows.Forms.TextBox();
-            this.button156 = new System.Windows.Forms.Button();
-            this.listBox11 = new System.Windows.Forms.ListBox();
-            this.groupBox61 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label88 = new System.Windows.Forms.Label();
-            this.label86 = new System.Windows.Forms.Label();
-            this.button144 = new System.Windows.Forms.Button();
-            this.textBox64 = new System.Windows.Forms.TextBox();
-            this.textBox63 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -512,6 +534,7 @@
             this.tabControl3.SuspendLayout();
             this.tabPage12.SuspendLayout();
             this.groupBox52.SuspendLayout();
+            this.groupBox62.SuspendLayout();
             this.groupBox53.SuspendLayout();
             this.groupBox54.SuspendLayout();
             this.groupBox56.SuspendLayout();
@@ -536,8 +559,10 @@
             this.groupBox11.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.tabPage7.SuspendLayout();
-            this.groupBox59.SuspendLayout();
+            this.groupBox61.SuspendLayout();
+            this.groupBox60.SuspendLayout();
             this.groupBox58.SuspendLayout();
+            this.groupBox59.SuspendLayout();
             this.groupBox37.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
@@ -550,7 +575,6 @@
             this.groupBox27.SuspendLayout();
             this.groupBox39.SuspendLayout();
             this.tabPage18.SuspendLayout();
-            this.tabPage5.SuspendLayout();
             this.tabPage19.SuspendLayout();
             this.tabControl7.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -568,6 +592,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage22.SuspendLayout();
+            this.tabPage13.SuspendLayout();
+            this.groupBox44.SuspendLayout();
             this.tabPage15.SuspendLayout();
             this.tabControl6.SuspendLayout();
             this.tabPage16.SuspendLayout();
@@ -584,8 +610,6 @@
             this.groupBox16.SuspendLayout();
             this.groupBox40.SuspendLayout();
             this.groupBox38.SuspendLayout();
-            this.groupBox60.SuspendLayout();
-            this.groupBox61.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -2458,6 +2482,7 @@
             // groupBox52
             // 
             this.groupBox52.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox52.Controls.Add(this.groupBox62);
             this.groupBox52.Controls.Add(this.label4);
             this.groupBox52.Controls.Add(this.groupBox53);
             this.groupBox52.Controls.Add(this.groupBox54);
@@ -2476,6 +2501,26 @@
             this.groupBox52.TabIndex = 10;
             this.groupBox52.TabStop = false;
             this.groupBox52.Text = "Bulk XISO Tool";
+            // 
+            // groupBox62
+            // 
+            this.groupBox62.Controls.Add(this.checkBox25);
+            this.groupBox62.Location = new System.Drawing.Point(16, 310);
+            this.groupBox62.Name = "groupBox62";
+            this.groupBox62.Size = new System.Drawing.Size(417, 41);
+            this.groupBox62.TabIndex = 24;
+            this.groupBox62.TabStop = false;
+            this.groupBox62.Text = "XISO Settings";
+            // 
+            // checkBox25
+            // 
+            this.checkBox25.AutoSize = true;
+            this.checkBox25.Location = new System.Drawing.Point(10, 20);
+            this.checkBox25.Name = "checkBox25";
+            this.checkBox25.Size = new System.Drawing.Size(204, 21);
+            this.checkBox25.TabIndex = 0;
+            this.checkBox25.Text = "Show XISO CMD Window";
+            this.checkBox25.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -3410,7 +3455,7 @@
             this.button142.Location = new System.Drawing.Point(18, 98);
             this.button142.Margin = new System.Windows.Forms.Padding(1);
             this.button142.Name = "button142";
-            this.button142.Size = new System.Drawing.Size(199, 31);
+            this.button142.Size = new System.Drawing.Size(17, 31);
             this.button142.TabIndex = 54;
             this.button142.Text = "Set Title ID";
             this.button142.UseVisualStyleBackColor = false;
@@ -3424,7 +3469,7 @@
             this.button141.Location = new System.Drawing.Point(18, 64);
             this.button141.Margin = new System.Windows.Forms.Padding(1);
             this.button141.Name = "button141";
-            this.button141.Size = new System.Drawing.Size(199, 31);
+            this.button141.Size = new System.Drawing.Size(17, 31);
             this.button141.TabIndex = 53;
             this.button141.Text = "Refresh XEX Info";
             this.button141.UseVisualStyleBackColor = false;
@@ -3651,7 +3696,7 @@
             this.button61.Location = new System.Drawing.Point(4, 19);
             this.button61.Margin = new System.Windows.Forms.Padding(1);
             this.button61.Name = "button61";
-            this.button61.Size = new System.Drawing.Size(213, 27);
+            this.button61.Size = new System.Drawing.Size(42, 27);
             this.button61.TabIndex = 21;
             this.button61.Text = "Dump to binary";
             this.button61.UseVisualStyleBackColor = false;
@@ -3665,7 +3710,7 @@
             this.button59.Location = new System.Drawing.Point(4, 88);
             this.button59.Margin = new System.Windows.Forms.Padding(1);
             this.button59.Name = "button59";
-            this.button59.Size = new System.Drawing.Size(213, 29);
+            this.button59.Size = new System.Drawing.Size(42, 29);
             this.button59.TabIndex = 24;
             this.button59.Text = "Dump .idc file";
             this.button59.UseVisualStyleBackColor = false;
@@ -3679,7 +3724,7 @@
             this.button60.Location = new System.Drawing.Point(4, 54);
             this.button60.Margin = new System.Windows.Forms.Padding(1);
             this.button60.Name = "button60";
-            this.button60.Size = new System.Drawing.Size(213, 27);
+            this.button60.Size = new System.Drawing.Size(42, 27);
             this.button60.TabIndex = 22;
             this.button60.Text = "Dump to exe";
             this.button60.UseVisualStyleBackColor = false;
@@ -3707,7 +3752,7 @@
             this.button65.Location = new System.Drawing.Point(16, 18);
             this.button65.Margin = new System.Windows.Forms.Padding(1);
             this.button65.Name = "button65";
-            this.button65.Size = new System.Drawing.Size(201, 33);
+            this.button65.Size = new System.Drawing.Size(20, 33);
             this.button65.TabIndex = 17;
             this.button65.Text = "List all header info";
             this.button65.UseVisualStyleBackColor = false;
@@ -3728,40 +3773,98 @@
             this.tabPage7.TabIndex = 13;
             this.tabPage7.Text = "XEX Hacker";
             // 
-            // groupBox59
+            // groupBox61
             // 
-            this.groupBox59.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox59.Controls.Add(this.listBox11);
-            this.groupBox59.Controls.Add(this.button145);
-            this.groupBox59.Controls.Add(this.hexBox1);
-            this.groupBox59.Controls.Add(this.button148);
-            this.groupBox59.Location = new System.Drawing.Point(247, 6);
-            this.groupBox59.Name = "groupBox59";
-            this.groupBox59.Size = new System.Drawing.Size(684, 403);
-            this.groupBox59.TabIndex = 6;
-            this.groupBox59.TabStop = false;
-            this.groupBox59.Text = "Hex Editor";
+            this.groupBox61.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox61.Controls.Add(this.radioButton2);
+            this.groupBox61.Controls.Add(this.radioButton1);
+            this.groupBox61.Location = new System.Drawing.Point(6, 334);
+            this.groupBox61.Name = "groupBox61";
+            this.groupBox61.Size = new System.Drawing.Size(235, 69);
+            this.groupBox61.TabIndex = 8;
+            this.groupBox61.TabStop = false;
+            this.groupBox61.Text = "Address Mode";
             // 
-            // hexBox1
+            // radioButton2
             // 
-            this.hexBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.hexBox1.Location = new System.Drawing.Point(6, 21);
-            this.hexBox1.Name = "hexBox1";
-            this.hexBox1.ShadowSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(60)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.hexBox1.Size = new System.Drawing.Size(668, 255);
-            this.hexBox1.TabIndex = 5;
-            this.hexBox1.VScrollBarVisible = true;
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Checked = true;
+            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton2.Location = new System.Drawing.Point(8, 42);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(190, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "360 Address/CurrentBaseFile";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // button148
+            // radioButton1
             // 
-            this.button148.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button148.Location = new System.Drawing.Point(191, 370);
-            this.button148.Name = "button148";
-            this.button148.Size = new System.Drawing.Size(61, 27);
-            this.button148.TabIndex = 32;
-            this.button148.Text = "Save";
-            this.button148.UseVisualStyleBackColor = true;
-            this.button148.Click += new System.EventHandler(this.button148_Click);
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1.Location = new System.Drawing.Point(8, 21);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(84, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.Text = "HxD Mode";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // groupBox60
+            // 
+            this.groupBox60.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox60.Controls.Add(this.button156);
+            this.groupBox60.Controls.Add(this.button155);
+            this.groupBox60.Controls.Add(this.label87);
+            this.groupBox60.Controls.Add(this.textBox65);
+            this.groupBox60.Location = new System.Drawing.Point(6, 6);
+            this.groupBox60.Name = "groupBox60";
+            this.groupBox60.Size = new System.Drawing.Size(229, 95);
+            this.groupBox60.TabIndex = 7;
+            this.groupBox60.TabStop = false;
+            this.groupBox60.Text = "Find Hex";
+            // 
+            // button156
+            // 
+            this.button156.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button156.Location = new System.Drawing.Point(10, 63);
+            this.button156.Name = "button156";
+            this.button156.Size = new System.Drawing.Size(209, 27);
+            this.button156.TabIndex = 4;
+            this.button156.Text = "Find All";
+            this.button156.UseVisualStyleBackColor = true;
+            this.button156.Click += new System.EventHandler(this.button156_Click);
+            // 
+            // button155
+            // 
+            this.button155.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button155.Location = new System.Drawing.Point(10, 40);
+            this.button155.Name = "button155";
+            this.button155.Size = new System.Drawing.Size(209, 27);
+            this.button155.TabIndex = 1;
+            this.button155.Text = "Find Next from current location";
+            this.button155.UseVisualStyleBackColor = true;
+            this.button155.Click += new System.EventHandler(this.button155_Click);
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label87.Location = new System.Drawing.Point(7, 24);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(62, 13);
+            this.label87.TabIndex = 3;
+            this.label87.Text = "Raw Hex:";
+            // 
+            // textBox65
+            // 
+            this.textBox65.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox65.Location = new System.Drawing.Point(75, 21);
+            this.textBox65.Name = "textBox65";
+            this.textBox65.Size = new System.Drawing.Size(144, 20);
+            this.textBox65.TabIndex = 2;
+            this.textBox65.Text = "FFFF";
             // 
             // groupBox58
             // 
@@ -3777,6 +3880,114 @@
             this.groupBox58.TabIndex = 4;
             this.groupBox58.TabStop = false;
             this.groupBox58.Text = "Find and Replace Hex";
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label88.Location = new System.Drawing.Point(6, 28);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(35, 13);
+            this.label88.TabIndex = 5;
+            this.label88.Text = "Find:";
+            // 
+            // textBox64
+            // 
+            this.textBox64.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox64.Location = new System.Drawing.Point(119, 21);
+            this.textBox64.Name = "textBox64";
+            this.textBox64.Size = new System.Drawing.Size(102, 20);
+            this.textBox64.TabIndex = 4;
+            this.textBox64.Text = "FFFF";
+            // 
+            // button144
+            // 
+            this.button144.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button144.Location = new System.Drawing.Point(10, 70);
+            this.button144.Name = "button144";
+            this.button144.Size = new System.Drawing.Size(211, 27);
+            this.button144.TabIndex = 1;
+            this.button144.Text = "Patch Location";
+            this.button144.UseVisualStyleBackColor = true;
+            this.button144.Click += new System.EventHandler(this.button144_Click);
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label86.Location = new System.Drawing.Point(6, 47);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(85, 13);
+            this.label86.TabIndex = 1;
+            this.label86.Text = "Replace with:";
+            // 
+            // textBox63
+            // 
+            this.textBox63.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox63.Location = new System.Drawing.Point(119, 44);
+            this.textBox63.Name = "textBox63";
+            this.textBox63.Size = new System.Drawing.Size(102, 20);
+            this.textBox63.TabIndex = 0;
+            this.textBox63.Text = "FFFF";
+            // 
+            // groupBox59
+            // 
+            this.groupBox59.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox59.Controls.Add(this.listBox11);
+            this.groupBox59.Controls.Add(this.button145);
+            this.groupBox59.Controls.Add(this.hexBox1);
+            this.groupBox59.Controls.Add(this.button148);
+            this.groupBox59.Location = new System.Drawing.Point(247, 6);
+            this.groupBox59.Name = "groupBox59";
+            this.groupBox59.Size = new System.Drawing.Size(684, 403);
+            this.groupBox59.TabIndex = 6;
+            this.groupBox59.TabStop = false;
+            this.groupBox59.Text = "Hex Editor";
+            // 
+            // listBox11
+            // 
+            this.listBox11.FormattingEnabled = true;
+            this.listBox11.ItemHeight = 16;
+            this.listBox11.Items.AddRange(new object[] {
+            " "});
+            this.listBox11.Location = new System.Drawing.Point(6, 282);
+            this.listBox11.Name = "listBox11";
+            this.listBox11.Size = new System.Drawing.Size(668, 84);
+            this.listBox11.TabIndex = 37;
+            this.listBox11.DoubleClick += new System.EventHandler(this.listBox11_DoubleClick);
+            // 
+            // button145
+            // 
+            this.button145.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button145.Location = new System.Drawing.Point(6, 370);
+            this.button145.Name = "button145";
+            this.button145.Size = new System.Drawing.Size(179, 27);
+            this.button145.TabIndex = 36;
+            this.button145.Text = "Open Working File / Refresh";
+            this.button145.UseVisualStyleBackColor = true;
+            this.button145.Click += new System.EventHandler(this.button145_Click);
+            // 
+            // hexBox1
+            // 
+            this.hexBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.hexBox1.Location = new System.Drawing.Point(6, 21);
+            this.hexBox1.Name = "hexBox1";
+            this.hexBox1.ShadowSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(60)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
+            this.hexBox1.Size = new System.Drawing.Size(668, 255);
+            this.hexBox1.TabIndex = 5;
+            this.hexBox1.VScrollBarVisible = true;
+            this.hexBox1.SelectionStartChanged += new System.EventHandler(this.hexBox1_SelectionStartChanged);
+            // 
+            // button148
+            // 
+            this.button148.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button148.Location = new System.Drawing.Point(191, 370);
+            this.button148.Name = "button148";
+            this.button148.Size = new System.Drawing.Size(61, 27);
+            this.button148.TabIndex = 32;
+            this.button148.Text = "Save";
+            this.button148.UseVisualStyleBackColor = true;
+            this.button148.Click += new System.EventHandler(this.button148_Click);
             // 
             // groupBox37
             // 
@@ -4280,7 +4491,6 @@
             // 
             this.tabControl4.Controls.Add(this.tabPage17);
             this.tabControl4.Controls.Add(this.tabPage18);
-            this.tabControl4.Controls.Add(this.tabPage5);
             this.tabControl4.Controls.Add(this.tabPage19);
             this.tabControl4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl4.Location = new System.Drawing.Point(-4, 0);
@@ -4440,29 +4650,6 @@
             this.tabPage18.TabIndex = 2;
             this.tabPage18.Text = "FTP2Xbox";
             // 
-            // tabPage5
-            // 
-            this.tabPage5.BackColor = System.Drawing.Color.LightGray;
-            this.tabPage5.Controls.Add(this.groupBox44);
-            this.tabPage5.ForeColor = System.Drawing.Color.Black;
-            this.tabPage5.Location = new System.Drawing.Point(4, 25);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(2);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(934, 441);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Nand Tools";
-            // 
-            // groupBox44
-            // 
-            this.groupBox44.Location = new System.Drawing.Point(4, 2);
-            this.groupBox44.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox44.Name = "groupBox44";
-            this.groupBox44.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox44.Size = new System.Drawing.Size(226, 192);
-            this.groupBox44.TabIndex = 0;
-            this.groupBox44.TabStop = false;
-            this.groupBox44.Text = "Nand Applications";
-            // 
             // tabPage19
             // 
             this.tabPage19.BackColor = System.Drawing.Color.LightGray;
@@ -4588,7 +4775,7 @@
             "Default = Hdd1\\Applications\\Aurora\\default.xex"});
             this.listBox4.Location = new System.Drawing.Point(6, 19);
             this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(232, 17);
+            this.listBox4.Size = new System.Drawing.Size(232, 108);
             this.listBox4.TabIndex = 2;
             // 
             // groupBox30
@@ -4624,7 +4811,7 @@
             "Plugin 5 ="});
             this.listBox3.Location = new System.Drawing.Point(6, 19);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(198, 17);
+            this.listBox3.Size = new System.Drawing.Size(198, 69);
             this.listBox3.TabIndex = 6;
             // 
             // groupBox29
@@ -5253,6 +5440,7 @@
             // 
             this.tabControl5.Controls.Add(this.tabPage21);
             this.tabControl5.Controls.Add(this.tabPage22);
+            this.tabControl5.Controls.Add(this.tabPage13);
             this.tabControl5.Controls.Add(this.tabPage15);
             this.tabControl5.Controls.Add(this.tabPage23);
             this.tabControl5.Controls.Add(this.tabPage24);
@@ -5390,6 +5578,289 @@
             this.label22.Size = new System.Drawing.Size(202, 16);
             this.label22.TabIndex = 10;
             this.label22.Text = "Not Connected to a console.";
+            // 
+            // tabPage13
+            // 
+            this.tabPage13.BackColor = System.Drawing.Color.LightGray;
+            this.tabPage13.Controls.Add(this.button157);
+            this.tabPage13.Controls.Add(this.button153);
+            this.tabPage13.Controls.Add(this.label100);
+            this.tabPage13.Controls.Add(this.label99);
+            this.tabPage13.Controls.Add(this.label98);
+            this.tabPage13.Controls.Add(this.label97);
+            this.tabPage13.Controls.Add(this.label96);
+            this.tabPage13.Controls.Add(this.label95);
+            this.tabPage13.Controls.Add(this.label94);
+            this.tabPage13.Controls.Add(this.label93);
+            this.tabPage13.Controls.Add(this.groupBox44);
+            this.tabPage13.Location = new System.Drawing.Point(4, 25);
+            this.tabPage13.Name = "tabPage13";
+            this.tabPage13.Size = new System.Drawing.Size(934, 532);
+            this.tabPage13.TabIndex = 5;
+            this.tabPage13.Text = "X360FlashTools";
+            // 
+            // button157
+            // 
+            this.button157.BackColor = System.Drawing.Color.White;
+            this.button157.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button157.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button157.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button157.Location = new System.Drawing.Point(578, 240);
+            this.button157.Margin = new System.Windows.Forms.Padding(1);
+            this.button157.Name = "button157";
+            this.button157.Size = new System.Drawing.Size(319, 23);
+            this.button157.TabIndex = 35;
+            this.button157.Text = "Open FTP2XELL Tab";
+            this.button157.UseVisualStyleBackColor = false;
+            // 
+            // button153
+            // 
+            this.button153.BackColor = System.Drawing.Color.White;
+            this.button153.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button153.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button153.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button153.Location = new System.Drawing.Point(7, 291);
+            this.button153.Margin = new System.Windows.Forms.Padding(1);
+            this.button153.Name = "button153";
+            this.button153.Size = new System.Drawing.Size(319, 23);
+            this.button153.TabIndex = 34;
+            this.button153.Text = "Copy SimpleNandFlasher.xex to USB root";
+            this.button153.UseVisualStyleBackColor = false;
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label100.Location = new System.Drawing.Point(4, 315);
+            this.label100.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(918, 13);
+            this.label100.TabIndex = 33;
+            this.label100.Text = "IF YOU PURCHASED YOUR CONSOLE WITHOUT A COPY OF YOUR NAND YOUR INSTALLER SHOULD S" +
+    "TILL HAVE A COPY OF YOUR NAND AND CPU KEY.";
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label99.Location = new System.Drawing.Point(4, 277);
+            this.label99.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(391, 13);
+            this.label99.TabIndex = 32;
+            this.label99.Text = "SimpleNandFlasher.xex, OR  INSTALLING a JR PROGRAMMER V2.";
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label98.Location = new System.Drawing.Point(4, 264);
+            this.label98.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(920, 13);
+            this.label98.TabIndex = 27;
+            this.label98.Text = "IF YOU PURCHASED YOUR CONSOLE WITHOUT A COPY OF YOUR NAND YOU CAN TAKE ONE WITH S" +
+    "OFTWARE OVER XELL FTP, LAUNCHING INCLUDED";
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.BackColor = System.Drawing.Color.Transparent;
+            this.label97.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label97.Location = new System.Drawing.Point(4, 514);
+            this.label97.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(777, 13);
+            this.label97.TabIndex = 31;
+            this.label97.Text = "NAND CHIP FLASH DEVICE CAN BE EASILY REPLACED AND FLASHED WITH BACKUP NAND TO RES" +
+    "TORE SOFTWARE DIRECTLY,";
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label96.Location = new System.Drawing.Point(4, 501);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(431, 13);
+            this.label96.TabIndex = 30;
+            this.label96.Text = "IF NOT POSSIBLE DUE TO TOO MANY BAD BLOCKS OR SIMILAR THEN:";
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label95.Location = new System.Drawing.Point(4, 475);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(154, 13);
+            this.label95.TabIndex = 29;
+            this.label95.Text = "IF NOT POSSIBLE THEN:";
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.BackColor = System.Drawing.Color.Transparent;
+            this.label94.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label94.Location = new System.Drawing.Point(4, 462);
+            this.label94.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(893, 13);
+            this.label94.TabIndex = 28;
+            this.label94.Text = "SOFT BRICKS CAN BE RECOVERED BY HAVING A \"updflash.bin\" ON A USB AND BOOTING THE " +
+    "CONSOLE WITH EJECT WILL START XELL RAWFLASH";
+            // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.BackColor = System.Drawing.Color.Transparent;
+            this.label93.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label93.Location = new System.Drawing.Point(4, 488);
+            this.label93.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(841, 13);
+            this.label93.TabIndex = 27;
+            this.label93.Text = "SOFT BRICKS CAN BE RECOVERED BY HAVING A JR PROGRAMMER V2 INSTALLED TO BOARD NAND" +
+    " POINTS AND FLASHING THE BACKUP.";
+            // 
+            // groupBox44
+            // 
+            this.groupBox44.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox44.Controls.Add(this.label101);
+            this.groupBox44.Controls.Add(this.label92);
+            this.groupBox44.Controls.Add(this.label91);
+            this.groupBox44.Controls.Add(this.label90);
+            this.groupBox44.Controls.Add(this.label89);
+            this.groupBox44.Controls.Add(this.label85);
+            this.groupBox44.Controls.Add(this.label76);
+            this.groupBox44.Controls.Add(this.button150);
+            this.groupBox44.Controls.Add(this.button149);
+            this.groupBox44.Controls.Add(this.button35);
+            this.groupBox44.Location = new System.Drawing.Point(4, 2);
+            this.groupBox44.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox44.Name = "groupBox44";
+            this.groupBox44.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox44.Size = new System.Drawing.Size(429, 203);
+            this.groupBox44.TabIndex = 1;
+            this.groupBox44.TabStop = false;
+            this.groupBox44.Text = "Nand Applications";
+            // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label101.Location = new System.Drawing.Point(3, 185);
+            this.label101.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(423, 13);
+            this.label101.TabIndex = 34;
+            this.label101.Text = "YOU CAN GET YOUR CPU KEY FROM XELL BY BOOTING WITH EJECT.";
+            // 
+            // label92
+            // 
+            this.label92.AutoSize = true;
+            this.label92.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label92.Location = new System.Drawing.Point(3, 172);
+            this.label92.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(419, 13);
+            this.label92.TabIndex = 26;
+            this.label92.Text = "ALWAYS KEEP A BACKUP OF YOUR ORIGINAL NAND AND CPU KEY!!!";
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label91.Location = new System.Drawing.Point(3, 156);
+            this.label91.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(296, 13);
+            this.label91.TabIndex = 25;
+            this.label91.Text = "BE SURE YOUR RGH METHOD IS SUPPORTED!!!";
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label90.Location = new System.Drawing.Point(3, 140);
+            this.label90.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(312, 13);
+            this.label90.TabIndex = 24;
+            this.label90.Text = "Don\'t use these original tools if you don\'t know how!!!";
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label89.Location = new System.Drawing.Point(3, 124);
+            this.label89.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(213, 13);
+            this.label89.TabIndex = 23;
+            this.label89.Text = "NOT RESPONCIBLE FOR BRICKS!!!";
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label85.Location = new System.Drawing.Point(3, 108);
+            this.label85.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(213, 13);
+            this.label85.TabIndex = 22;
+            this.label85.Text = "NOT RESPONCIBLE FOR BRICKS!!!";
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label76.Location = new System.Drawing.Point(3, 92);
+            this.label76.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(213, 13);
+            this.label76.TabIndex = 21;
+            this.label76.Text = "NOT RESPONCIBLE FOR BRICKS!!!";
+            // 
+            // button150
+            // 
+            this.button150.BackColor = System.Drawing.Color.White;
+            this.button150.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button150.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button150.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button150.Location = new System.Drawing.Point(3, 68);
+            this.button150.Margin = new System.Windows.Forms.Padding(1);
+            this.button150.Name = "button150";
+            this.button150.Size = new System.Drawing.Size(423, 23);
+            this.button150.TabIndex = 20;
+            this.button150.Text = "Open RGBuild (RGH Devkit Nand Builder)";
+            this.button150.UseVisualStyleBackColor = false;
+            // 
+            // button149
+            // 
+            this.button149.BackColor = System.Drawing.Color.White;
+            this.button149.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button149.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button149.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button149.Location = new System.Drawing.Point(3, 43);
+            this.button149.Margin = new System.Windows.Forms.Padding(1);
+            this.button149.Name = "button149";
+            this.button149.Size = new System.Drawing.Size(423, 23);
+            this.button149.TabIndex = 19;
+            this.button149.Text = "Open XeBuild GUI (Nand builder GUI)";
+            this.button149.UseVisualStyleBackColor = false;
+            // 
+            // button35
+            // 
+            this.button35.BackColor = System.Drawing.Color.White;
+            this.button35.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button35.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button35.Location = new System.Drawing.Point(3, 18);
+            this.button35.Margin = new System.Windows.Forms.Padding(1);
+            this.button35.Name = "button35";
+            this.button35.Size = new System.Drawing.Size(423, 23);
+            this.button35.TabIndex = 18;
+            this.button35.Text = "Open J-Runner Best/RGH Installer Nand Tool ";
+            this.button35.UseVisualStyleBackColor = false;
             // 
             // tabPage15
             // 
@@ -6282,171 +6753,6 @@
             this.checkBox24.Text = "Attach System Info";
             this.checkBox24.UseVisualStyleBackColor = false;
             // 
-            // button145
-            // 
-            this.button145.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button145.Location = new System.Drawing.Point(6, 370);
-            this.button145.Name = "button145";
-            this.button145.Size = new System.Drawing.Size(179, 27);
-            this.button145.TabIndex = 36;
-            this.button145.Text = "Open Working File / Refresh";
-            this.button145.UseVisualStyleBackColor = true;
-            this.button145.Click += new System.EventHandler(this.button145_Click);
-            // 
-            // groupBox60
-            // 
-            this.groupBox60.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox60.Controls.Add(this.button156);
-            this.groupBox60.Controls.Add(this.button155);
-            this.groupBox60.Controls.Add(this.label87);
-            this.groupBox60.Controls.Add(this.textBox65);
-            this.groupBox60.Location = new System.Drawing.Point(6, 6);
-            this.groupBox60.Name = "groupBox60";
-            this.groupBox60.Size = new System.Drawing.Size(229, 95);
-            this.groupBox60.TabIndex = 7;
-            this.groupBox60.TabStop = false;
-            this.groupBox60.Text = "Find Hex";
-            // 
-            // button155
-            // 
-            this.button155.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button155.Location = new System.Drawing.Point(10, 40);
-            this.button155.Name = "button155";
-            this.button155.Size = new System.Drawing.Size(209, 27);
-            this.button155.TabIndex = 1;
-            this.button155.Text = "Find Next from current location";
-            this.button155.UseVisualStyleBackColor = true;
-            this.button155.Click += new System.EventHandler(this.button155_Click);
-            // 
-            // label87
-            // 
-            this.label87.AutoSize = true;
-            this.label87.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label87.Location = new System.Drawing.Point(7, 24);
-            this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(62, 13);
-            this.label87.TabIndex = 3;
-            this.label87.Text = "Raw Hex:";
-            // 
-            // textBox65
-            // 
-            this.textBox65.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox65.Location = new System.Drawing.Point(75, 21);
-            this.textBox65.Name = "textBox65";
-            this.textBox65.Size = new System.Drawing.Size(144, 20);
-            this.textBox65.TabIndex = 2;
-            this.textBox65.Text = "FFFF";
-            // 
-            // button156
-            // 
-            this.button156.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button156.Location = new System.Drawing.Point(10, 63);
-            this.button156.Name = "button156";
-            this.button156.Size = new System.Drawing.Size(209, 27);
-            this.button156.TabIndex = 4;
-            this.button156.Text = "Find All";
-            this.button156.UseVisualStyleBackColor = true;
-            this.button156.Click += new System.EventHandler(this.button156_Click);
-            // 
-            // listBox11
-            // 
-            this.listBox11.FormattingEnabled = true;
-            this.listBox11.ItemHeight = 16;
-            this.listBox11.Items.AddRange(new object[] {
-            " "});
-            this.listBox11.Location = new System.Drawing.Point(6, 282);
-            this.listBox11.Name = "listBox11";
-            this.listBox11.Size = new System.Drawing.Size(668, 84);
-            this.listBox11.TabIndex = 37;
-            this.listBox11.DoubleClick += new System.EventHandler(this.listBox11_DoubleClick);
-            // 
-            // groupBox61
-            // 
-            this.groupBox61.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox61.Controls.Add(this.radioButton2);
-            this.groupBox61.Controls.Add(this.radioButton1);
-            this.groupBox61.Location = new System.Drawing.Point(6, 334);
-            this.groupBox61.Name = "groupBox61";
-            this.groupBox61.Size = new System.Drawing.Size(235, 69);
-            this.groupBox61.TabIndex = 8;
-            this.groupBox61.TabStop = false;
-            this.groupBox61.Text = "Address Mode";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(8, 21);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(84, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.Text = "HxD Mode";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(8, 42);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(190, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "360 Address/CurrentBaseFile";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
-            // 
-            // label88
-            // 
-            this.label88.AutoSize = true;
-            this.label88.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label88.Location = new System.Drawing.Point(6, 28);
-            this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(35, 13);
-            this.label88.TabIndex = 5;
-            this.label88.Text = "Find:";
-            // 
-            // label86
-            // 
-            this.label86.AutoSize = true;
-            this.label86.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label86.Location = new System.Drawing.Point(6, 47);
-            this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(85, 13);
-            this.label86.TabIndex = 1;
-            this.label86.Text = "Replace with:";
-            // 
-            // button144
-            // 
-            this.button144.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button144.Location = new System.Drawing.Point(10, 70);
-            this.button144.Name = "button144";
-            this.button144.Size = new System.Drawing.Size(211, 27);
-            this.button144.TabIndex = 1;
-            this.button144.Text = "Patch Location";
-            this.button144.UseVisualStyleBackColor = true;
-            this.button144.Click += new System.EventHandler(this.button144_Click);
-            // 
-            // textBox64
-            // 
-            this.textBox64.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox64.Location = new System.Drawing.Point(119, 21);
-            this.textBox64.Name = "textBox64";
-            this.textBox64.Size = new System.Drawing.Size(102, 20);
-            this.textBox64.TabIndex = 4;
-            this.textBox64.Text = "DEADBEEF";
-            // 
-            // textBox63
-            // 
-            this.textBox63.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox63.Location = new System.Drawing.Point(119, 44);
-            this.textBox63.Name = "textBox63";
-            this.textBox63.Size = new System.Drawing.Size(102, 20);
-            this.textBox63.TabIndex = 0;
-            this.textBox63.Text = "DEADBEEF";
-            // 
             // X360GameHack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6508,6 +6814,8 @@
             this.tabPage12.ResumeLayout(false);
             this.groupBox52.ResumeLayout(false);
             this.groupBox52.PerformLayout();
+            this.groupBox62.ResumeLayout(false);
+            this.groupBox62.PerformLayout();
             this.groupBox53.ResumeLayout(false);
             this.groupBox53.PerformLayout();
             this.groupBox54.ResumeLayout(false);
@@ -6541,9 +6849,13 @@
             this.groupBox11.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
-            this.groupBox59.ResumeLayout(false);
+            this.groupBox61.ResumeLayout(false);
+            this.groupBox61.PerformLayout();
+            this.groupBox60.ResumeLayout(false);
+            this.groupBox60.PerformLayout();
             this.groupBox58.ResumeLayout(false);
             this.groupBox58.PerformLayout();
+            this.groupBox59.ResumeLayout(false);
             this.groupBox37.ResumeLayout(false);
             this.groupBox37.PerformLayout();
             this.tabControl2.ResumeLayout(false);
@@ -6560,7 +6872,6 @@
             this.groupBox27.PerformLayout();
             this.groupBox39.ResumeLayout(false);
             this.tabPage18.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
             this.tabPage19.ResumeLayout(false);
             this.tabControl7.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
@@ -6584,6 +6895,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage22.ResumeLayout(false);
             this.tabPage22.PerformLayout();
+            this.tabPage13.ResumeLayout(false);
+            this.tabPage13.PerformLayout();
+            this.groupBox44.ResumeLayout(false);
+            this.groupBox44.PerformLayout();
             this.tabPage15.ResumeLayout(false);
             this.tabControl6.ResumeLayout(false);
             this.tabPage16.ResumeLayout(false);
@@ -6607,10 +6922,6 @@
             this.groupBox40.ResumeLayout(false);
             this.groupBox38.ResumeLayout(false);
             this.groupBox38.PerformLayout();
-            this.groupBox60.ResumeLayout(false);
-            this.groupBox60.PerformLayout();
-            this.groupBox61.ResumeLayout(false);
-            this.groupBox61.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6993,8 +7304,6 @@
         private System.Windows.Forms.GroupBox groupBox42;
         private System.Windows.Forms.Button button139;
         private System.Windows.Forms.GroupBox groupBox43;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.GroupBox groupBox44;
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Button button140;
@@ -7080,6 +7389,30 @@
         private System.Windows.Forms.Button button144;
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.TextBox textBox63;
+        private System.Windows.Forms.GroupBox groupBox62;
+        private System.Windows.Forms.CheckBox checkBox25;
+        private System.Windows.Forms.TabPage tabPage13;
+        private System.Windows.Forms.GroupBox groupBox44;
+        private System.Windows.Forms.Button button149;
+        private System.Windows.Forms.Button button35;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.Label label85;
+        private System.Windows.Forms.Label label76;
+        private System.Windows.Forms.Button button150;
+        private System.Windows.Forms.Label label91;
+        private System.Windows.Forms.Label label93;
+        private System.Windows.Forms.Label label92;
+        private System.Windows.Forms.Label label94;
+        private System.Windows.Forms.Label label97;
+        private System.Windows.Forms.Label label96;
+        private System.Windows.Forms.Label label95;
+        private System.Windows.Forms.Label label99;
+        private System.Windows.Forms.Label label98;
+        private System.Windows.Forms.Label label100;
+        private System.Windows.Forms.Label label101;
+        private System.Windows.Forms.Button button153;
+        private System.Windows.Forms.Button button157;
     }
 }
 

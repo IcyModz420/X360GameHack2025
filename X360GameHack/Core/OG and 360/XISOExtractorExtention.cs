@@ -18,7 +18,7 @@ namespace X360GameHack
         AntiCommandInjection APT = new AntiCommandInjection();
         public async Task<bool> ExtractISOAsync(string isoPath, bool extractSystemUpdate, bool defaultExtractionLocation, string extractorPath)
         {
-            APT.SanitizeInvokerFilePath(isoPath);
+            //APT.SanitizeInvokerFilePath(isoPath);
             arguments = ""; // reset
             if (!extractSystemUpdate)
             {
@@ -57,14 +57,6 @@ namespace X360GameHack
                 invoker.GenerateBatchToShowCommand(arguments, false, false, true, false, true);
                 return true;
             }
-
-
-
-
-
-
-
-
             else
             {
                 //this works for startup path only

@@ -58,6 +58,8 @@ namespace X360GameHack
         public static XboxConsole ConsoleX = new XboxConsole();
         private DynamicFileByteProvider _currentProvider;
 
+        private long _lastKnownAddress = 0;
+
         public X360GameHack()
         {
             AntiNoob.DoAntiDebugFunc(); // no debugging in release version
@@ -245,7 +247,7 @@ namespace X360GameHack
             button148.Enabled = false; // disable hex editor save button when basefile mode checked automatically
             this.Size = new Size(978, 834);
             pictureBox1.Hide();
-            tabControl5.TabPages.Remove(tabControl5.TabPages[2]); // hide X360Debug Tool tab 
+            tabControl5.TabPages.Remove(tabControl5.TabPages[3]); // hide X360Debug Tool tab 
             tabControl4.TabPages.Remove(tabControl4.TabPages[2]); // hide ini editors tab
             groupBox5.AllowDrop = true; // property gone had to do this
             invoker.CaptureOutput = true; // Always capture tool output unless they check it off in settings..
@@ -2288,9 +2290,18 @@ namespace X360GameHack
             { // check if the user has set a custom extraction path which is required to proceed
                 button146.Enabled = false;
                 ProcessHelper PH = new ProcessHelper();
-                PH.KillAllProcessesByName("extract-xiso"); // kill all extract-xiso processes before we start so we don't have any left over from a previous extraction
+                PH.KillAllProcessesByName("extact-xiso"); // kill all extract-xiso processes before we start so we don't have any left over from a previous extraction
                 foreach (string item in listBox10.Items)
                 {
+                    // BUG fix we need to skip the loop iteration if the extracted file already exists extract xiso cant overwrite it and will crash the extraction process
+                    //build the path to the extracted file and check if it exists before we try to extract it
+                    string BuildExtractedFilePath = Path.Combine(textBox8.Text, Path.GetFileNameWithoutExtension(item));
+                    if (System.IO.Directory.Exists(BuildExtractedFilePath))
+                    {
+                        //we dont need to stop extracting all for this we can just skip it like this and continue to the next item in the listbox
+                        X360GameHack.CurrentInstance.UpdateListboxForOutput("X360GameHack: The extracted file " + BuildExtractedFilePath + " already exists. Skipping extraction for this file.");
+                        continue;
+                    }
                     if (System.IO.File.Exists(item))
                     {
                         string ISOName = Path.GetFileNameWithoutExtension(item);
@@ -2298,27 +2309,33 @@ namespace X360GameHack
                         bool success = await XISOEE.ExtractISOAsync(item, checkBox39.Checked, false, textBox8.Text);
                         if (success) //if iso was extracted
                         {
-
-                            PH.WaitForProcessByNameAsync("extract-xiso");
+                            PH.WaitForProcessByNameAsync("extract-xiso"); // dont await this
                             // sense we do this to wait until its done we have to kill all extract-xiso processes before we do anything so it attaches to the right and only one we open at a time
                             // we shouldn't have any left open sense we use /c now in genbatchtoshowcmd..
                             // this will keep our spinner going
                             string[] xexFiles = Directory.GetFiles(textBox8.Text + "/" + ISOName, "*.xex"); // get all xex files in the extraction path to array
                             foreach (string file in xexFiles) // patch each file in dir
                             {
+                               // X360GameHack.CurrentInstance.UpdateListboxForOutput($"DEBUG: Found {xexFiles.Length} xex file(s):");
+                                //foreach (string f in xexFiles)
+                                  //  X360GameHack.CurrentInstance.UpdateListboxForOutput("DEBUG:   -> " + f);
                                 //backupxex
-                                if (checkBox36.Checked)
+                                if (checkBox36.Checked && System.IO.File.Exists(file))
                                 {
                                     try
                                     {
-                                        System.IO.File.Copy(file, file + "OrininalUnpatchedBackup", true); // overwrite if exists no error
-                                        X360GameHack.CurrentInstance.UpdateListboxForOutput("X360GameHack: Backed up XEX file " + file + " to " + file + "OrininalUnpatchedBackup");
+                                        if (!System.IO.File.Exists(file + "OrininalUnpatchedBackup")) // check if it exists first so we don't overwrite it and lose the original unpatched xex
+                                        {
+                                            System.IO.File.Copy(file, file + "OrininalUnpatchedBackup", true); // overwrite if exists no error
+                                            X360GameHack.CurrentInstance.UpdateListboxForOutput("X360GameHack: Backed up XEX file " + file + " to " + file + "OrininalUnpatchedBackup");
+                                        }
                                     }
                                     catch (Exception ex)
                                     {
                                         MessageBox.Show("Failed to backup XEX file " + file + "Exception:" + ex, "X360GameHack Info!");
                                         button146.Enabled = true;
                                         pictureBox1.Hide();
+                                        return;
                                     }
                                 }
 
@@ -2339,15 +2356,15 @@ namespace X360GameHack
                                 {
                                     args = textBox60.Text;
                                 }
+                                invoker.GenerateBatch = false; // we don't want to generate a batch file for each xex file we just want to run the command
                                 invoker.InvokeXexTool(file, args, false); // invoke xextool for each xex file with args
                             }
                             //done
-                            // pictureBox1.Hide();
-                            // return; don't return here it needs to take longer 
                         }
                         else if (!success)
                         {
-                            MessageBox.Show("ExtractXISOASync start Crashed. The extraction of " + item + " failed and can not continue. Please check the filepaths and try again.", "X360GameHack Error!");
+                            MessageBox.Show("ExtractXISOASync start Crashed. The extraction of " + item + " failed and cannot continue. Please check the filepaths and try again.", "X360GameHack Error!");
+
                             button146.Enabled = true;
                             pictureBox1.Hide();
                             return;
@@ -2369,7 +2386,9 @@ namespace X360GameHack
                 pictureBox1.Hide();
                 return;
             }
+            button146.Enabled = true;
             pictureBox1.Hide();
+            return;
         }
 
         private void button69_Click_1(object sender, EventArgs e)
@@ -2656,7 +2675,9 @@ namespace X360GameHack
                 return;
             }
 
-            OpenFileInHexBox(pathToOpen);
+            long? savedAddress = _currentProvider != null ? _lastKnownAddress : (long?)null;
+
+            OpenFileInHexBox(pathToOpen, savedAddress);
         }
         private string GetPathForCurrentMode()
         {
@@ -2693,11 +2714,10 @@ namespace X360GameHack
             GC.WaitForPendingFinalizers();
         }
 
-        private void OpenFileInHexBox(string path)
+        private void OpenFileInHexBox(string path, long? savedAddress = null)
         {
             ReleaseCurrentProvider();
 
-            // Retry loop in case the OS hasn't fully released the handle yet
             const int maxAttempts = 5;
             Exception lastError = null;
 
@@ -2714,7 +2734,7 @@ namespace X360GameHack
                 catch (IOException ex)
                 {
                     lastError = ex;
-                    System.Threading.Thread.Sleep(75); // give the OS a moment, then retry
+                    System.Threading.Thread.Sleep(75);
                 }
             }
 
@@ -2752,6 +2772,22 @@ namespace X360GameHack
             {
                 hexBox1.LineInfoOffset = 0;
             }
+
+            // Restore position, translated into the new mode's file-offset space
+            long targetOffset = 0;
+
+            if (savedAddress.HasValue)
+            {
+                targetOffset = savedAddress.Value - hexBox1.LineInfoOffset;
+
+                if (targetOffset < 0)
+                    targetOffset = 0;
+                if (targetOffset >= _currentProvider.Length)
+                    targetOffset = Math.Max(0, _currentProvider.Length - 1);
+            }
+
+            hexBox1.Select(targetOffset, 1);
+            hexBox1.ScrollByteIntoView(targetOffset);
         }
 
         private void button148_Click(object sender, EventArgs e)
@@ -2922,6 +2958,13 @@ namespace X360GameHack
 
             MessageBox.Show($"{replacedCount} occurrence(s) replaced.\n\n" +
                 "Remember to click Save to write these changes to disk.");
+        }
+
+        private void hexBox1_SelectionStartChanged(object sender, EventArgs e)
+        {
+            if (_currentProvider == null) return;
+
+            _lastKnownAddress = hexBox1.SelectionStart + hexBox1.LineInfoOffset;
         }
     }
 }
