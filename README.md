@@ -177,11 +177,6 @@ Anti-Admin Explanation:
 - Please read the command the uac is trying to use via show more in the uac box it will show you the path and the cmd command it wants to use be for you click yes.
 - You are is secure hands with X360GameHack but it cannot ever hurt to be too safe.
 
-Windows Defender Virus Hit "This program executes commands from an attacker." Explanation:
-----------------------------------------------------
-- It has come to my attention that windows defender will no longer let me build X360GameHack without adding an exclusion in the program for it.. It claims that X360GameHack "Executes commands from an attacker.".. technically it does execute commands in user land command line apps. But not only is that *** backwards but it actually protects you from "Privilege Escalation" and "OS Command Injection" unlike mpgui and known rival programs. This project is fully open source and if you want to check anything before you build and run it it is very easy to do and I challenge anyone who can find something malicious (Ex, OS Command Injection, Privilege Escalation) to report the reproducible issue here for us to see with discord username for a $250 curtesy reward in this free program.
-"If a virus already has user mode privileges it doesn't need to hack/change my program it needs privilege escalation."
-
 Obfuscation on the release build:
 ----------------------------------------------------
 I have decided to go ahead with my previous plans to obfuscate select locations my original intentions of doing this were to make it even harder than it already is to hack/alter/change things in the application while its running.. Those of you familiar with .net know how easy it is to dump the source with dnspy or ilspy and see what can possibly be abused for some hack..
