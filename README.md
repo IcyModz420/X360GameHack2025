@@ -182,6 +182,12 @@ Windows Defender Virus Hit "This program executes commands from an attacker." Ex
 - It has come to my attention that windows defender will no longer let me build X360GameHack without adding an exclusion in the program for it.. It claims that X360GameHack "Executes commands from an attacker.".. technically it does execute commands in user land command line apps. But not only is that *** backwards but it actually protects you from "Privilege Escalation" and "OS Command Injection" unlike mpgui and known rival programs. This project is fully open source and if you want to check anything before you build and run it it is very easy to do and I challenge anyone who can find something malicious (Ex, OS Command Injection, Privilege Escalation) to report the reproducible issue here for us to see with discord username for a $250 curtesy reward in this free program.
 "If a virus already has user mode privileges it doesn't need to hack/change my program it needs privilege escalation."
 
+Obfuscation on the release build:
+----------------------------------------------------
+I have decided to go ahead with my previous plans to obfuscate select locations my original intentions of doing this were to make it even harder than it already is to hack/alter/change things in the application while its running.. Those of you familiar with .net know how easy it is to dump the source with dnspy or ilspy and see what can possibly be abused for some hack..
+The release build will now have directed protection on certain classes and as a bonus it will help it hide from windows defenders horrible heuristics that can't even see through basic obfuscation..
+* If you so choose to not use my exe please don't you can build the source and add an exclusion in windows defender if you choose not to trust my binary. I tried using webclient, httpclient, winhttp, and direct sockets all 4 are flagged in defender.... so I defaulted back to webclient and obfuscated the code.. If someone wants to take the time to unpack the binary and poke around please do. It uses ConfuserEX v1.0.0.0 no packer just obfuscation on some classes. The project file for ConfuserEX will also be included with the source. Please don't come at my reddit posts trying to tell me its a virus I've been slowly working on this 2 years thanks.
+
 Future-Proofing:
 ----------------------------------------------------
 - Open Source: Hosted on GitHub, allowing community contributions and vulnerability reporting. Users can submit bug reports or patches via the GitHub Issues page.
