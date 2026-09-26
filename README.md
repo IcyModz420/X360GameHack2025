@@ -171,12 +171,6 @@ Security Features:
 - Future Obfuscation: Planned obfuscation of specific classes and functions to deter tampering while keeping non-critical code accessible for open-source transparency. 
 (Obfuscated code will remain viewable in tools like dnSpy (32-bit) but harder to rebuild and exploit in the field without expertise.)
 
-Anti-Admin Explanation:
-----------------------------------------------------
-- If X360GameHack needs admin permission it WILL ALWAYS ASK via message box in the X360GameHack window before popping a windows UAC to spawn a separate admin CMD to do what it needs. 
-- Please read the command the uac is trying to use via show more in the uac box it will show you the path and the cmd command it wants to use be for you click yes.
-- You are is secure hands with X360GameHack but it cannot ever hurt to be too safe.
-
 Obfuscation on the release build:
 ----------------------------------------------------
 I have decided to go ahead with my previous plans to obfuscate select locations my original intentions of doing this were to make it even harder than it already is to hack/alter/change things in the application while its running.. Those of you familiar with .net know how easy it is to dump the source with dnspy or ilspy and see what can possibly be abused for some hack..
