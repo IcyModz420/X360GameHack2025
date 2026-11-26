@@ -13,6 +13,13 @@ Summary:
 - Perfect for RGH sellers to give to their customers with their new RGH.
 - X360GameHack is still in production in 2026-2027 as a side hobby. Sorry, I'm a professional painter and body man too - I get tired, and I have other projects.
 
+Security:
+----------------------------------------------------
+- Never runs as administrator - started elevated, it closes at once, so the tools it starts never get those rights either.
+- The only part that runs as administrator is the small Disk Reader for physical Xbox drives. It only runs from the installer's protected folder, starts with a clean environment, loads system DLLs only from Windows' own folder (DLL search order hardening), refuses the Windows disk, and only the real X360GameHack can talk to it.
+- Updates are signed: the program checks the signature of the update notice and the size and SHA-256 of every download before anything runs.
+- Open Source: Hosted on GitHub, allowing community contributions and vulnerability reporting. Users can submit bug reports or patches via the GitHub Issues page.
+
 About the BETA and BRICKS POSSIBLE labels:
 ----------------------------------------------------
 - Anything with a small orange BETA label has NOT been tested end to end yet. It could have problems - or it could work perfectly fine. If you are not an advanced user, please hold off on BETA features until the next big release.
