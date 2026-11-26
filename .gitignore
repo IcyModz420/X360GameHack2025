@@ -1,0 +1,49 @@
+
+# Release builds (build-release.ps1) - the MSI exceeds GitHub's 100 MB file limit
+dist/
+Installer/bin/
+Installer/obj/
+DiskReader/obj/
+
+# paid-mod secrets must never be committed
+*.keycard.txt
+licences.sqlite3*
+/mods/
+
+# the working copy the owner runs (his settings, sealed mods, Xenia caches) and build outputs
+run/
+X360GameHack/bin/Release/
+X360GameHack/obj/
+DiskReader/bin/
+.git-broken-backup/
+_move-from-D.log
+X360GameHack/bin/Debug/*.zip
+X360GameHack/bin/Debug/logs.txt
+X360GameHack/bin/Debug/X360GameHack.DiskReader.*
+.vscode/
+
+# signing keys and server secrets never go in the repo (the old ClickOnce TemporaryKey.pfx was in it since the first commit: treat it as burned)
+*.pfx
+*.p12
+*.snk
+*.pem
+*.key
+.dev.vars
+key-wrap.secret
+update-signing.*
+*.server-payload.json
+X360GameHack-private/
+licence-server/
+licence-worker/
+update-worker/
+
+X360GameHack/bin/Debug/X360GameHack.DiskReaderCore.*
+DiskReader/Launcher/obj/
+
+# never in the repo: keys, signing certificates, mod files, server secrets, IDE state, release output
+.vs/
+**/.vs/
+*.x360mod
+owner-token.txt
+**/CurrentXEXBaseFile*
+**/basefile_*.bin

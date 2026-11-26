@@ -32,7 +32,10 @@ using System.Text;
         /// DmSetBreakpoint — set a software breakpoint at <paramref name="address"/>.
         /// </summary>
         public void SetBreakpoint(uint address)
-            => SendTextCommand($"break addr=0x{address:X8}");
+        {
+            var resp = SendTextCommand($"break addr=0x{address:X8}");
+            if (!resp.IsSuccess) throw new InvalidOperationException($"The console refused a breakpoint at 0x{address:X8}: {(int)resp.Status} {resp.StatusMessage}");
+        }
 
         /// <summary>
         /// DmRemoveBreakpoint — clear the software breakpoint at <paramref name="address"/>.
@@ -65,7 +68,8 @@ using System.Text;
         public void SetDataBreakpoint(XboxDataBreakpointType kind, uint address, uint sizeInBytes)
         {
             string verb = DataBreakpointToken(kind);
-            SendTextCommand($"break {verb}=0x{address:X8} size={sizeInBytes}");
+            var resp = SendTextCommand($"break {verb}=0x{address:X8} size={sizeInBytes}");
+            if (!resp.IsSuccess) throw new InvalidOperationException($"The console refused a data breakpoint at 0x{address:X8}: {(int)resp.Status} {resp.StatusMessage}");
         }
 
         /// <summary>Clear a previously set data breakpoint (adds the <c>CLEAR</c> token).</summary>

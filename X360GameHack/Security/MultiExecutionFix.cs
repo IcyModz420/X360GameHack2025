@@ -33,8 +33,10 @@ namespace X360GameHack.Other
                             {
                                 if (process.Id != Process.GetCurrentProcess().Id) // Filter out the current process to avoid killing itself
                                 {
-                                    process.Kill();
-                                    process.WaitForExit(5000);
+                                    // ask the other window to close the normal way (it gets the chance to save its settings)
+                                    process.CloseMainWindow();
+                                    if (!process.WaitForExit(5000))
+                                        MessageBox.Show("The other X360GameHack window did not close. Close it yourself if you want only one open.", "X360GameHack", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     process.Close();
                                 }
                             }

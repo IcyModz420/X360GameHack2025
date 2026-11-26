@@ -113,6 +113,13 @@ public sealed partial class XboxClient : IDisposable
 
     #region Connect / Disconnect
 
+    /// <summary>How long opening the connection may take before the console counts as not answering.</summary>
+    public int ConnectTimeoutMs { get; set; } = 4000;
+
+    /// <summary>
+    /// Opens the one connection everything is then sent over. A refused connection throws a SocketException with
+    /// ConnectionRefused (XBDM not running); no answer within <see cref="ConnectTimeoutMs"/> throws one with TimedOut.
+    /// </summary>
     public void Connect(string ip, int port = DefaultPort)
     {
         if (string.IsNullOrEmpty(ip)) throw new ArgumentNullException(nameof(ip));
@@ -124,7 +131,9 @@ public sealed partial class XboxClient : IDisposable
             tcp.SendTimeout = SendTimeout;
             tcp.ReceiveTimeout = ReceiveTimeout;
             tcp.NoDelay = true;
-            tcp.Connect(ip, port);
+            var pending = tcp.BeginConnect(ip, port, null, null);
+            if (!pending.AsyncWaitHandle.WaitOne(ConnectTimeoutMs)) throw new SocketException((int)SocketError.TimedOut);
+            tcp.EndConnect(pending);
         }
         catch
         {
@@ -186,8 +195,10 @@ public sealed partial class XboxClient : IDisposable
     public void Dispose()
     {
         if (_disposed) return;
-        _disposed = true;
+        // Say "bye" and close the socket BEFORE marking this disposed: Disconnect() does nothing once disposed, and a
+        // socket left open keeps one of the few connections the console's debug service can hold until it times out.
         Disconnect();
+        _disposed = true;
         GC.SuppressFinalize(this);
     }
 

@@ -18,6 +18,7 @@
 // And arithmetic in-place ops (XOR/AND/OR) for atomic-ish flag tweaks.
 // =============================================================================
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using System.Threading;
@@ -33,7 +34,33 @@ using System.Threading;
         public byte[] GetMemory(uint address, uint length)
         {
             var buf = new byte[length];
-            GetMemory(address, length, buf, out _);
+            GetMemory(address, length, buf, out uint got);
+            if (got < length)
+                throw new InvalidOperationException("Memory at 0x" + (address + got).ToString("X8") + " can't be read (nothing is mapped there).");
+            return buf;
+        }
+
+        /// <summary>
+        /// Read a range that may have gaps. Bytes that can't be read come back as zero and each gap is added to
+        /// <paramref name="holes"/> (start, length) when a list is given. Gaps are skipped a 4 KB page at a time.
+        /// </summary>
+        public byte[] GetMemoryWithGaps(uint address, uint length, List<KeyValuePair<uint, uint>> holes = null)
+        {
+            var buf = new byte[length];
+            var part = new byte[Math.Min(length, 0x10000u)];
+            uint done = 0;
+            while (done < length)
+            {
+                uint want = Math.Min((uint)part.Length, length - done);
+                GetMemory(address + done, want, part, out uint got);
+                Buffer.BlockCopy(part, 0, buf, (int)done, (int)got);
+                done += got;
+                if (got == want) continue;
+                ulong nextPage = (((ulong)address + done) & ~0xFFFul) + 0x1000;
+                uint skip = (uint)Math.Min(nextPage - ((ulong)address + done), length - done);
+                holes?.Add(new KeyValuePair<uint, uint>(address + done, skip));
+                done += skip;
+            }
             return buf;
         }
 
@@ -54,27 +81,30 @@ using System.Threading;
             if ((int)resp.Status != 203)
                 throw new InvalidOperationException($"GETMEMEX expected 203, got {(int)resp.Status}: {resp.StatusMessage}");
 
-            // Body comes in 0x400-byte payload chunks framed by 2-byte flag headers.
-            //   [u8 flag][u8 reserved][u8 * 0x400 data]   * (length / 0x400) packets
-            // Plus a final remainder packet if length % 0x400 != 0.
-            uint full = bytesToRead / 0x400;
-            uint remainder = bytesToRead % 0x400;
+            // Measured on a console (xbdm 2.0.21076.11): the body is a run of packets, each led by a 16-bit
+            // little-endian word. Its low 15 bits are how many data bytes follow (at most 0x400) and its top bit
+            // marks the last packet. Unreadable memory ends the run early: an unmapped address answers with the
+            // single word 0x8000 and no data, so the count has to be taken from the words, not assumed.
             int dest = 0;
-            var packet = new byte[1026];
-
-            for (uint i = 0; i < full; i++)
+            var head = new byte[2];
+            var packet = new byte[0x8000];
+            while (true)
             {
-                Client.ReadExact(packet, 0, 1026);
-                Buffer.BlockCopy(packet, 2, data, dest, 0x400);
-                dest += 0x400;
+                Client.ReadExact(head, 0, 2);
+                int word = head[0] | head[1] << 8;
+                int count = word & 0x7FFF;
+                bool last = (word & 0x8000) != 0;
+                if (count > 0)
+                {
+                    Client.ReadExact(packet, 0, count);
+                    int take = (int)Math.Min(count, bytesToRead - (uint)dest);
+                    Buffer.BlockCopy(packet, 0, data, dest, take);
+                    dest += take;
+                }
+                if (last || (count == 0)) break;
+                if ((uint)dest >= bytesToRead) break;
             }
-            if (remainder > 0)
-            {
-                Client.ReadExact(packet, 0, (int)remainder + 2);
-                Buffer.BlockCopy(packet, 2, data, dest, (int)remainder);
-                dest += (int)remainder;
-            }
-
+            if ((uint)dest < bytesToRead) Array.Clear(data, dest, (int)bytesToRead - dest);
             bytesRead = (uint)dest;
         }
 
@@ -96,25 +126,37 @@ using System.Threading;
             if (data == null) throw new ArgumentNullException(nameof(data));
             if (data.Length < bytesToWrite) throw new ArgumentException("Buffer too small.", nameof(data));
 
-            var sb = new StringBuilder(48 + (int)bytesToWrite * 2);
-            sb.Append("setmem addr=0x").Append(address.ToString("X8")).Append(" data=");
-            for (int i = 0; i < bytesToWrite; i++) sb.Append(data[i].ToString("X2"));
-
-            var resp = Client.SendTextCommand(sb.ToString());
-            if (!resp.IsSuccess)
-                throw new InvalidOperationException($"SETMEM failed: {(int)resp.Status} {resp.StatusMessage}");
-
-            // The xbdm reply for setmem is "200- N bytes set".
-            bytesWritten = bytesToWrite;
-            if (!string.IsNullOrEmpty(resp.StatusMessage))
+            // One command line holds 512 characters on the console's xbdm: a longer setmem is refused (446, seen on a real
+            // console with a 336-byte write). Writes go out in pieces of at most SetMemoryChunk bytes, in order.
+            bytesWritten = 0;
+            while (bytesWritten < bytesToWrite)
             {
-                int spaceIdx = resp.StatusMessage.IndexOf(' ');
-                if (spaceIdx > 0 &&
-                    uint.TryParse(resp.StatusMessage.Substring(0, spaceIdx),
-                                  NumberStyles.Integer, CultureInfo.InvariantCulture, out var n))
-                    bytesWritten = n;
+                uint count = Math.Min(SetMemoryChunk, bytesToWrite - bytesWritten);
+                var sb = new StringBuilder(48 + (int)count * 2);
+                sb.Append("setmem addr=0x").Append((address + bytesWritten).ToString("X8")).Append(" data=");
+                for (uint i = 0; i < count; i++) sb.Append(data[bytesWritten + i].ToString("X2"));
+
+                var resp = Client.SendTextCommand(sb.ToString());
+                if (!resp.IsSuccess)
+                    throw new InvalidOperationException($"SETMEM failed at 0x{address + bytesWritten:X8}: {(int)resp.Status} {resp.StatusMessage}");
+
+                // The xbdm reply for setmem is "200- N bytes set"; fewer than asked = it stopped there.
+                uint set = count;
+                if (!string.IsNullOrEmpty(resp.StatusMessage))
+                {
+                    int spaceIdx = resp.StatusMessage.IndexOf(' ');
+                    if (spaceIdx > 0 &&
+                        uint.TryParse(resp.StatusMessage.Substring(0, spaceIdx),
+                                      NumberStyles.Integer, CultureInfo.InvariantCulture, out var n))
+                        set = Math.Min(n, count);
+                }
+                bytesWritten += set;
+                if (set < count) return;
             }
         }
+
+        /// <summary>The most bytes one setmem command carries (hex makes it twice as long; the console's command line is 512 characters).</summary>
+        public const uint SetMemoryChunk = 128;
 
         /// <summary>Set <paramref name="size"/> bytes at <paramref name="address"/> to all 0x00.</summary>
         public void NullAddress(uint address, uint size)
@@ -150,8 +192,7 @@ using System.Threading;
                 while (remaining > 0)
                 {
                     uint chunk = Math.Min((uint)buf.Length, remaining);
-                    GetMemory(cur, chunk, buf, out _);
-                    fs.Write(buf, 0, (int)chunk);
+                    fs.Write(GetMemoryWithGaps(cur, chunk), 0, (int)chunk);
                     cur += chunk;
                     remaining -= chunk;
                 }
@@ -414,24 +455,6 @@ using System.Threading;
 
         #endregion
 
-        #region Constant memory set (consolefeatures type=18)
-
-        /// <summary>Stamp <paramref name="value"/> at <paramref name="address"/> on every frame ("constant memory").</summary>
-        public void ConstantMemorySet(uint address, uint value)
-            => ConstantMemorySetCore(address, value, false, 0, false, 0);
-
-        public void ConstantMemorySet(uint address, uint value, uint titleId)
-            => ConstantMemorySetCore(address, value, false, 0, true, titleId);
-
-        public void ConstantMemorySet(uint address, uint value, uint ifValue, uint titleId)
-            => ConstantMemorySetCore(address, value, true, ifValue, true, titleId);
-
-        private void ConstantMemorySetCore(uint address, uint value, bool useIfValue, uint ifValue, bool useTitleId, uint titleId)
-        {
-            Client.SendTextCommand(ConsoleFeaturesWire.Type18ConstantMemory(address, value, useIfValue, ifValue, useTitleId, titleId));
-        }
-
-        #endregion
 
         #region Wait helpers (proxy to XboxClient)
 

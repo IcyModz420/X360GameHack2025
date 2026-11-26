@@ -16,10 +16,8 @@ namespace X360GameHack.Security
             if (IsRunningAsAdmin())
             {
                 Debug.WriteLine("The application is running with administrative privileges. Exiting..."); // Don't leak the name intentionally make it harder to find
-                // Chokeee
-                Process.GetCurrentProcess().Kill();
+                // Never run elevated: the tools this program starts would inherit those rights. Leave at once, quietly.
                 Environment.Exit(0);
-                Application.Exit();
             }
         }
 

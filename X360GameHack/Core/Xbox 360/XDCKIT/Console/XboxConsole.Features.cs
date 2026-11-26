@@ -201,7 +201,10 @@ using System.Text;
             for (int i = 0; i < lines.Length; i++)
             {
                 string s = lines[i].Trim();
-                if (!uint.TryParse(s, NumberStyles.Integer, CultureInfo.InvariantCulture, out ids[i]))
+                // A real console prints the ids as SIGNED decimals: 0xFB000008 arrives as -83886072.
+                int signed;
+                if (int.TryParse(s, NumberStyles.Integer, CultureInfo.InvariantCulture, out signed)) ids[i] = unchecked((uint)signed);
+                else if (!uint.TryParse(s, NumberStyles.Integer, CultureInfo.InvariantCulture, out ids[i]))
                     ids[i] = XboxExtensions.ParseHexUInt(s); // fall back to hex for forks
             }
             return ids;
@@ -442,7 +445,7 @@ using System.Text;
         }
 
         /// <summary>XEX header field id for the title id (<c>XEX_HEADER_EXECUTION_INFO</c>).</summary>
-        public const uint XexFieldTitleId = 0x00010100;
+        public const uint XexFieldTitleId = 0x00010100;   // misnamed: this key is the entry point (measured), see GetTitleId
 
         /// <summary>
         /// DmGetXexHeaderField — wraps xbdm <c>xexfield module=&lt;name&gt; field=0xID</c>.
@@ -475,10 +478,83 @@ using System.Text;
         /// </summary>
         public uint GetTitleId(string moduleName = "running")
         {
-            string raw = GetXexField(XexFieldTitleId, moduleName)
-                       ?? GetXexField(XexFieldTitleId, "xam.xex");
-            return XboxExtensions.ParseHexUInt(raw);
+            // Measured on a retail-kernel console (xbdm 2.0.21076.11): "xexfield ... field=0x10100" answers with the
+            // module's entry point address, not a title id, and module="running" is "file not found". So the id is
+            // read from memory instead: the kernel's XexExecutableModuleHandle (export 403) -> the module record ->
+            // its copy of the XEX header -> the execution info block. Reads only; nothing is written or called.
+            try
+            {
+                uint at = RunningExecutionInfo();
+                return at == 0 ? 0 : ReadUInt32(at + 0x0C);
+            }
+            catch (Exception ex) when (!(ex is System.IO.IOException) && !(ex is System.Net.Sockets.SocketException)) { }
+            return 0;
         }
+
+        /// <summary>
+        /// The version of the program that is running, as its header in memory states it (0 when it cannot be
+        /// read). A title update raises it: 0.0.0.2 as sold becomes 0.0.24.2 with title update 24 applied - seen on
+        /// a real console. The third part is the title update number. Reads only.
+        /// </summary>
+        public uint GetTitleVersion()
+        {
+            try
+            {
+                uint at = RunningExecutionInfo();
+                return at == 0 ? 0 : ReadUInt32(at + 0x04);
+            }
+            catch (Exception ex) when (!(ex is System.IO.IOException) && !(ex is System.Net.Sockets.SocketException)) { }
+            return 0;
+        }
+
+        /// <summary>Address of the running program's execution info block (media id, version, base version, title id), or 0.</summary>
+        private uint RunningExecutionInfo()
+        {
+            uint record = ReadUInt32(RunningModuleHandleAddress());
+            if (record == 0) return 0;
+            uint header = ReadUInt32(record + 0x58);
+            byte[] h = GetMemory(header, 0x18);
+            if (h == null || h.Length < 0x18 || h[0] != 'X' || h[1] != 'E' || h[2] != 'X' || h[3] != '2') return 0;
+            uint count = Be(h, 0x14);
+            if (count == 0 || count > 64) return 0;
+            byte[] dir = GetMemory(header + 0x18, count * 8);
+            for (int i = 0; i < count; i++)
+            {
+                if (Be(dir, i * 8) != 0x00040006) continue;      // execution info
+                uint at = Be(dir, i * 8 + 4);
+                if (at < 0x80000000u) at += header;
+                return at;
+            }
+            return 0;
+        }
+
+        private uint _runningModuleHandle;
+
+        /// <summary>Address of the kernel variable that points at the running program's module record, found in
+        /// the kernel's own export table (ordinal 403).</summary>
+        private uint RunningModuleHandleAddress()
+        {
+            if (_runningModuleHandle != 0) return _runningModuleHandle;
+            uint kernel = 0x80040000;
+            foreach (var m in GetModules())
+                if (string.Equals(m.Name, "xboxkrnl.exe", StringComparison.OrdinalIgnoreCase)) { kernel = m.BaseAddress; break; }
+            byte[] mz = GetMemory(kernel, 0x40);
+            if (mz[0] != 'M' || mz[1] != 'Z') throw new InvalidOperationException("kernel image not found");
+            uint pe = BitConverter.ToUInt32(mz, 0x3C);
+            if (pe > 0x1000) throw new InvalidOperationException("kernel image not understood");
+            byte[] nt = GetMemory(kernel + pe, 0x80);
+            if (nt[0] != 'P' || nt[1] != 'E') throw new InvalidOperationException("kernel image not understood");
+            uint exports = BitConverter.ToUInt32(nt, 0x78);
+            byte[] ed = GetMemory(kernel + exports, 0x28);
+            uint ordinalBase = BitConverter.ToUInt32(ed, 0x10), functions = BitConverter.ToUInt32(ed, 0x14), table = BitConverter.ToUInt32(ed, 0x1C);
+            const uint ordinal = 403;
+            if (ordinal < ordinalBase || ordinal - ordinalBase >= functions) throw new InvalidOperationException("kernel export not found");
+            uint rva = BitConverter.ToUInt32(GetMemory(kernel + table + 4 * (ordinal - ordinalBase), 4), 0);
+            if (rva == 0) throw new InvalidOperationException("kernel export not found");
+            return _runningModuleHandle = kernel + rva;
+        }
+
+        private static uint Be(byte[] b, int o) => (uint)(b[o] << 24 | b[o + 1] << 16 | b[o + 2] << 8 | b[o + 3]);
 
         #endregion
 
@@ -550,47 +626,24 @@ using System.Text;
                            XboxRebootFlags.Title);
                     break;
 
-                case XboxShortcuts.DriveSelector:
-                    Reboot(@"\Device\Harddisk0\SystemExtPartition\20449700\signin.xex",
-                           @"\Device\Harddisk0\SystemExtPartition\20449700",
-                           @"\Device\Harddisk0\SystemExtPartition\20445700\signin.xex",
-                           XboxRebootFlags.Title);
-                    break;
+                // DriveSelector used to launch signin.xex - on a real console (2026-11-18) that shows an empty grey box and
+                // then the sign-in screen, not a storage selector. The real selector is a XAM call (remote-call plugins only).
 
                 case XboxShortcuts.Turn_Off_Console:
                     ShutDown();
                     break;
 
                 default:
-                    // All other shortcuts are XAM ordinals -> CallVoid(addr, 0,0,0,0)
-                    uint addr = Rpc.ResolveFunction(XAM, (uint)(int)ui);
-                    if (addr != 0) Rpc.CallVoid(addr, 0u, 0u, 0u, 0u);
-                    break;
+                    // Every other shortcut is a function inside the dashboard that only a remote-call plugin
+                    // (JRPC2 / XDRPC / XRPC) can reach. This tool speaks plain xbdm only.
+                    throw new NotSupportedException("That shortcut cannot be opened over plain XBDM.");
             }
         }
 
-        #endregion
-
-        #region Sign-in helpers
-
-        public void QuickSignIn()
-        {
-            uint addr = Rpc.ResolveFunction("xam.xex", (uint)(int)XboxSignIn.QuickSignin);
-            if (addr != 0) Rpc.CallVoid(addr, 0u, 0u, 0u, 0u);
-        }
-
-        /// <summary>
-        /// Resolve <c>xboxkrnl!XamGetSignInState</c> and return the user-0
-        /// sign-in state code.  Returns 0 when the kernel ordinal cannot be
-        /// resolved or the call fails.  Naming matches the SDK: the public
-        /// helper is a "get" with a return value, not a no-op probe.
-        /// </summary>
-        public uint GetSigninState()
-        {
-            uint addr = Rpc.ResolveFunction("xboxkrnl.exe", 528);
-            if (addr == 0) return 0;
-            try { return Rpc.Call<uint>(addr, 0u); } catch { return 0; }
-        }
+        /// <summary>The shortcuts plain xbdm can open (by launching the system program, or powering off).</summary>
+        public static readonly XboxShortcuts[] PlainShortcuts = { XboxShortcuts.XboxHome, XboxShortcuts.AvatarEditor, XboxShortcuts.Turn_Off_Console };
 
         #endregion
+
+
     }

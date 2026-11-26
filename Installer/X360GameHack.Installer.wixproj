@@ -1,0 +1,21 @@
+<Project Sdk="WixToolset.Sdk/5.0.2">
+  <!--
+    Builds X360GameHack-Setup.msi from the staging folder prepared by build-release.ps1.
+    WiX v5 (MS-RL license) is restored from NuGet automatically on first build.
+  -->
+  <PropertyGroup>
+    <OutputName>X360GameHack-Setup</OutputName>
+    <InstallerPlatform>x86</InstallerPlatform>
+    <StagingDir Condition="'$(StagingDir)' == ''">$(MSBuildThisFileDirectory)..\dist\X360GameHack</StagingDir>
+    <!-- the program's own version (Pastebin.Version), passed in by build-release.ps1: every release must have a
+         higher one, or the installer of an update does not replace the older copy -->
+    <ProductVersion Condition="'$(ProductVersion)' == ''">4.0.0</ProductVersion>
+    <DefineConstants>StagingDir=$(StagingDir);ProductVersion=$(ProductVersion)</DefineConstants>
+    <!--
+      ICE38 / ICE43 / ICE57 assume a per-user install and flag the Start-menu shortcut of any per-machine
+      package (false positives here: ALLUSERS=1, files in Program Files, HKLM key path).
+      ICE60 only notes that some third-party tool binaries have no language in their version resource.
+    -->
+    <SuppressIces>ICE38;ICE43;ICE57;ICE60</SuppressIces>
+  </PropertyGroup>
+</Project>

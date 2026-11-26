@@ -12,8 +12,6 @@ namespace X360GameHack
     {
         public static string ComputeSha3_256(string filePath)
         {
-            AntiDebug AntiDebug = new AntiDebug();
-            AntiDebug.DoAntiDebugFunc();
             if (File.Exists(filePath))
             {
                 var digest = new Sha3Digest(256); // 256-bit SHA-3
@@ -34,8 +32,7 @@ namespace X360GameHack
             }
             else
             {
-                Environment.Exit(0);
-                return "No Race Condition here.";
+                throw new FileNotFoundException("File not found: " + filePath);
             }
         }
     }

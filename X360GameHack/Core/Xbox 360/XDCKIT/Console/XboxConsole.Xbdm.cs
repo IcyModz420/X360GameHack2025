@@ -216,19 +216,56 @@ using System.Text;
         /// the remote file and returns them.  Useful for browsing huge XEX
         /// files without downloading the whole thing.
         /// </summary>
+        private bool _droppedMidFile;
+
+        /// <summary>
+        /// Sends a getfile command. Measured on a console: after a download is dropped part-way (which is how only
+        /// the start of a file is read, see ReadFilePartial) the console keeps that file open for a moment and
+        /// answers "414 access denied" for it. So after such a drop, 414 is retried for up to about four seconds.
+        /// </summary>
+        internal XbdmResponse SendGetFile(string cmd, System.Threading.CancellationToken ct = default(System.Threading.CancellationToken))
+        {
+            var resp = SendTextCommand(cmd);
+            for (int i = 0; i < 16 && _droppedMidFile && (int)resp.Status == 414; i++)
+            {
+                ct.ThrowIfCancellationRequested();
+                System.Threading.Thread.Sleep(250);
+                resp = SendTextCommand(cmd);
+            }
+            if ((int)resp.Status == 203) _droppedMidFile = false;
+            return resp;
+        }
+
         public byte[] ReadFilePartial(string remotePath, ulong offset, uint length)
         {
             string cmd = "getfile name=" + XboxExtensions.QuoteXbdm(remotePath) +
                          " offset=" + offset + " size=" + length;
-            var resp = SendTextCommand(cmd);
+            var resp = SendGetFile(cmd);
             if ((int)resp.Status != 203) return Array.Empty<byte>();
 
-            // xbdm sends the length as a 4-byte big-endian unsigned int (PPC byte order).
-            // Reading as a signed host-LE int caused negative remaining counts for
-            // any chunk bigger than 2 GiB.
-            var hdr = Client.ReadExact(4);
-            uint n = XboxExtensions.ReadUInt32BE(hdr);
-            return n == 0 ? Array.Empty<byte>() : Client.ReadExact((int)Math.Min(n, int.MaxValue));
+            // The length is a 4-byte little-endian unsigned int (measured on a real console).
+            uint n = BitConverter.ToUInt32(Client.ReadExact(4), 0);
+            if (n <= length)
+                return n == 0 ? Array.Empty<byte>() : Client.ReadExact((int)n);
+
+            // The xbdm.xex used on RGH consoles (2.0.21076) ignores offset= and size= and sends
+            // the whole file from its start. Take the wanted part, then drop the connection so
+            // the rest of the file is not pulled over the network, and connect again.
+            if (offset >= n) { _droppedMidFile = true; Reconnect(); return Array.Empty<byte>(); }
+            var skip = new byte[64 * 1024];
+            ulong toSkip = offset;
+            while (toSkip > 0)
+            {
+                int step = (int)Math.Min((ulong)skip.Length, toSkip);
+                Client.ReadExact(skip, 0, step);
+                toSkip -= (ulong)step;
+            }
+            int want = (int)Math.Min((ulong)length, n - offset);
+            byte[] part = Client.ReadExact(want);
+            if (offset + (ulong)want < n) _droppedMidFile = true;
+            if (offset + (ulong)want < n && !Reconnect())
+                throw new System.IO.IOException("Lost the connection to the console after reading part of " + remotePath + ".");
+            return part;
         }
 
         /// <summary>

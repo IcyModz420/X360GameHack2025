@@ -41,6 +41,12 @@ public static class XboxScreenshot
         if (string.IsNullOrEmpty(outputPath))
             throw new ArgumentException("Output path required.", nameof(outputPath));
 
+        // Only the console's normal front buffer is drawn: an 8:8:8:8 surface (bits 0-5 of the format = 6), tiled (bit 8),
+        // e.g. D3DFMT_A8R8G8B8 = 0x18280186 as a Trinity RGH3 reports it. Any other format is left to the raw .bin
+        // fallback - decoding it as 8:8:8:8 only gives a picture of noise. 0 = an XBDM that does not say: the normal one.
+        uint format = info.Format;
+        if (format != 0 && ((format & 0x3F) != 6 || (format & 0x100) == 0)) return false;
+
         int srcW  = (int)info.Width;
         int srcH  = (int)info.Height;
         int pitch = (int)(info.Pitch > 0 ? info.Pitch : info.Width * 4u);

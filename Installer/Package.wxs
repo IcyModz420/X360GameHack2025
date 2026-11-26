@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  X360GameHack 2026 installer.
+  * Per-machine install into Program Files (x86)\X360GameHack: only administrators can change those files,
+    which is what makes the elevated Disk Reader helper safe to run.
+  * The installer itself is the only step that needs administrator rights; the app never elevates.
+  * No system components are registered and nothing is written outside the install folder,
+    the Start menu shortcut and the uninstall entry.
+-->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package Name="X360GameHack 2026"
+           Manufacturer="IcyModz420"
+           Version="$(var.ProductVersion)"
+           UpgradeCode="5D0C6E2A-3B5E-4F4B-9C1E-7A3F2B8D9E14"
+           Scope="perMachine"
+           Compressed="yes">
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of X360GameHack is already installed." AllowSameVersionUpgrades="yes" />
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+
+    <Property Id="ARPURLINFOABOUT" Value="https://github.com/IcyModz420/X360GameHack2025" />
+    <Property Id="ARPHELPLINK" Value="https://github.com/IcyModz420/X360GameHack2025/issues" />
+    <Property Id="ARPNOMODIFY" Value="1" />
+
+    <StandardDirectory Id="ProgramFilesFolder">
+      <Directory Id="INSTALLFOLDER" Name="X360GameHack" />
+    </StandardDirectory>
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="ShortcutFolder" Name="X360GameHack" />
+    </StandardDirectory>
+
+    <ComponentGroup Id="AppFiles" Directory="INSTALLFOLDER">
+      <Files Include="$(var.StagingDir)\**" />
+    </ComponentGroup>
+
+    <Component Id="StartMenu" Directory="ShortcutFolder" Guid="9E2F5B1C-4A7D-4C3E-8B6F-2D1A0C9E8F57">
+      <Shortcut Id="AppShortcut" Name="X360GameHack 2026" Description="Xbox / Xbox 360 game and console toolbox"
+                Target="[INSTALLFOLDER]X360GameHack.exe" WorkingDirectory="INSTALLFOLDER" />
+      <RemoveFolder Id="RemoveShortcutFolder" On="uninstall" />
+      <RegistryValue Root="HKLM" Key="Software\X360GameHack" Name="InstallFolder" Type="string" Value="[INSTALLFOLDER]" KeyPath="yes" />
+    </Component>
+
+    <Feature Id="Main" Title="X360GameHack" AllowAbsent="no">
+      <ComponentGroupRef Id="AppFiles" />
+      <ComponentRef Id="StartMenu" />
+    </Feature>
+  </Package>
+</Wix>

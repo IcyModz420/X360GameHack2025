@@ -2,7 +2,7 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <LangVersion>14.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{62CD4984-BC39-48EF-B18A-8E709071F9C2}</ProjectGuid>
@@ -42,6 +42,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,9 +52,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <!-- 64-bit on 64-bit Windows: Xenia is 64-bit, and reading or writing its memory (Peek Poker, Xenia Patches,
+         game mods, cli xenia-read / xenia-write) needs a 64-bit process. Nothing loaded in-process is 32-bit only. -->
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Other\xbox.ico</ApplicationIcon>
+    <ApplicationIcon>Other\x360gamehack.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>3190A2FB8038BBC3A445C0248971DA9D20E56764</ManifestCertificateThumbprint>
@@ -62,13 +66,17 @@
     <ManifestKeyFile>X360GameHack_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <!-- false: Properties\app.manifest (DPI-aware, asInvoker) is EMBEDDED in the exe. With ClickOnce's GenerateManifests on
+         it was written beside the exe instead, which the installer leaves out - so the shipped app ran DPI-unaware and
+         Windows stretched it (soft text at 150-200%). The app is installed with the MSI, never ClickOnce. -->
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -79,9 +87,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
-    <LangVersion>14.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -89,9 +97,9 @@
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
-    <LangVersion>14.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Be.Windows.Forms.HexBox, Version=1.6.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -101,17 +109,8 @@
       <HintPath>..\packages\BouncyCastle.Cryptography.2.6.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevComponents.DotNetBar2">
-      <HintPath>..\..\..\..\Desktop\DevComponents.DotNetBar2.dll</HintPath>
-    </Reference>
     <Reference Include="IndexRange, Version=1.1.1.0, Culture=neutral, PublicKeyToken=35e6a3c4212514c6, processorArchitecture=MSIL">
       <HintPath>..\packages\IndexRange.1.1.1\lib\net47\IndexRange.dll</HintPath>
-    </Reference>
-    <Reference Include="Krypton, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <HintPath>..\packages\Krypton.2.0.0.0\lib\net40-Client\Krypton.dll</HintPath>
-    </Reference>
-    <Reference Include="Krypton.Toolkit, Version=105.26.4.110, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
-      <HintPath>..\packages\Krypton.Toolkit.105.26.4.110\lib\net481\Krypton.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.Memory, Version=9.0.0.14, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.Memory.9.0.14\lib\net462\Microsoft.Bcl.Memory.dll</HintPath>
@@ -127,6 +126,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
     </Reference>
@@ -151,136 +153,203 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Other\GeminiClient.cs" />
-    <Compile Include="Core\Other\USBDrives.cs" />
-    <Compile Include="Core\Xbox 360\360SaveResigner.cs" />
-    <Compile Include="Core\Xbox 360\SaveParcer.cs" />
-    <Compile Include="Core\Xbox 360\STFSInstaller.cs" />
-    <Compile Include="Core\Xbox 360\STFSParcer.cs" />
-    <Compile Include="Core\Xbox 360\XbdmClient.cs" />
-    <Compile Include="Core\Xbox 360\XbdmExtention.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Core\Formats\BigEndian.cs" />
+    <Compile Include="Core\Formats\ConSigning.cs" />
+    <Compile Include="Core\Formats\Fatx.cs" />
+    <Compile Include="Core\Formats\Fatx.Layout.cs" />
+    <Compile Include="Core\Formats\Fatx.Write.cs" />
+    <Compile Include="Core\Formats\DriveFormatter.cs" />
+    <Compile Include="Core\Formats\Fatx.Recover.cs" />
+    <Compile Include="UI\RecoverDialog.cs" />
+    <Compile Include="UI\GodEntryDialog.cs" />
+    <Compile Include="Core\Formats\TreyarchStats.cs" />
+    <Compile Include="Core\Formats\FileSniffer.cs" />
+    <Compile Include="Core\Formats\Stfs.cs" />
+    <Compile Include="Core\Formats\Svod.cs" />
+    <Compile Include="Core\Formats\GodConvert.cs" />
+    <Compile Include="Core\Formats\Nand.cs" />
+    <Compile Include="Core\Services\GodTargets.cs" />
+    <Compile Include="Core\Services\GameConvert.cs" />
+    <Compile Include="Core\Services\AbgxSetup.cs" />
+    <Compile Include="Core\Services\AbgxRunner.cs" />
+    <Compile Include="Core\Services\ChildProcess.cs" />
+    <Compile Include="Core\Formats\PowerPc.cs" />
+    <Compile Include="Core\Formats\PpcDecompiler.cs" />
+    <Compile Include="Core\Formats\PpcLifter.cs" />
+    <Compile Include="Core\Formats\Lzx.cs" />
+    <Compile Include="Core\Formats\XexImage.cs" />
+    <Compile Include="Core\Formats\XexGhidra.cs" />
+    <Compile Include="Core\Formats\XexImportNames.cs" />
+    <Compile Include="Core\Formats\StfsCreator.cs" />
+    <Compile Include="Core\Formats\XexTitleData.cs" />
+    <Compile Include="Core\Formats\Xbox360Profile.Extras.cs" />
+    <Compile Include="Core\Net\XbdmDebugger.cs" />
+    <Compile Include="Core\Net\Jrpc.cs" />
+    <Compile Include="Core\Net\Xdrpc.cs" />
+    <Compile Include="Core\Net\StorageDump.cs" />
+    <Compile Include="Core\Net\Xrpc.cs" />
+    <Compile Include="Core\Net\ConsoleExtras.cs" />
+    <Compile Include="Core\Mods\CryptoBox.cs" />
+    <Compile Include="Core\Mods\HardwareId.cs" />
+    <Compile Include="Core\Mods\ModPack.cs" />
+    <Compile Include="Core\Mods\ModSignature.cs" />
+    <Compile Include="Core\Mods\ModCatalog.cs" />
+    <Compile Include="Core\Mods\ActivationClient.cs" />
+    <Compile Include="Core\Mods\SaveModAdapter.cs" />
+    <Compile Include="Core\Mods\ModManager.cs" />
+    <Compile Include="Core\Mods\GameMod.cs" />
+    <Compile Include="Core\Mods\ModScript.cs" />
+    <Compile Include="Core\Mods\ModBuilderService.cs" />
+    <Compile Include="UI\Pages\ModMakerPage.cs" />
+    <Compile Include="UI\Pages\ModsPage.cs" />
+    <Compile Include="Core\Services\IniFile.cs" />
+    <Compile Include="UI\IniEditorCard.cs" />
+    <Compile Include="UI\Pages\IniPage.cs" />
+    <Compile Include="Core\Net\XeniaProcess.cs" />
+    <Compile Include="Core\Formats\StfsPackage.cs" />
+    <Compile Include="Core\Formats\ProfileAccount.cs" />
+    <Compile Include="Core\Formats\Xbox360Profile.cs" />
+    <Compile Include="Core\Formats\Xdbf.cs" />
+    <Compile Include="Core\Formats\XbeFile.cs" />
+    <Compile Include="Core\Formats\XexFile.cs" />
+    <Compile Include="Core\Formats\TitleUpdateCheck.cs" />
+    <Compile Include="Core\Formats\Xiso.cs" />
+    <Compile Include="Core\Net\ConsoleService.cs" />
+    <Compile Include="Core\Net\FtpService.cs" />
+    <Compile Include="Core\Net\XboxUnity.cs" />
+    <Compile Include="Core\Services\AppSettings.cs" />
+    <Compile Include="Core\Services\ContentInstaller.cs" />
+    <Compile Include="Core\Services\IniDocument.cs" />
+    <Compile Include="Core\Services\KnowledgeBase.cs" />
+    <Compile Include="Core\Services\Log.cs" />
+    <Compile Include="Core\Services\PathSafety.cs" />
+    <Compile Include="Core\Services\RawDisk.cs" />
+    <Compile Include="Core\Services\ToolIntegrity.cs" />
+    <Compile Include="Core\Services\ToolRunner.cs" />
+    <Compile Include="Core\Services\UsbDrives.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Common\Enums.Automation.cs" />
-    <Compile Include="Core\Xbox 360\XDCKIT\Common\Enums.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Common\Enums.Notification.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Common\Enums.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Common\Types.cs" />
-    <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Debugger.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Features.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Memory.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Network.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Notification.cs" />
-    <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Notify.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Profiling.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Screenshot.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Symbols.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Threads.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Users.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.Xbdm.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Console\XboxConsole.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Core\Extensions.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Core\XboxClient.Async.cs" />
-    <Compile Include="Core\Xbox 360\XDCKIT\Core\XboxClient.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Core\XboxClient.Discovery.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Core\XboxClient.Screenshot.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Core\XboxClient.SharedConn.cs" />
+    <Compile Include="Core\Xbox 360\XDCKIT\Core\XboxClient.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Core\XboxManager.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Helpers\MiniToml.cs" />
-    <Compile Include="Core\Xbox 360\XDCKIT\Helpers\Tray.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Helpers\XboxAutomation.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Helpers\XboxDebugTarget.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Helpers\XboxFile.cs" />
-    <Compile Include="Core\Xbox 360\XDCKIT\Helpers\XboxRpc.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Helpers\XboxScreenshot.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Helpers\XeniaPatch.cs" />
-    <Compile Include="Core\Xbox 360\XDCKIT\Helpers\XMessageBoxUI.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Interop\XDevkit.Interfaces.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Interop\XDevkit.Stubs.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Interop\XDevkit.Types.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Interop\XDevkit.XboxConsoleClass.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Interop\XDevkit.XboxDebugTargetClass.cs" />
     <Compile Include="Core\Xbox 360\XDCKIT\Interop\XDevkit.XboxManagerClass.cs" />
-    <Compile Include="Core\Xbox 360\XEXParcer.cs" />
-    <Compile Include="Forms\360DebugTool.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\360DebugTool.Designer.cs">
-      <DependentUpon>360DebugTool.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\360PluginHelper.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\360PluginHelper.Designer.cs">
-      <DependentUpon>360PluginHelper.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\360TwoDiscInstaller.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\360TwoDiscInstaller.Designer.cs">
-      <DependentUpon>360TwoDiscInstaller.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Animations.cs" />
     <Compile Include="Other\ProcessHelper.cs" />
-    <Compile Include="Security\AntiAdmin.cs" />
-    <Compile Include="Security\CastleAES.cs" />
-    <Compile Include="Security\MultiExecutionFix.cs" />
-    <Compile Include="Security\AntiDebug.cs" />
-    <Compile Include="Security\AntiCommandInjection.cs" />
-    <Compile Include="Security\Confuser.cs" />
-    <Compile Include="Forms\BulkXISOTool.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\BulkXISOTool.Designer.cs">
-      <DependentUpon>BulkXISOTool.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Security\RuntimeSigning.cs" />
-    <Compile Include="Security\Sha3_256.cs" />
-    <Compile Include="Security\StringObfuscation.cs" />
-    <Compile Include="Forms\X360GameHack.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\X360GameHack.Designer.cs">
-      <DependentUpon>X360GameHack.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Core\OG and 360\FTPClient.cs" />
-    <Compile Include="Forms\QuickFTPGameSender.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\QuickFTPGameSender.Designer.cs">
-      <DependentUpon>QuickFTPGameSender.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Core\OG and 360\Invoker.cs" />
-    <Compile Include="Core\Xbox 360\GOD2ISO.cs" />
-    <Compile Include="Web\Pastebin.cs" />
     <Compile Include="Other\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Core\Xbox 360\XEXIDChanger.cs" />
-    <Compile Include="Core\OG Xbox\XBEPatches.cs" />
-    <Compile Include="Web\XboxUnityAPI.cs" />
-    <Compile Include="Core\OG and 360\XISOExtractorExtention.cs" />
-    <EmbeddedResource Include="Forms\360PluginHelper.resx">
-      <DependentUpon>360PluginHelper.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\360TwoDiscInstaller.resx">
-      <DependentUpon>360TwoDiscInstaller.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\BulkXISOTool.resx">
-      <DependentUpon>BulkXISOTool.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\X360GameHack.resx">
-      <DependentUpon>X360GameHack.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\QuickFTPGameSender.resx">
-      <DependentUpon>QuickFTPGameSender.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Properties\Settings.Designer.cs" />
+    <Compile Include="Security\AntiAdmin.cs" />
+    <Compile Include="Security\MultiExecutionFix.cs" />
+    <Compile Include="Security\Sha3_256.cs" />
+    <Compile Include="Core\Services\ThemePalette.cs" />
+    <Compile Include="Core\Services\ContentStores.cs" />
+    <Compile Include="UI\Shell.cs" />
+    <Compile Include="UI\SaveBrowser.cs" />
+    <Compile Include="UI\RetailSignCard.cs" />
+    <Compile Include="UI\IdPickerCard.cs" />
+    <Compile Include="UI\AbgxCard.cs" />
+    <Compile Include="UI\AppLogo.cs" />
+    <Compile Include="UI\Pages\DebuggerPage.cs" />
+    <Compile Include="UI\Pages\GpdPage.cs" />
+    <Compile Include="UI\Pages\PackageCreatorPage.cs" />
+    <Compile Include="Core\Services\AbgxOptions.cs" />
+    <Compile Include="Core\Services\AgentCli.cs" />
+    <Compile Include="UI\ThemeControls.cs" />
+    <Compile Include="UI\Controls.cs" />
+    <Compile Include="UI\CodeEditor.cs" />
+    <Compile Include="UI\ContentFinder.cs" />
+    <Compile Include="Core\Services\ContentFinders.cs" />
+    <Compile Include="Core\Services\TestStatus.cs" />
+    <Compile Include="Core\Services\XeniaHost.cs" />
+    <Compile Include="Core\Services\GameControllers.cs" />
+    <Compile Include="UI\BetaMarks.cs" />
+    <Compile Include="Core\Services\XeniaContent.cs" />
+    <Compile Include="Core\Services\XeniaLibrary.cs" />
+    <Compile Include="Core\Services\IdFinder.cs" />
+    <Compile Include="Core\Services\GameExtras.cs" />
+    <Compile Include="Core\Services\XeniaConfig.cs" />
+    <Compile Include="Core\Services\Archives.cs" />
+    <Compile Include="Core\Services\AppUpdater.cs" />
+    <Compile Include="Core\Services\TitleLookup.cs" />
+    <Compile Include="UI\XeniaTransfer.cs" />
+    <Compile Include="UI\XeniaSignIn.cs" />
+    <Compile Include="UI\Pages\XeniaPage.cs" />
+    <Compile Include="UI\Pages\XeniaSetupPage.cs" />
+    <Compile Include="UI\Pages\XeniaSettingsPage.cs" />
+    <Compile Include="UI\Dialogs.cs" />
+    <Compile Include="UI\MakeDriveDialog.cs" />
+    <Compile Include="UI\DriveDescriptions.cs" />
+    <Compile Include="UI\XemuPlay.cs" />
+    <Compile Include="UI\OgSavesView.cs" />
+    <Compile Include="UI\DragOut.cs" />
+    <Compile Include="UI\PartitionsView.cs" />
+    <Compile Include="UI\UpdateDialog.cs" />
+    <Compile Include="UI\Layout.cs" />
+    <Compile Include="UI\MainForm.cs" />
+    <Compile Include="UI\OverwriteOnlyProvider.cs" />
+    <Compile Include="UI\PackageContentsCard.cs" />
+    <Compile Include="UI\PageBase.cs" />
+    <Compile Include="UI\Pages\AboutPage.cs" />
+    <Compile Include="UI\Pages\DriveExplorerPage.cs" />
+    <Compile Include="UI\Pages\XeniaPatchesPage.cs" />
+    <Compile Include="UI\Pages\FlashToolsPage.cs" />
+    <Compile Include="UI\Pages\FtpPage.cs" />
+    <Compile Include="UI\Pages\HelpPage.cs" />
+    <Compile Include="UI\Pages\HomePage.cs" />
+    <Compile Include="UI\Pages\IsoPage.cs" />
+    <Compile Include="UI\Pages\IsoPage.God.cs" />
+    <Compile Include="UI\Pages\NandPage.cs" />
+    <Compile Include="UI\Pages\NeighborhoodPage.cs" />
+    <Compile Include="UI\Pages\JrpcPage.cs" />
+    <Compile Include="UI\Pages\PackagePage.cs" />
+    <Compile Include="UI\Pages\ProfilePage.cs" />
+    <Compile Include="UI\Pages\PeekPokePage.cs" />
+    <Compile Include="UI\Pages\SettingsPage.cs" />
+    <Compile Include="UI\Pages\SetupPage.cs" />
+    <Compile Include="UI\Pages\XbePage.cs" />
+    <Compile Include="UI\Pages\XexHackerPage.cs" />
+    <Compile Include="UI\Pages\TitleUpdatePage.cs" />
+    <Compile Include="UI\Pages\XexPage.cs" />
+    <Compile Include="UI\RemoteBrowser.cs" />
+    <Compile Include="UI\XeniaPlay.cs" />
+    <Compile Include="UI\GameSaveCard.cs" />
+    <Compile Include="UI\Theme.cs" />
+    <Compile Include="UI\WorkingFile.cs" />
+    <Compile Include="Web\Pastebin.cs" />
     <None Include="app.config" />
     <None Include="Other\packages.config" />
     <None Include="packages.config" />
@@ -289,23 +358,14 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <None Include="Other\X360GameHack_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Other\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Xbox 360\RegisterMSCOMCTLOCX.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Other\xbox.ico" />
-    <None Include="Resources\loading-spinner %282%29.gif" />
-    <None Include="Resources\loading-spinner %281%29.gif" />
+    <Content Include="Other\x360gamehack.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

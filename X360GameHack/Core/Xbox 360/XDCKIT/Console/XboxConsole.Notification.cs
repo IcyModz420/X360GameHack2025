@@ -10,6 +10,11 @@
 // to it via the `notifyat` command.  Every line the console pushes is
 // forwarded to the registered handler on a background thread.
 //
+// Safety: the listener is bound only to the address this PC uses to reach the
+// console (not every network interface), only a connection that comes from the
+// console's own address is served (anything else is closed at once), and a line
+// longer than any console sends ends the session instead of filling memory.
+//
 // Usage:
 //
 //     var session = console.OpenNotificationSession("dbgstr execstate", line =>
@@ -51,12 +56,17 @@ using System.Threading;
             if (handler == null) throw new ArgumentNullException(nameof(handler));
             if (!Connected) throw new InvalidOperationException("Not connected.");
 
-            // Bind to any free local port.
-            var listener = new TcpListener(System.Net.IPAddress.Any, 0);
+            // A free port on the address this PC reaches the console from - the address xbdm calls back - and only the
+            // console's own address is served.
+            var socket = Client?.UnderlyingClient?.Client;
+            var local = (socket?.LocalEndPoint as IPEndPoint)?.Address;
+            var console = (socket?.RemoteEndPoint as IPEndPoint)?.Address;
+            if (local == null || console == null) throw new InvalidOperationException("Not connected.");
+            var listener = new TcpListener(local, 0);
             listener.Start();
             var port = (ushort)((IPEndPoint)listener.LocalEndpoint).Port;
 
-            var session = new XboxNotificationSession { Listener = listener, Port = port, IsRunning = true, Handler = handler };
+            var session = new XboxNotificationSession { Listener = listener, Port = port, IsRunning = true, Handler = handler, ExpectedPeer = console };
             lock (ActiveNotificationSessions) ActiveNotificationSessions.Add(session);
 
             // Tell xbdm to call us.
@@ -132,21 +142,53 @@ using System.Threading;
             }
         }
 
-        private static void RunNotificationListener(XboxNotificationSession session)
+        /// <summary>The longest line served; xbdm's own lines are a few hundred bytes at most.</summary>
+        internal const int MaxNotificationLine = 64 * 1024;
+
+        /// <summary>Connections from anything other than the console turned away before the session gives up.</summary>
+        internal const int MaxStrangers = 32;
+
+        /// <summary>True when <paramref name="from"/> is the console's address (also written as an IPv4-mapped IPv6 address).</summary>
+        internal static bool IsExpectedPeer(IPAddress from, IPAddress expected)
         {
+            if (from == null || expected == null) return false;
+            if (from.IsIPv4MappedToIPv6) from = from.MapToIPv4();
+            if (expected.IsIPv4MappedToIPv6) expected = expected.MapToIPv4();
+            return from.Equals(expected);
+        }
+
+        internal static void RunNotificationListener(XboxNotificationSession session)
+        {
+            TcpClient client = null;
             try
             {
-                using (var client = session.Listener.AcceptTcpClient())
-                using (var stream = client.GetStream())
-                using (var reader = new StreamReader(stream, System.Text.Encoding.ASCII))
+                for (int strangers = 0; client == null;)
                 {
-                    while (session.IsRunning && !reader.EndOfStream)
+                    var c = session.Listener.AcceptTcpClient();
+                    if (IsExpectedPeer((c.Client.RemoteEndPoint as IPEndPoint)?.Address, session.ExpectedPeer)) { client = c; break; }
+                    c.Close();                                          // not the console: turned away
+                    if (++strangers >= MaxStrangers) return;
+                }
+                using (client)
+                using (var stream = client.GetStream())
+                {
+                    var line = new System.Text.StringBuilder();
+                    var buf = new byte[4096];
+                    int n;
+                    while (session.IsRunning && (n = stream.Read(buf, 0, buf.Length)) > 0)
                     {
-                        string line = reader.ReadLine();
-                        if (line == null) break;
-                        var h = session.Handler;
-                        if (h == null) continue;
-                        try { h(line); } catch { /* never let user code kill the pump */ }
+                        for (int i = 0; i < n; i++)
+                        {
+                            byte b = buf[i];
+                            if (b == (byte)'\n')
+                            {
+                                if (line.Length > 0 && line[line.Length - 1] == '\r') line.Length--;
+                                Deliver(session, line.ToString());
+                                line.Clear();
+                            }
+                            else if (line.Length >= MaxNotificationLine) return;     // no console sends that: the session ends
+                            else line.Append(b < 0x80 ? (char)b : '?');
+                        }
                     }
                 }
             }
@@ -158,5 +200,12 @@ using System.Threading;
             {
                 session.IsRunning = false;
             }
+        }
+
+        private static void Deliver(XboxNotificationSession session, string line)
+        {
+            var h = session.Handler;
+            if (h == null) return;
+            try { h(line); } catch { /* never let user code kill the pump */ }
         }
     }

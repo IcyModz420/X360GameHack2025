@@ -1,28 +1,53 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.7.11925.98 stable
+VisualStudioVersion = 18.7.11925.98
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X360GameHack", "X360GameHack\X360GameHack.csproj", "{62CD4984-BC39-48EF-B18A-8E709071F9C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DiskReader", "DiskReader", "{43615328-6E84-2E9F-BA69-B1FB94734918}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X360GameHack.DiskReader", "DiskReader\X360GameHack.DiskReader.csproj", "{7B3C2E51-9D7A-4F0E-8A56-3E2C1D9B4F70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
+		Debug|x64 = Debug|x64
 		Release|Any CPU = Release|Any CPU
 		Release|x86 = Release|x86
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{62CD4984-BC39-48EF-B18A-8E709071F9C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{62CD4984-BC39-48EF-B18A-8E709071F9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62CD4984-BC39-48EF-B18A-8E709071F9C2}.Debug|x86.ActiveCfg = Debug|x86
 		{62CD4984-BC39-48EF-B18A-8E709071F9C2}.Debug|x86.Build.0 = Debug|x86
+		{62CD4984-BC39-48EF-B18A-8E709071F9C2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{62CD4984-BC39-48EF-B18A-8E709071F9C2}.Debug|x64.Build.0 = Debug|Any CPU
 		{62CD4984-BC39-48EF-B18A-8E709071F9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62CD4984-BC39-48EF-B18A-8E709071F9C2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{62CD4984-BC39-48EF-B18A-8E709071F9C2}.Release|x86.ActiveCfg = Release|x86
 		{62CD4984-BC39-48EF-B18A-8E709071F9C2}.Release|x86.Build.0 = Release|x86
+		{62CD4984-BC39-48EF-B18A-8E709071F9C2}.Release|x64.ActiveCfg = Release|Any CPU
+		{62CD4984-BC39-48EF-B18A-8E709071F9C2}.Release|x64.Build.0 = Release|Any CPU
+		{7B3C2E51-9D7A-4F0E-8A56-3E2C1D9B4F70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B3C2E51-9D7A-4F0E-8A56-3E2C1D9B4F70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B3C2E51-9D7A-4F0E-8A56-3E2C1D9B4F70}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7B3C2E51-9D7A-4F0E-8A56-3E2C1D9B4F70}.Debug|x86.Build.0 = Debug|Any CPU
+		{7B3C2E51-9D7A-4F0E-8A56-3E2C1D9B4F70}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7B3C2E51-9D7A-4F0E-8A56-3E2C1D9B4F70}.Debug|x64.Build.0 = Debug|Any CPU
+		{7B3C2E51-9D7A-4F0E-8A56-3E2C1D9B4F70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B3C2E51-9D7A-4F0E-8A56-3E2C1D9B4F70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B3C2E51-9D7A-4F0E-8A56-3E2C1D9B4F70}.Release|x86.ActiveCfg = Release|Any CPU
+		{7B3C2E51-9D7A-4F0E-8A56-3E2C1D9B4F70}.Release|x86.Build.0 = Release|Any CPU
+		{7B3C2E51-9D7A-4F0E-8A56-3E2C1D9B4F70}.Release|x64.ActiveCfg = Release|Any CPU
+		{7B3C2E51-9D7A-4F0E-8A56-3E2C1D9B4F70}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7B3C2E51-9D7A-4F0E-8A56-3E2C1D9B4F70} = {43615328-6E84-2E9F-BA69-B1FB94734918}
 	EndGlobalSection
 EndGlobal

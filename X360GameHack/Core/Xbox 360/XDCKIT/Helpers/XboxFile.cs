@@ -146,11 +146,10 @@ using System.IO;
             if ((int)resp.Status != 203)
                 throw new InvalidOperationException($"getfile failed: {(int)resp.Status} {resp.StatusMessage}");
 
-            // xbdm sends the size big-endian as a 32-bit UNSIGNED integer (PPC byte
-            // order).  Reading it as a host-LE signed int blew up at 2 GiB and
-            // produced negative remaining-byte counts when the high bit was set.
+            // xbdm sends the size as a 32-bit UNSIGNED little-endian integer (measured on a
+            // real console: a 6,291,579 byte file is announced as 7B 00 60 00).
             var lenBytes = _console.Client.ReadExact(4);
-            uint len = XboxExtensions.ReadUInt32BE(lenBytes);
+            uint len = BitConverter.ToUInt32(lenBytes, 0);
 
             using (var fs = System.IO.File.Create(localPath))
             {

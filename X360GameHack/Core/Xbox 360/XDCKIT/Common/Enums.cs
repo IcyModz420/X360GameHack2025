@@ -1,12 +1,12 @@
-// =============================================================================
+﻿// =============================================================================
 // Xbox Direct Connect Kit (XDCKIT)
 // XDCKIT.Enums.cs - All enumerations used by the library
 // =============================================================================
 // XDCKIT is a managed library that imitates Microsoft's XDevkit COM interop
 // (XboxManager / IXboxConsole / IXboxDebugTarget) while talking directly to
-// the Xbox 360 debug monitor (xbdm) over TCP/730. It bundles consolefeatures
-// remote-call support, typed memory R/W, file system, controller automation
-// and the XNotify/XMessageBox UIs into a single, instance-based API that
+// the Xbox 360 debug monitor (xbdm) over TCP/730. It bundles
+// typed memory R/W, file system and controller automation
+// into a single, instance-based API (plain xbdm commands only) that
 // supports multiple consoles in the same process.
 // =============================================================================
 

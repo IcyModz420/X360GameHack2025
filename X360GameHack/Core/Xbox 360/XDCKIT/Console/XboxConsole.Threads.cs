@@ -20,6 +20,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Text;
 
     public partial class XboxConsole
@@ -31,7 +32,12 @@ using System.Text;
         /// xbdm SDK wire format: <c>HALT THREAD=0x%0.8x</c>.
         /// </summary>
         public void HaltThread(uint threadId)
-            => SendTextCommand($"HALT THREAD=0x{threadId:X8}");
+        {
+            var resp = SendTextCommand($"HALT THREAD=0x{threadId:X8}");
+            // measured: the XBDM used on RGH consoles (2.0.21076) has no "halt" command and answers 407
+            if ((int)resp.Status == 407) throw new InvalidOperationException("This console's XBDM cannot halt a single thread. Use Break to freeze the whole console, then pick the thread.");
+            if (!resp.IsSuccess) throw new InvalidOperationException($"Halting thread 0x{threadId:X8} failed: {(int)resp.Status} {resp.StatusMessage}");
+        }
 
         /// <summary>
         /// DmContinueThread — resume a halted thread.  xbdm SDK wire format:
@@ -110,10 +116,10 @@ using System.Text;
 
             var sb = new StringBuilder("getcontext thread=0x").Append(threadId.ToString("X"));
             // dmserv.c HrGetContext recognises: control, int, fp, vr, full
-            if ((flags & XboxContextFlags.Control) != 0)  sb.Append(" control");
-            if ((flags & XboxContextFlags.Integer) != 0)  sb.Append(" int");
-            if ((flags & XboxContextFlags.Floating) != 0) sb.Append(" fp");
-            if ((flags & XboxContextFlags.Vector) != 0)   sb.Append(" vr");
+            if ((flags & XboxContextFlags.Control) == XboxContextFlags.Control)  sb.Append(" control");
+            if ((flags & XboxContextFlags.Integer) == XboxContextFlags.Integer)  sb.Append(" int");
+            if ((flags & XboxContextFlags.Floating) == XboxContextFlags.Floating) sb.Append(" fp");
+            if ((flags & XboxContextFlags.Vector) == XboxContextFlags.Vector)   sb.Append(" vr");
 
             var resp = SendTextCommand(sb.ToString());
             if (!resp.IsSuccess) return ctx;
@@ -152,19 +158,35 @@ using System.Text;
             }
 
             // Vector registers (V0..V127) only if requested.
-            if ((flags & XboxContextFlags.Vector) != 0)
+            if ((flags & XboxContextFlags.Vector) == XboxContextFlags.Vector)
             {
                 ctx.Vr = new byte[128][];
                 for (int i = 0; i < 128; i++)
                 {
                     string raw = ParseKvLine(flat, "Vr" + i);
-                    ctx.Vr[i] = string.IsNullOrEmpty(raw) ? new byte[16] : XboxExtensions.HexToBytes(raw);
+                    ctx.Vr[i] = VectorBytes(raw);
                     if (ctx.Vr[i].Length != 16) Array.Resize(ref ctx.Vr[i], 16);
                 }
                 ctx.Vscr = ParseUIntKvHex(flat, "Vscr");
             }
 
             return ctx;
+        }
+
+        /// <summary>
+        /// A vector register as XBDM writes it ("0q" + 32 hex digits, like the 64-bit registers) as 16 bytes. Never
+        /// throws: anything it cannot read comes back as zeros, so one odd register cannot stop the debugger.
+        /// </summary>
+        internal static byte[] VectorBytes(string raw)
+        {
+            var b = new byte[16];
+            if (string.IsNullOrEmpty(raw)) return b;
+            string s = raw.Trim();
+            if (s.StartsWith("0x", StringComparison.OrdinalIgnoreCase) || s.StartsWith("0q", StringComparison.OrdinalIgnoreCase)) s = s.Substring(2);
+            if (s.Length == 0 || s.Length > 32 || !s.All(Uri.IsHexDigit)) return b;
+            s = s.PadLeft(32, '0');
+            for (int i = 0; i < 16; i++) b[i] = Convert.ToByte(s.Substring(i * 2, 2), 16);
+            return b;
         }
 
         /// <summary>
@@ -177,7 +199,7 @@ using System.Text;
             if (ctx == null) throw new ArgumentNullException(nameof(ctx));
             var sb = new StringBuilder("setcontext thread=0x").Append(threadId.ToString("X"));
 
-            if ((ctx.ContextFlags & XboxContextFlags.Control) != 0)
+            if ((ctx.ContextFlags & XboxContextFlags.Control) == XboxContextFlags.Control)
             {
                 sb.Append(" Msr=0x").Append(ctx.Msr.ToString("X"))
                   .Append(" Iar=0x").Append(ctx.Iar.ToString("X"))
@@ -186,12 +208,12 @@ using System.Text;
                   .Append(" Cr=0x").Append(ctx.Cr.ToString("X"))
                   .Append(" Xer=0x").Append(ctx.Xer.ToString("X"));
             }
-            if ((ctx.ContextFlags & XboxContextFlags.Integer) != 0)
+            if ((ctx.ContextFlags & XboxContextFlags.Integer) == XboxContextFlags.Integer)
             {
                 for (int i = 0; i < 32; i++)
                     sb.Append(" Gpr").Append(i).Append("=0x").Append(ctx.Gpr[i].ToString("X"));
             }
-            if ((ctx.ContextFlags & XboxContextFlags.Floating) != 0)
+            if ((ctx.ContextFlags & XboxContextFlags.Floating) == XboxContextFlags.Floating)
             {
                 for (int i = 0; i < 32; i++)
                 {
@@ -200,7 +222,7 @@ using System.Text;
                 }
                 sb.Append(" Fpscr=0x").Append(ctx.Fpscr.ToString("X"));
             }
-            if ((ctx.ContextFlags & XboxContextFlags.Vector) != 0 && ctx.Vr != null)
+            if ((ctx.ContextFlags & XboxContextFlags.Vector) == XboxContextFlags.Vector && ctx.Vr != null)
             {
                 for (int i = 0; i < 128 && i < ctx.Vr.Length; i++)
                     sb.Append(" Vr").Append(i).Append("=0x").Append((ctx.Vr[i] ?? new byte[16]).ToHexString());

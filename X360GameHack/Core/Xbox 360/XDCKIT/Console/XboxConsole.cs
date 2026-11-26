@@ -5,11 +5,9 @@
 // surface (Name, IPAddress, OpenConnection, CloseConnection, SendTextCommand,
 // Reboot, DebugTarget, ...) and adds:
 //
-//   * Instance helper objects: console.Tray, console.File, console.Automation,
-//                              console.DebugTarget, console.Rpc, console.Patches
-//   * console.Notify(...) for XNotify toasts (no helper indirection)
+//   * Instance helper objects: console.File, console.Automation, console.DebugTarget, console.Patches
+//   * Plain xbdm commands only: no remote-call plugin (JRPC2 / XDRPC / XRPC) is used anywhere
 //   * Typed memory R/W (split into XDCKIT.XboxConsole.Memory.cs)
-//   * Remote-call surface Call<T>/CallVoid lives on console.Rpc (Helpers/XboxRpc.cs)
 //   * Console features (split into XDCKIT.XboxConsole.Features.cs)
 //
 // Error-handling policy (applies to every partial unless noted):
@@ -28,7 +26,6 @@
 //     // -- or --
 //     console.Connect("192.168.1.71");         // explicit IP
 //     console.Connect("192.168.1.71", 730);    // explicit IP + port
-//     console.Notify("hello", XNotiyLogo.FLASHING_XBOX_LOGO);
 //     uint title = console.GetTitleId();
 //     console.Reboot(XboxReboot.Cold);
 // =============================================================================
@@ -44,10 +41,8 @@ using System.ComponentModel;
         {
             Client = new XboxClient();
             DebugTarget = new XboxDebugTarget(this);
-            Tray = new Tray(this);
             File = new XboxFile(this);
             Automation = new XboxAutomation(this);
-            Rpc = new XboxRpc(this);
             Patches = new XboxPatchManager(this);
         }
 
@@ -68,17 +63,11 @@ using System.ComponentModel;
         /// <summary>XDevkit-style debug target (GetMemory / SetMemory / IsDebuggerConnected ...).</summary>
         public XboxDebugTarget DebugTarget { get; private set; }
 
-        /// <summary>DVD tray helper.</summary>
-        public Tray Tray { get; private set; }
-
         /// <summary>File system helper.</summary>
         public XboxFile File { get; private set; }
 
         /// <summary>Controller automation helper (autoinput).</summary>
         public XboxAutomation Automation { get; private set; }
-
-        /// <summary>Remote-call helper (Call&lt;T&gt;, CallVoid, ResolveFunction, ...).</summary>
-        public XboxRpc Rpc { get; private set; }
 
         /// <summary>
         /// Xenia Canary game-patches loader (<c>.patch.toml</c>).  Apply
@@ -320,7 +309,7 @@ using System.ComponentModel;
         }
 
         /// <summary>Hard close, sends "bye" first, ignores errors.</summary>
-        public void Disconnect() => Client.Disconnect();
+        public void Disconnect() { ReleaseDebuggerBeforeDisconnect(); Client.Disconnect(); }
 
         /// <summary>
         /// Disconnect and reconnect to the same address.  Waits
@@ -331,7 +320,7 @@ using System.ComponentModel;
         {
             string ip = IPAddress;
             int port = Port;
-            Disconnect();
+            Client.Disconnect();        // not Disconnect(): the stream may be mid-transfer, and the debugger registration is kept
             if (reconnectDelayMs > 0) System.Threading.Thread.Sleep(reconnectDelayMs);
             return Connect(ip, port);
         }
@@ -366,6 +355,7 @@ using System.ComponentModel;
 
         public void Dispose()
         {
+            try { ReleaseDebuggerBeforeDisconnect(); } catch { /* the connection may already be gone */ }
             try { Client?.Dispose(); } catch { /* ignore */ }
         }
 

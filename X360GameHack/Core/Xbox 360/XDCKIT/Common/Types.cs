@@ -295,6 +295,12 @@ using System.Collections.Generic;
     {
         public System.Net.Sockets.TcpListener Listener;
         public ushort Port;
+
+        /// <summary>
+        /// The console's address: the only peer whose connection is served. Anything else that connects (another device on
+        /// the network trying to get in before the console does) is turned away.
+        /// </summary>
+        public System.Net.IPAddress ExpectedPeer;
         public string LocalEndpoint => Listener?.LocalEndpoint?.ToString();
         public bool IsRunning { get; internal set; }
 

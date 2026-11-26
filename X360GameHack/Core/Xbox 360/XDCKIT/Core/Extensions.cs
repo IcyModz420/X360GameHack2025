@@ -70,7 +70,7 @@ using System.Text;
         {
             if (string.IsNullOrEmpty(value)) return string.Empty;
             // Fast path: nothing to escape.
-            if (value.IndexOfAny(new[] { '\\', '"', '\r', '\n' }) < 0) return value;
+            if (value.IndexOfAny(new[] { '"', '\r', '\n' }) < 0) return value;
 
             var sb = new StringBuilder(value.Length + 4);
             for (int i = 0; i < value.Length; i++)
@@ -78,10 +78,12 @@ using System.Text;
                 char c = value[i];
                 switch (c)
                 {
-                    case '\\': sb.Append('\\').Append('\\'); break;
-                    case '"':  sb.Append('\\').Append('"');  break;
-                    // xbdm gets confused by raw CR/LF inside a quoted token; drop them.
-                    case '\r': case '\n': break;
+                    // Measured on a real console (xbdm 2.0.21076): a backslash inside quotes is
+                    // taken literally - "HDD:\\" is refused with 414 while "HDD:\" works - so
+                    // paths go out exactly as they are. A quote or a line break would end the
+                    // token (and could start a second command), and no Xbox file name can
+                    // contain one, so they are dropped.
+                    case '"': case '\r': case '\n': break;
                     default:   sb.Append(c); break;
                 }
             }
@@ -184,6 +186,8 @@ using System.Text;
         {
             if (string.IsNullOrEmpty(s)) return 0;
             s = s.Trim();
+            // "0q" marks a 64-bit value on a real console (Gpr1=0q000000007a01dcf0); keep the low half
+            if (s.StartsWith("0q", StringComparison.OrdinalIgnoreCase)) return unchecked((uint)ParseHexULong(s));
             if (s.StartsWith("0x", StringComparison.OrdinalIgnoreCase)) s = s.Substring(2);
             return uint.TryParse(s, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out var v) ? v : 0;
         }
@@ -193,7 +197,7 @@ using System.Text;
         {
             if (string.IsNullOrEmpty(s)) return 0;
             s = s.Trim();
-            if (s.StartsWith("0x", StringComparison.OrdinalIgnoreCase)) s = s.Substring(2);
+            if (s.StartsWith("0x", StringComparison.OrdinalIgnoreCase) || s.StartsWith("0q", StringComparison.OrdinalIgnoreCase)) s = s.Substring(2);
             return ulong.TryParse(s, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out var v) ? v : 0;
         }
 
@@ -246,8 +250,7 @@ using System.Text;
                     int p = valueStart + 1;
                     while (p < line.Length)
                     {
-                        if (line[p] == '\\' && p + 1 < line.Length) { p += 2; continue; }
-                        if (line[p] == '"') break;
+                        if (line[p] == '"') break;   // backslashes are literal: name="HDD:\" ends at that quote
                         p++;
                     }
                     start = valueStart + 1;
@@ -279,24 +282,7 @@ using System.Text;
             if (!TryFindKvSlice(line, key, out int start, out int length)) return null;
             if (length == 0) return string.Empty;
 
-            int end = start + length;
-            int firstEscape = -1;
-            for (int i = start; i < end; i++) if (line[i] == '\\') { firstEscape = i; break; }
-            if (firstEscape < 0) return line.Substring(start, length);
-
-            var sb = new StringBuilder(length);
-            sb.Append(line, start, firstEscape - start);
-            for (int i = firstEscape; i < end; i++)
-            {
-                char c = line[i];
-                if (c == '\\' && i + 1 < end)
-                {
-                    char next = line[i + 1];
-                    if (next == '"' || next == '\\') { sb.Append(next); i++; continue; }
-                }
-                sb.Append(c);
-            }
-            return sb.ToString();
+            return line.Substring(start, length);   // xbdm does not escape anything inside quotes
         }
 
         /// <summary>Parse <c>key=N</c> as a hex uint using the index scanner.</summary>
@@ -304,6 +290,8 @@ using System.Text;
         {
             if (!TryFindKvSlice(line, key, out int start, out int length)) return 0;
             if (length == 0) return 0;
+            if (length >= 2 && line[start] == '0' && (line[start + 1] == 'q' || line[start + 1] == 'Q'))
+                return unchecked((uint)ParseHexULong(line.Substring(start, length)));   // 64-bit value: low half
             if (length >= 2 && line[start] == '0' && (line[start + 1] == 'x' || line[start + 1] == 'X'))
             {
                 start += 2;
